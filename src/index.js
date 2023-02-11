@@ -11,6 +11,8 @@ import EditContact, { action as editAction } from "./routes/edit";
 
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
 
+import TestApi, { loader as animeLoader } from "./routes/test-api";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,10 +34,11 @@ const router = createBrowserRouter([
      },
     ],
   },
-  // {
-  //   path: "contacsts/:contactId",
-  //   element: <Contact />,
-  // },
+  {
+    path: "test-api",
+    element: <TestApi />,
+    loader: animeLoader,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
