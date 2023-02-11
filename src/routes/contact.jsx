@@ -22,6 +22,10 @@ export default function Contact() {
       </div>
 
       <div>
+        <button className="btn btn-primary">Testing</button>
+      </div>
+
+      <div>
         <h1>
           {contact.first || contact.last ? (
             <>
