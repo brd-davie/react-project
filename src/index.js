@@ -8,12 +8,13 @@ import "./index.css";
 import ErrorPage from "./error-page";
 import Contact, { loader as contactLoader } from "./routes/contact";
 import EditContact, { action as editAction } from "./routes/edit";
+import LoginPage from "./routes/LoginPage";
 
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
@@ -30,12 +31,12 @@ const router = createBrowserRouter([
         loader: contactLoader,
         action: editAction,
      },
+     {
+      path: 'login',
+      element: <LoginPage/>
+     }
     ],
   },
-  // {
-  //   path: "contacsts/:contactId",
-  //   element: <Contact />,
-  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
