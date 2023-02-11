@@ -13,7 +13,7 @@ import Root, { loader as rootLoader, action as rootAction } from "./routes/root"
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
