@@ -216,7 +216,6 @@ i {
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-
   white-space: pre;
   padding: 0.5rem;
   border-radius: 8px;
@@ -304,6 +303,8 @@ i {
   display: flex;
   max-width: 40rem;
   flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 #contact-form > p:first-child {
@@ -316,15 +317,21 @@ i {
 #contact-form > p:first-child,
 #contact-form label {
   display: flex;
+  align-items: center;
+  width: 100%;
 }
 #contact-form p:first-child span,
 #contact-form label span {
   width: 8rem;
 }
-#contact-form p:first-child input,
-#contact-form label input,
-#contact-form label textarea {
+#contact-form p:first-child input{
   flex-grow: 2;
+  width: auto;
+}
+#contact-form label input,
+#contact-form label textarea{
+  flex-grow: 2;
+  width: auto;
 }
 
 #contact-form-avatar {
@@ -380,3 +387,7 @@ i {
   justify-content: center;
   width: 100%;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -6,6 +6,10 @@ import Mihawk from '../routes/mihawk.png';
 import Luffy from '../routes/Luffy.png';
 
 const LoginPage = () => {
+  if (window) {
+    const sideBar = document.querySelector('#sidebar');
+    sideBar.style.display = 'none';
+  }
   return (
     <div>
       <div className='form-container'
@@ -17,7 +21,7 @@ const LoginPage = () => {
           height: '90vh',
           width: '100%',
           background: '#47a55f',
-          position:'relative',
+          position: 'relative',
         }}
       >
         <h2 className='header'
@@ -41,52 +45,52 @@ const LoginPage = () => {
 
           }}
         >
-        <input placeholder='Username'
-          style={{
-            alignSelf: 'center',
-            width: '30%'
-          }}
-        />
-        <input type='password' placeholder='Password'
-          style={{
-            alignSelf: 'center',
-            width: '30%'
+          <input placeholder='Username'
+            style={{
+              alignSelf: 'center',
+              width: '30%'
+            }}
+          />
+          <input type='password' placeholder='Password'
+            style={{
+              alignSelf: 'center',
+              width: '30%'
 
-          }}
-        />
-        <img src={Background} alt="Anime Background" 
-          style={{
-            backgroundSize: '30%',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center right',
-            backgroundRepeat: 'no-repeat',
-            position: 'absolute',
-            right: '20%',
-            width: '15%',
-          }}
-        />
-        <img src={Mihawk} alt="Anime Background" 
-          style={{
-            backgroundSize: '30%',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center right',
-            backgroundRepeat: 'no-repeat',
-            position: 'absolute',
-            top: '20%',
-            left: '20%',
-            width: '10%',
-          }}
-        />
-         <img src={Luffy} alt="Anime Background" 
-          style={{
-            backgroundSize: '10%',
-            backgroundRepeat: 'no-repeat',
-            position: 'absolute',
-            bottom: '20%',
-            left: '20%',
-            width: '10%',
-          }}
-        />
+            }}
+          />
+          <img src={Background} alt="Anime Background"
+            style={{
+              backgroundSize: '30%',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center right',
+              backgroundRepeat: 'no-repeat',
+              position: 'absolute',
+              right: '20%',
+              width: '15%',
+            }}
+          />
+          <img src={Mihawk} alt="Anime Background"
+            style={{
+              backgroundSize: '30%',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center right',
+              backgroundRepeat: 'no-repeat',
+              position: 'absolute',
+              top: '20%',
+              left: '20%',
+              width: '10%',
+            }}
+          />
+          <img src={Luffy} alt="Anime Background"
+            style={{
+              backgroundSize: '10%',
+              backgroundRepeat: 'no-repeat',
+              position: 'absolute',
+              bottom: '20%',
+              left: '20%',
+              width: '10%',
+            }}
+          />
         </Form>
         <div className='cta-link'
           style={{
@@ -94,17 +98,17 @@ const LoginPage = () => {
             textAlign: 'center',
           }}
         >
-        <Link to="#" type='submit'
-          style={{
-            padding: '10px 30px',
-            background: '#141414',
-            borderRadius: '10px',
-            textDecoration: 'none',
-            color: '#fff'
-          }}
-        >
-          Log in
-        </Link>
+          <Link to="#" type='submit'
+            style={{
+              padding: '10px 30px',
+              background: '#141414',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              color: '#fff'
+            }}
+          >
+            Log in
+          </Link>
         </div>
       </div>
     </div>
