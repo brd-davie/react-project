@@ -21,11 +21,13 @@ export default function Contact() {
         />
       </div>
 
-      <div>
+      {/* <div>
         <button className="btn btn-primary">Testing</button>
-      </div>
+      </div> */}
 
-      <div>
+      <div style={{
+        color: '#fff'
+      }}>
         <h1>
           {contact.first || contact.last ? (
             <>
@@ -52,7 +54,7 @@ export default function Contact() {
 
         <div>
           <Form action="edit">
-            <button type="submit">Edit</button>
+            <button className="btn" type="submit">Edit</button>
           </Form>
           <Form
             method="post"
@@ -67,7 +69,7 @@ export default function Contact() {
               }
             }}
           >
-            <button type="submit">Delete</button>
+            <button className="btn btn-error" type="submit" style={{ color: '#fff' }}>Delete</button>
           </Form>
         </div>
       </div>

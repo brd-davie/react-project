@@ -4,34 +4,39 @@ import { getContacts, createContact } from "../contacts";
 
 export default function Root() {
   const { contacts } = useLoaderData();
-    return (
-      <>
-        <div id="sidebar">
-          <h1>React Router Contacts</h1>
-          <div>
-            <form id="search-form" role="search">
-              <input
-                id="q"
-                aria-label="Search contacts"
-                placeholder="Search"
-                type="search"
-                name="q"
-              />
-              <div
-                id="search-spinner"
-                aria-hidden
-                hidden={true}
-              />
-              <div
-                className="sr-only"
-                aria-live="polite"
-              ></div>
-            </form>
-            <Form method="post">
-              <button type="submit">New</button>
-            </Form>
-          </div>
-          <nav>
+  return (
+    <>
+      <div id="sidebar">
+        <h1>React Router Contacts</h1>
+        <div>
+          <form id="search-form" role="search">
+            <input
+              className="input input-bordered input-accent w-full max-w-xs"
+              id="q"
+              aria-label="Search contacts"
+              placeholder="Search"
+              type="search"
+              name="q"
+              style={{
+                color: '#fff',
+                height: '40px',
+              }}
+            />
+            <div
+              id="search-spinner"
+              aria-hidden
+              hidden={true}
+            />
+            <div
+              className="sr-only"
+              aria-live="polite"
+            ></div>
+          </form>
+          <Form method="post">
+            <button className="btn  btn-sm btn-accent" type="search" style={{ height: '40px' }}>New</button>
+          </Form>
+        </div>
+        <nav>
           {contacts.length ? (
             <ul>
               {contacts.map((contact) => (
@@ -54,14 +59,14 @@ export default function Root() {
               <i>No contacts</i>
             </p>
           )}
-          </nav>
-        </div>
-        <div id="detail">
+        </nav>
+      </div>
+      <div id="detail">
         <Outlet />
-        </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
+}
 
 export async function loader() {
   const contacts = await getContacts();

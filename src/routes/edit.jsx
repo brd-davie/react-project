@@ -5,10 +5,14 @@ export default function EditContact() {
   const contact = useLoaderData();
 
   return (
-    <Form method="post" id="contact-form">
+    <Form method="post" id="contact-form" style={{
+      color: '#fff',
+
+    }}>
       <p>
         <span>Name</span>
         <input
+          className="input input-bordered input-accent w-full max-w-xs"
           placeholder="First"
           aria-label="First name"
           type="text"
@@ -16,6 +20,7 @@ export default function EditContact() {
           defaultValue={contact.first}
         />
         <input
+          className="input input-bordered input-accent w-full max-w-xs"
           placeholder="Last"
           aria-label="Last name"
           type="text"
@@ -26,6 +31,7 @@ export default function EditContact() {
       <label>
         <span>Twitter</span>
         <input
+          className="input input-bordered input-accent w-full max-w-xs"
           type="text"
           name="twitter"
           placeholder="@jack"
@@ -35,6 +41,7 @@ export default function EditContact() {
       <label>
         <span>Avatar URL</span>
         <input
+          className="input input-bordered input-accent w-full max-w-xs"
           placeholder="https://example.com/avatar.jpg"
           aria-label="Avatar URL"
           type="text"
@@ -45,14 +52,15 @@ export default function EditContact() {
       <label>
         <span>Notes</span>
         <textarea
+          className="input input-bordered input-accent w-full max-w-xs"
           name="notes"
           defaultValue={contact.notes}
           rows={6}
         />
       </label>
       <p>
-        <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+        <button className="btn btn-sm btn-accent" type="submit">Save</button>
+        <button className="btn btn-sm btn-error" type="button">Cancel</button>
       </p>
     </Form>
   );
