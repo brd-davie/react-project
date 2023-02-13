@@ -1,7 +1,7 @@
 import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react'
 import { Form, Link } from 'react-router-dom';
-import Background from '../routes/LoginBackground.png';
+import Zoro from '../routes/LoginBackground.png';
 import Mihawk from '../routes/mihawk.png';
 import Luffy from '../routes/Luffy.png';
 
@@ -18,22 +18,20 @@ const LoginPage = () => {
           }}
         >Log In</h2>
         <Form id='form'>
-          <input className="input input-bordered input-success w-full max-w-xs" placeholder='Username'
+          <input className="input input-bordered input-success w-full max-w-xs bg-white dark:bg-black" placeholder='Username'
             style={{
               alignSelf: 'center',
               width: '50%',
-              color: '#fff'
             }}
           />
-          <input className="input input-bordered input-success w-full max-w-xs" type='password' placeholder='Password'
+          <input className="input input-bordered input-success w-full max-w-xs bg-white dark:bg-black" type='password' placeholder='Password'
             style={{
               alignSelf: 'center',
               width: '50%',
-              color: '#fff'
 
             }}
           />
-          <img src={Background} alt="Anime Background"
+          <img src={Zoro} alt="Anime Background"
             style={{
               backgroundSize: '30%',
               backgroundSize: 'contain',
