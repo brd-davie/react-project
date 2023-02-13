@@ -30,13 +30,13 @@ const router = createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
-     },
-     {
-      path: 'login',
-      element: <LoginPage/>
-     }
+      }
     ],
   },
+  {
+    path: 'login',
+    element: <LoginPage />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

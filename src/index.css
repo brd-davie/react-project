@@ -65,6 +65,7 @@ button:active {
   display: flex;
   align-items: center;
   margin-top: 0.25rem;
+  color: #111111;
 }
 #contact h1 form button {
   box-shadow: none;
@@ -241,6 +242,7 @@ i {
   flex: 1;
   padding: 2rem 4rem;
   width: 100%;
+  background-color: #fff;
 }
 
 #detail.loading {
@@ -289,7 +291,7 @@ i {
   height: 12rem;
   background: #c8c8c8;
   margin-right: 2rem;
-  border-radius: 1.5rem;
+  border-radius: 100%;
   object-fit: cover;
 }
 
@@ -306,6 +308,7 @@ i {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
+  color: #111111 !important;
 }
 #contact-form > p:first-child {
   margin: 0;
@@ -327,11 +330,13 @@ i {
 #contact-form p:first-child input{
   flex-grow: 2;
   width: auto;
+  background: aliceblue;
 }
 #contact-form label input,
 #contact-form label textarea{
   flex-grow: 2;
   width: auto;
+  background: aliceblue;
 }
 
 #contact-form-avatar {
@@ -391,3 +396,30 @@ i {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+#form-container #form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 20px;
+  width: 100%;
+  padding-bottom: 50px;
+  padding-top: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  #form-container #form{
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}

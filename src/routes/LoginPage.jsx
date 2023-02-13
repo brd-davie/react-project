@@ -6,55 +6,30 @@ import Mihawk from '../routes/mihawk.png';
 import Luffy from '../routes/Luffy.png';
 
 const LoginPage = () => {
-  if (window) {
-    const sideBar = document.querySelector('#sidebar');
-    sideBar.style.display = 'none';
-  }
   return (
-    <div>
-      <div className='form-container'
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '90vh',
-          width: '100%',
-          background: '#47a55f',
-          position: 'relative',
-        }}
-      >
+    <>
+      <div id='form-container'>
         <h2 className='header'
           style={{
             textAlign: 'center',
             margin: '0',
-            color: '#fff'
+            color: '#111',
+            fontSize: '28px'
           }}
         >Log In</h2>
-        <Form className='form'
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            rowGap: '20px',
-            width: '100%',
-            maxWidth: '70%',
-            margin: '0 auto',
-            paddingBottom: '50px',
-            paddingTop: '30px',
-
-          }}
-        >
-          <input placeholder='Username'
+        <Form id='form'>
+          <input className="input input-bordered input-success w-full max-w-xs" placeholder='Username'
             style={{
               alignSelf: 'center',
-              width: '30%'
+              width: '50%',
+              color: '#fff'
             }}
           />
-          <input type='password' placeholder='Password'
+          <input className="input input-bordered input-success w-full max-w-xs" type='password' placeholder='Password'
             style={{
               alignSelf: 'center',
-              width: '30%'
+              width: '50%',
+              color: '#fff'
 
             }}
           />
@@ -76,9 +51,9 @@ const LoginPage = () => {
               backgroundPosition: 'center right',
               backgroundRepeat: 'no-repeat',
               position: 'absolute',
-              top: '20%',
-              left: '20%',
-              width: '10%',
+              top: '30%',
+              left: '25%',
+              width: '15%',
             }}
           />
           <img src={Luffy} alt="Anime Background"
@@ -86,9 +61,9 @@ const LoginPage = () => {
               backgroundSize: '10%',
               backgroundRepeat: 'no-repeat',
               position: 'absolute',
-              bottom: '20%',
-              left: '20%',
-              width: '10%',
+              bottom: '27%',
+              left: '43%',
+              width: '5%',
             }}
           />
         </Form>
@@ -98,20 +73,12 @@ const LoginPage = () => {
             textAlign: 'center',
           }}
         >
-          <Link to="#" type='submit'
-            style={{
-              padding: '10px 30px',
-              background: '#141414',
-              borderRadius: '10px',
-              textDecoration: 'none',
-              color: '#fff'
-            }}
-          >
+          <Link className="btn btn-accent" to="#" type='submit'>
             Log in
           </Link>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -25,9 +25,7 @@ export default function Contact() {
         <button className="btn btn-primary">Testing</button>
       </div> */}
 
-      <div style={{
-        color: '#fff'
-      }}>
+      <div>
         <h1>
           {contact.first || contact.last ? (
             <>
@@ -54,7 +52,7 @@ export default function Contact() {
 
         <div>
           <Form action="edit">
-            <button className="btn" type="submit">Edit</button>
+            <button className="btn btn-sm btn-accent" type="submit">Edit</button>
           </Form>
           <Form
             method="post"
@@ -69,7 +67,7 @@ export default function Contact() {
               }
             }}
           >
-            <button className="btn btn-error" type="submit" style={{ color: '#fff' }}>Delete</button>
+            <button className="btn btn-sm btn-error" type="submit" style={{ color: '#fff' }}>Delete</button>
           </Form>
         </div>
       </div>
