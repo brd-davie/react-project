@@ -31,39 +31,9 @@ const LoginPage = () => {
 
             }}
           />
-          <img src={Zoro} alt="Anime Background"
-            style={{
-              backgroundSize: '30%',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center right',
-              backgroundRepeat: 'no-repeat',
-              position: 'absolute',
-              right: '20%',
-              width: '15%',
-            }}
-          />
-          <img src={Mihawk} alt="Anime Background"
-            style={{
-              backgroundSize: '30%',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center right',
-              backgroundRepeat: 'no-repeat',
-              position: 'absolute',
-              top: '30%',
-              left: '25%',
-              width: '15%',
-            }}
-          />
-          <img src={Luffy} alt="Anime Background"
-            style={{
-              backgroundSize: '10%',
-              backgroundRepeat: 'no-repeat',
-              position: 'absolute',
-              bottom: '27%',
-              left: '43%',
-              width: '5%',
-            }}
-          />
+          <img id='zoro' src={Zoro} alt="Anime Background" />
+          {/* <img id='mihawk' src={Mihawk} alt="Anime Background" />
+          <img id='luffy' src={Luffy} alt="Anime Background" /> */}
         </Form>
         <div className='cta-link'
           style={{

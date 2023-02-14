@@ -11,12 +11,17 @@ import EditContact, { action as editAction } from "./routes/edit";
 import LoginPage from "./routes/LoginPage";
 import PopAnime, { loader as animeLoader } from './routes/PopAnime';
 import AnimeDetails, { loader as animeDetailsLoader } from './routes/AnimeDetails'
-
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
+import Home, { loader as homeLoader } from './routes/Home'
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "anime",
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
@@ -43,7 +48,7 @@ const router = createBrowserRouter([
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
       },
-    ],
+    ]
   },
   {
     path: 'login',

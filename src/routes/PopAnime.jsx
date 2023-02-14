@@ -6,16 +6,16 @@ export default function PopularAnime() {
   const popular_animes = useLoaderData();
 
   return (
-    <div id="popular_animes" className="grid grid-cols-2 flex-wrap gap-5 my-10 md:grid-cols-3 lg:grid-cols-4">
+    <div id="popular_animes" className="grid grid-cols-2 flex-wrap gap-5 p-5 md:grid-cols-3 lg:grid-cols-4 overflow-auto">
       {popular_animes.map((anime) => (
         <Link to={`${anime.animeId}/details`} className="w-full">
-          <div key={anime.animeId} className="card w-full h-full bg-base-100 shadow-xl p-2">
-            <figure className="h-full"><img className="w-full h-full" src={anime.animeImg} alt={anime.animeTitle} /></figure>
-            <div className="card-body p-0 md:justify-end">
-              <h4 className="card-title text-xs flex-col items-start mt-5 whitespace-nowrap text-ellipsis overflow-hidden md:mr-4">
+          <div key={anime.animeId} className="card w-full h-full bg-primary shadow-xl p-2">
+            <figure className="h-auto"><img className="w-full h-full object-fit" src={anime.animeImg} alt={anime.animeTitle} /></figure>
+            <div className="card-body p-0 lex-col items-start justify-between whitespace-nowrap text-ellipsis overflow-hidden md:mr-4 md:justify-end">
+              <h4 className="card-title text-xs mt-3 text-white">
                 {anime.animeTitle}
-                <div className="badge badge-secondary">{anime.releasedDate}</div>
               </h4>
+              <div className="badge text-xs badge-secondary">Release Date: {anime.releasedDate}</div>
             </div>
           </div>
         </Link>
