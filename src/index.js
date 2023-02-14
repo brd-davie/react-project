@@ -9,12 +9,19 @@ import ErrorPage from "./error-page";
 import Contact, { loader as contactLoader } from "./routes/contact";
 import EditContact, { action as editAction } from "./routes/edit";
 import LoginPage from "./routes/LoginPage";
-
+import PopAnime, { loader as animeLoader } from './routes/PopAnime';
+import AnimeDetails, { loader as animeDetailsLoader } from './routes/AnimeDetails'
 import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
+import Home, { loader as homeLoader } from './routes/Home'
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "anime",
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
@@ -30,13 +37,23 @@ const router = createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
-      }
-    ],
+      },
+      {
+        path: "popular-anime",
+        element: <PopAnime />,
+        loader: animeLoader,
+      },
+      {
+        path: "popular-anime/:animeId/details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+    ]
   },
   {
     path: 'login',
     element: <LoginPage />
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
