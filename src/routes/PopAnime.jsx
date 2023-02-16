@@ -6,7 +6,7 @@ export default function PopularAnime() {
   const popular_animes = useLoaderData();
 
   return (
-    <div id="popular_animes" className="grid grid-cols-2 flex-wrap gap-5 p-5 md:grid-cols-3 lg:grid-cols-4 overflow-auto">
+    <div id="popular_animes" className="grid grid-cols-2 flex-wrap gap-5 py-5 px-3 md:grid-cols-3 lg:grid-cols-4 overflow-auto bg-transparent">
       {popular_animes.map((anime) => (
         <Link to={`${anime.animeId}/details`} className="w-full">
           <div key={anime.animeId} className="card w-full h-full bg-primary shadow-xl p-2">
