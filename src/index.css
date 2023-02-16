@@ -230,7 +230,6 @@ i {
 #detail {
   flex: 1;
   width: 100%;
-  background-color: #fff;
 }
 
 #detail.loading {
@@ -457,4 +456,26 @@ i {
     left: 37%;
     width: 10%;
   }
+}
+
+#hp-content::before{
+  background: url('./routes/images/image-banner.png');
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+  z-index: -1;
+  background-size: cover;
+}
+
+#container::before{
+  background: url('./routes/images/image-banner.png');
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+  z-index: -1;
+  background-size: cover;
 }

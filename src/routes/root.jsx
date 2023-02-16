@@ -9,7 +9,7 @@ export default function Root() {
     <>
       <Nav />
       <div id="container" className="relative">
-        <div className="main-container px-5 md:flex md:flex-row-reverse h-5/6 max-w-screen-lg	mx-auto">
+        <div className="main-container md:flex md:flex-row-reverse h-5/6 max-w-screen-lg	mx-auto">
           <div id="sidebar" className="sticky px-3 w-1/5 hidden md:flex md:flex-col shadow-md">
             <h1>React Router Contacts</h1>
             <div className="">
@@ -74,7 +74,7 @@ export default function Root() {
               </ul>
             </nav>
           </div>
-          <div id="detail" className="w-full overflow-auto">
+          <div id="detail" className="w-full overflow-auto bg-transparent">
             <Outlet />
           </div>
         </div>

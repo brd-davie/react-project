@@ -1,9 +1,9 @@
 import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react'
 import { Form, Link } from 'react-router-dom';
-import Zoro from '../routes/LoginBackground.png';
-import Mihawk from '../routes/mihawk.png';
-import Luffy from '../routes/Luffy.png';
+import Zoro from '../routes/images/LoginBackground.png';
+import Mihawk from '../routes/images/mihawk.png';
+import Luffy from '../routes/images/Luffy.png';
 
 const LoginPage = () => {
   return (
@@ -41,8 +41,11 @@ const LoginPage = () => {
             textAlign: 'center',
           }}
         >
-          <Link className="btn btn-accent" to="#" type='submit'>
+          <Link className="btn btn-sm btn-accent" to="#" type='submit'>
             Log in
+          </Link>
+          <Link className="btn btn-sm ml-5" to="/" type='submit'>
+            Back
           </Link>
         </div>
       </div>
