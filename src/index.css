@@ -107,7 +107,7 @@ form[action$="destroy"] button {
 }
 
 #root #container .main-container{
-  height: 90%;
+  height: 100%;
 }
 
 #detail::-webkit-scrollbar{
@@ -438,23 +438,6 @@ i {
     position: absolute;
     right: 27%;
     width: 17%;
-  }
-  
-  #form-container #form #mihawk{
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 5%;
-    top: 22%;
-    width: 30%;
-  }
-  
-  #form-container #form #luffy{
-    background-position: center right;
-    background-repeat: no-repeat;
-    position: absolute;
-    bottom: 26%;
-    left: 37%;
-    width: 10%;
   }
 }
 

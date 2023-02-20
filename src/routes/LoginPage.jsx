@@ -2,12 +2,12 @@ import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react'
 import { Form, Link } from 'react-router-dom';
 import Zoro from '../routes/images/LoginBackground.png';
-import Mihawk from '../routes/images/mihawk.png';
-import Luffy from '../routes/images/Luffy.png';
+import Nav from './Nav';
 
 const LoginPage = () => {
   return (
     <>
+      <Nav />
       <div id='form-container'>
         <h2 className='header'
           style={{
@@ -32,8 +32,6 @@ const LoginPage = () => {
             }}
           />
           <img id='zoro' src={Zoro} alt="Anime Background" />
-          {/* <img id='mihawk' src={Mihawk} alt="Anime Background" />
-          <img id='luffy' src={Luffy} alt="Anime Background" /> */}
         </Form>
         <div className='cta-link'
           style={{
