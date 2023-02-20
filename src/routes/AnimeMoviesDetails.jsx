@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
-import { getAnime } from "../anime";
+import React from 'react'
+import { getAnimeMoviesDetails } from '../anime'
+import { useLoaderData } from 'react-router-dom';
 
-export default function Contacts() {
+export default function AnimeMoviesDetails() {
   const anime = useLoaderData();
 
   return (
@@ -17,11 +18,11 @@ export default function Contacts() {
         </div>
       </div>
     </div >
-  );
+  )
 }
 
 export async function loader({ params }) {
-  const animeDetails = getAnime(params.animeId);
-  console.log(animeDetails);
-  return animeDetails;
+  const anime_movies_details = getAnimeMoviesDetails(params.animeId);
+  console.log(anime_movies_details);
+  return anime_movies_details;
 }
