@@ -9,10 +9,11 @@ import ErrorPage from "./error-page";
 import LoginPage from "./routes/LoginPage";
 import PopAnime, { loader as animeLoader } from './routes/PopAnime';
 import AnimeDetails, { loader as animeDetailsLoader } from './routes/AnimeDetails'
-import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
+import Root from "./routes/root";
 import Home from './routes/Home'
 import AnimeMovies, { loader as animeMoviesLoader } from "./routes/AnimeMovies";
 import AnimeMoviesDetails, { loader as animeMoviesDetailsLoader } from "./routes/AnimeMoviesDetails";
+import AnimeTop, { loader as animeTopLoader } from "./routes/AnimeTop";
 import AnimeList from "./routes/AnimeList";
 
 const router = createBrowserRouter([
@@ -25,8 +26,6 @@ const router = createBrowserRouter([
     path: "anime",
     element: <Root />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
-    action: rootAction,
     children: [
       {
         path: "popular-anime",
@@ -39,7 +38,16 @@ const router = createBrowserRouter([
         loader: animeMoviesLoader,
       },
       {
-        path: "popular-anime/:animeId/details",
+        path: "anime-list",
+        element: <AnimeList />,
+      },
+      {
+        path: "top-anime",
+        element: <AnimeTop />,
+        loader: animeTopLoader,
+      },
+      {
+        path: "popular-anime/:id/details",
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
       },
