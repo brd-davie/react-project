@@ -1,36 +1,39 @@
-
 import { useLoaderData, Link } from "react-router-dom";
-import { getPopularAnimes } from "../anime";
+import { getTrendingAnime } from "../anime";
 
 export default function PopularAnime() {
-  const popular_animes = useLoaderData();
+  const trending_anime = useLoaderData();
 
   return (
-    <div id="popular_animes" className="grid grid-cols-2 sm:grid-cols-3 flex-wrap gap-5 py-5 px-3 md:grid-cols-4 lg:grid-cols-5 overflow-auto bg-transparent mt-16 md:mt-0">
-      {popular_animes.map((anime) => (
-        <Link to={`${anime.animeId}/details`} className="w-full">
-          <div key={anime.animeId} className="card w-full h-full bg-primary shadow-xl p-2">
-            <figure className="h-full"><img className="w-full h-full object-cover" src={anime.animeImg} alt={anime.animeTitle} /></figure>
-            <div className="card-body p-0 lex-col items-start justify-between whitespace-nowrap text-ellipsis overflow-hidden md:mr-4 md:justify-end">
-              <h4 className="card-title text-xs mt-3 text-white">
-                {anime.animeTitle}
-              </h4>
-              <div className="badge text-xs badge-secondary">Release Date: {anime.releasedDate}</div>
+    <>
+      <h2 className="text-md md:text-2xl text-white md:px-3">Trending Anime</h2>
+      <div id="popular_anime" className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 py-5 gap-2 md:px-3 overflow-auto bg-transparent md:mt-0">
+        {trending_anime.data.map((anime) => (
+          <Link to={`${anime.id}/details`} className="w-full h-full">
+            <div key={anime.id} className="card h-full bg-neutral shadow-xl">
+              <figure className="h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.image_url} alt={anime.animeTitle} /></figure>
+              <div className="card-body px-3 pt-3 md:py-7 flex-col items-start justify-between whitespace-nowrap text-ellipsis overflow-hidden md:justify-end">
+                <h4 className="card-title text-xs text-white">
+                  {anime.title}
+                </h4>
+                <div className="badge text-xs badge-success">Rank: {anime.rank}</div>
+                <div className="badge text-xs badge-success">Rating: {anime.score}</div>
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 
-export async function loader({ params }) {
-  let popular_animes = []
-  await getPopularAnimes().then((result) => {
-    popular_animes = result
+export async function loader() {
+  let trending_anime = [];
+  await getTrendingAnime().then((result) => {
+    trending_anime = result
   })
 
-  console.log(popular_animes)
+  console.log(trending_anime)
 
-  return popular_animes;
+  return trending_anime;
 }

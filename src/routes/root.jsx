@@ -1,52 +1,36 @@
 import { Outlet, Link } from "react-router-dom";
-import { getContacts, createContact } from "../contacts";
-import AnimeList from "./AnimeList";
-import AnimeMovies from "./AnimeMovies";
 import Nav from "./Nav";
-
 
 export default function Root() {
   return (
     <>
       <Nav />
       <div id="container" className="relative">
-        <div className="main-container md:flex md:flex-row-reverse h-5/6 max-w-screen-lg	mx-auto">
-          <div id="sidebar" className="hidden sticky px-3 w-1/5">
+        <div className="main-container overflow-auto md:flex md:flex-row-reverse h-5/6 max-w-7xl mx-auto">
+          <div id="sidebar" className="hidden sticky w-64 pt-6 outline-grey-500 bg-black">
             <h1>React Router Contacts</h1>
             <div className="">
             </div>
             <nav>
-              <ul>
-                <Link to='popular-anime'>
-                  <li>
-                    Popular Anime
-                  </li>
-                </Link>
-                <Link to='anime-movies'>
-                  <li>
-                    Anime Movies
-                  </li>
-                </Link>
+              <ul className="text-success">
+                <li className="text-md hover:text-white hover:bg-neutral">
+                  <Link to='popular-anime' className="justify-center">
+                    Popular
+                  </Link>
+                </li>
+                <li className="text-md hover:text-white hover:bg-neutral">
+                  <Link to='anime-movies' className="justify-center">
+                    Movies
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
-          <div id="detail" className="w-full overflow-auto bg-transparent md:mt-16">
+          <div id="detail" className="w-full overflow-auto bg-transparent pt-5 md:pt-6 px-3">
             <Outlet />
-            <AnimeList />
           </div>
         </div>
       </div>
     </>
   );
-}
-
-export async function loader({ params }) {
-  const contacts = await getContacts();
-  console.log(params);
-  return { contacts };
-}
-
-export async function action() {
-  const contact = await createContact();
-  return { contact };
 }
