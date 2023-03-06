@@ -1,6 +1,6 @@
 //KITSU ANIME API
-export async function getTrendingAnime() {
-  let trending_anime = await fetch("https://api.jikan.moe/v4/top/anime")
+export async function getTrendingAnime(page = 1) {
+  let trending_anime = await fetch(`https://api.jikan.moe/v4/top/anime?page=${page}`)
     .then((response) => response.json())
 
   return trending_anime ?? null;

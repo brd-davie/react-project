@@ -40,7 +40,7 @@ const Home = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </form>
-          <div className="anime-list max-w-7xl mx-auto overflow-auto mt-10 h-3/4">
+          <div className="anime-list max-w-7xl mx-auto overflow-auto mt-5 h-3/4">
             <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 py-5 gap-2 overflow-auto px-5">
               <SearchResult handleSearch={handleSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} />
             </div>

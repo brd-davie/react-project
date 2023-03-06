@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 import { getAnimeMovies } from '../anime';
+import ReactPaginate from 'react-paginate';
 
 const AnimeMovies = () => {
   const anime_movies = useLoaderData();
@@ -21,6 +22,21 @@ const AnimeMovies = () => {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="btn-group flex justify-center my-20">
+        <ReactPaginate
+          previousLabel={'Previous'}
+          nextLabel={'Next'}
+          breakLabel={'...'}
+          pageCount={5}
+          marginPagesDisplayed={2}
+          // onPageChange={handlePageChange}
+          containerClassName={'btn-group flex gap-2 text-success'}
+          pageClassName={'btn btn-success'}
+          previousClassName={'btn btn-success'}
+          nextClassName={'btn btn-success'}
+          activeClassName={'btn-active'}
+        />
       </div>
     </>
   )

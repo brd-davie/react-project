@@ -36,7 +36,7 @@ class Nav extends Component {
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral text-white rounded-box w-52">
                   <li><Link to='/anime/popular-anime'>Trending</Link></li>
                   <li><Link to='/anime/anime-movies'>Movies</Link></li>
-                  <li><Link to='/anime/anime-list'>Top Characters</Link></li>
+                  <li><Link to='/anime/character-list'>Top Characters</Link></li>
                 </ul>
               </div>
             </div>
@@ -45,7 +45,7 @@ class Nav extends Component {
             <ul className='hidden md:flex flex-wrap gap-4 absolute right-0 h-full'>
               <li className='h-full'><Link to='/anime/popular-anime' className='flex items-center text-white hover:bg-neutral hover:text-white px-4 text-white h-full'>Trending</Link></li>
               <li className='h-full'><Link to='/anime/anime-movies' className='flex items-center text-white hover:bg-neutral hover:text-white px-4 text-white h-full'>Movies</Link></li>
-              <li className='h-full'><Link to='/anime/anime-list' className='flex items-center text-white hover:bg-neutral hover:text-white px-4 text-white h-full'>Top Characters</Link></li>
+              <li className='h-full'><Link to='/anime/character-list' className='flex items-center text-white hover:bg-neutral hover:text-white px-4 text-white h-full'>Top Characters</Link></li>
             </ul>
             <div className="navbar-end md:hidden">
               {/* <button className="btn btn-white btn-circle">

@@ -26,7 +26,7 @@ export default function Root() {
               </ul>
             </nav>
           </div>
-          <div id="detail" className="w-full overflow-auto bg-transparent pt-5 md:pt-6 px-3">
+          <div id="detail" className="w-full overflow-auto bg-transparent pt-5 md:pt-6 px-3 pb-20">
             <Outlet />
           </div>
         </div>

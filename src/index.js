@@ -14,7 +14,7 @@ import Home from './routes/Home'
 import AnimeMovies, { loader as animeMoviesLoader } from "./routes/AnimeMovies";
 import AnimeMoviesDetails, { loader as animeMoviesDetailsLoader } from "./routes/AnimeMoviesDetails";
 import AnimeTop, { loader as animeTopLoader } from "./routes/AnimeTop";
-import AnimeList from "./routes/AnimeList";
+import TopCharacters from "./routes/TopCharacters";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
         loader: animeMoviesLoader,
       },
       {
-        path: "anime-list",
-        element: <AnimeList />,
+        path: "character-list",
+        element: <TopCharacters />,
       },
       {
         path: "top-anime",
