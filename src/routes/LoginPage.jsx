@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Link } from 'react-router-dom';
 import Zoro from '../routes/images/LoginBackground.png';
-import Nav from './Nav';
+import Nav from '../components/Nav';
 
 const LoginPage = () => {
   return (
