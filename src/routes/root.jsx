@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "../components/Nav";
 
 export default function Root() {
   return (
@@ -34,3 +34,4 @@ export default function Root() {
     </>
   );
 }
+

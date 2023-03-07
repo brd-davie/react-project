@@ -453,3 +453,7 @@ i {
 .anime-list::-webkit-scrollbar{
   display: none;
 }
+
+#menu-dropdown{
+  margin-left: -10px;
+}

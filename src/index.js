@@ -5,16 +5,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import ErrorPage from "./error-page";
+import ErrorPage from "./components/error-page";
 import LoginPage from "./routes/LoginPage";
-import PopAnime, { loader as animeLoader } from './routes/PopAnime';
-import AnimeDetails, { loader as animeDetailsLoader } from './routes/AnimeDetails'
+import PopAnime from './routes/PopAnime';
+import AnimeDetails, { loader as popAnimeLoader } from './routes/AnimeDetails'
 import Root from "./routes/root";
 import Home from './routes/Home'
-import AnimeMovies, { loader as animeMoviesLoader } from "./routes/AnimeMovies";
+import AnimeMovies from "./routes/AnimeMovies";
 import AnimeMoviesDetails, { loader as animeMoviesDetailsLoader } from "./routes/AnimeMoviesDetails";
-import AnimeTop, { loader as animeTopLoader } from "./routes/AnimeTop";
 import TopCharacters from "./routes/TopCharacters";
+import TopCharactersDetails, { loader as characterDetailsLoader } from "./routes/TopCharactersDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,26 +30,24 @@ const router = createBrowserRouter([
       {
         path: "popular-anime",
         element: <PopAnime />,
-        loader: animeLoader,
       },
       {
         path: "anime-movies",
         element: <AnimeMovies />,
-        loader: animeMoviesLoader,
       },
       {
         path: "character-list",
         element: <TopCharacters />,
       },
       {
-        path: "top-anime",
-        element: <AnimeTop />,
-        loader: animeTopLoader,
-      },
-      {
         path: "popular-anime/:id/details",
         element: <AnimeDetails />,
-        loader: animeDetailsLoader,
+        loader: popAnimeLoader,
+      },
+      {
+        path: "character-list/:id/details",
+        element: <TopCharactersDetails />,
+        loader: characterDetailsLoader,
       },
       {
         path: "anime-movies/:animeId/details",
