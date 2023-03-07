@@ -7,14 +7,14 @@ import {
 import "./index.css";
 import ErrorPage from "./components/error-page";
 import LoginPage from "./routes/LoginPage";
-import PopAnime from './routes/PopAnime';
-import AnimeDetails, { loader as popAnimeLoader } from './routes/AnimeDetails'
+import PopAnime from './routes/TrendingAnime';
+import PopAnimeDetails, { loader as popAnimeLoader } from './routes/TrendingAnimeDetails'
 import Root from "./routes/root";
 import Home from './routes/Home'
-import AnimeMovies from "./routes/AnimeMovies";
-import AnimeMoviesDetails, { loader as animeMoviesDetailsLoader } from "./routes/AnimeMoviesDetails";
+import AnimeMovies from "./routes/PopAnime";
+import AnimeMoviesDetails, { loader as animeMoviesDetailsLoader } from "./routes/PopAnimeDetails";
+import TopCharactersDetails from "./routes/TopCharactersDetails";
 import TopCharacters from "./routes/TopCharacters";
-import TopCharactersDetails, { loader as characterDetailsLoader } from "./routes/TopCharactersDetails";
 
 const router = createBrowserRouter([
   {
@@ -41,13 +41,12 @@ const router = createBrowserRouter([
       },
       {
         path: "popular-anime/:id/details",
-        element: <AnimeDetails />,
+        element: <PopAnimeDetails />,
         loader: popAnimeLoader,
       },
       {
         path: "character-list/:id/details",
         element: <TopCharactersDetails />,
-        loader: characterDetailsLoader,
       },
       {
         path: "anime-movies/:animeId/details",

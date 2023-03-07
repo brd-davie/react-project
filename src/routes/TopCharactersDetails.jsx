@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom';
-import { getCharacterDetails } from '../anime';
 
 const TopCharactersDetails = () => {
   const anime = useLoaderData();
@@ -20,9 +19,3 @@ const TopCharactersDetails = () => {
 }
 
 export default TopCharactersDetails
-
-export async function loader({ params }) {
-  const character_details = getCharacterDetails(params.mal_id);
-  console.log(character_details);
-  return character_details ?? null;
-}

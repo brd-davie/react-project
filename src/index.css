@@ -457,3 +457,11 @@ i {
 #menu-dropdown{
   margin-left: -10px;
 }
+
+#custom-anime-list::-webkit-scrollbar{
+  display: none;
+}
+
+#custom-anime-list{
+  height: 800px;
+}

@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
-import { getPopAnimeDetails } from "../anime";
+import { getTrendingDetails } from "../anime";
 
-export default function AnimeDetails() {
+export default function PopAnimeDetails() {
   const anime = useLoaderData();
 
   return (
@@ -22,7 +22,7 @@ export default function AnimeDetails() {
 }
 
 export async function loader({ params }) {
-  const animeDetails = getPopAnimeDetails(params.id);
+  const animeDetails = getTrendingDetails(params.id);
   console.log(animeDetails);
   return animeDetails;
 }

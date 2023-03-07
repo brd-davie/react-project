@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
+import Pagination from '../components/Pagination';
 
 const TopCharacters = () => {
 
@@ -14,6 +14,7 @@ const TopCharacters = () => {
     console.log(response)
     return (response.data);
   };
+
 
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
@@ -31,35 +32,27 @@ const TopCharacters = () => {
       <h2 className="text-md md:text-2xl text-white md:px-3">Top Characters</h2>
       <div id="anime-character" className="custom-container grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 py-5 gap-2 md:px-2 overflow-auto bg-transparent md:mt-0 w-full">
         {characterList.map((anime) => (
-          <Link to={`${anime.url}/details`} className="w-full h-full">
+          <Link to={`${anime.url}`} className="w-full h-full">
             <div key={anime.mal_id} className="card card-side bg-black shadow-xl flex-wrap md:flex-nowrap h-full rounded-md overflow-hidden">
               <figure className='w-full h-3/4 md:h-full'><img src={anime.images.jpg.image_url} className='h-full w-full object-cover md:w-full' alt="Character" /></figure>
-              <div className="card-body w-3/4 bg-neutral p-2 h-1/4 md:h-full">
+              <div className="card-body justify-between w-3/4 bg-neutral p-2 h-1/4 md:h-full">
                 <h2 className="card-title text-xs md:text-md lg:pt-2 lg:text-xl md-gap-5 flex-col items-start text-success gap-0">{anime.name}</h2>
-                <div className="card-actions justify-end">
-                  <p className='text-xs text-white hidden md:block'>Nicknames: <span className='text-success'>{anime.nicknames.splice(0, 1)}</span></p>
-                  <p className='text-xs text-white'>Likes: <span className='text-success'> {anime.favorites}</span></p>
+                <div className="card-actions">
+                  <p className='text-sx md: text-white hidden md:block'>Nicknames:</p>
+                  <span className='text-success flex flex-col'>{anime.nicknames.slice(0, 3).map((name) => (
+                    <span>*{name}</span>
+                  ))}</span>
+                </div>
+                <div className="rating rating-sm gap-1 flex items-center">
+                  <input type="radio" name="rating-3" className="mask mask-heart bg-red-400" />
+                  <span className='text-error ml-1'>{anime.favorites}M</span>
                 </div>
               </div>
             </div>
           </Link>
         ))}
       </div>
-      <div id='custom-pagination' className="btn-group flex justify-center my-20">
-        <ReactPaginate
-          previousLabel={'«'}
-          nextLabel={'»'}
-          breakLabel={'...'}
-          pageCount={10}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={'btn-group flex gap-2 text-success'}
-          pageClassName={'btn btn-success btn-sm'}
-          previousClassName={'btn btn-success btn-sm'}
-          nextClassName={'btn btn-success btn-sm'}
-          activeClassName={'btn-active'}
-        />
-      </div>
+      <Pagination handlePageClick={handlePageClick} />
     </div>
   )
 }
