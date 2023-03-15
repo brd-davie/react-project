@@ -5,16 +5,16 @@ const Pagination = ({ handlePageClick }) => {
   return (
     <div id='custom-pagination' className="btn-group flex justify-center my-20">
       <ReactPaginate
-        previousLabel={'«'}
-        nextLabel={'»'}
+        previousLabel={'Prev'}
+        nextLabel={'Next'}
         breakLabel={'...'}
-        pageCount={10}
+        pageCount={20}
         marginPagesDisplayed={2}
         onPageChange={handlePageClick}
         containerClassName={'btn-group flex gap-2 text-success'}
-        pageClassName={'btn btn-success btn-sm'}
-        previousClassName={'btn btn-success btn-sm'}
-        nextClassName={'btn btn-success btn-sm'}
+        pageClassName={'btn btn-accent btn-xs p-2'}
+        previousClassName={'btn btn-accent btn-xs'}
+        nextClassName={'btn btn-accent btn-xs'}
         activeClassName={'btn-active'}
       />
     </div>

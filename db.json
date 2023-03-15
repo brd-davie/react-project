@@ -1,0 +1,18 @@
+{
+  "user": [
+    {
+      "name": "admin",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "password",
+      "id": 1
+    },
+    {
+      "name": "",
+      "username": "",
+      "email": "daviedechavez@gmail.com",
+      "password": "password",
+      "id": 2
+    }
+  ]
+}

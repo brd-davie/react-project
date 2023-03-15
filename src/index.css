@@ -8,9 +8,9 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -101,6 +101,7 @@ form[action$="destroy"] button {
   height: 100%;
   width: 100%;
   background: rgb(30 41 59);
+  padding-bottom: 30px;
   overflow: hidden;
 }
 
@@ -115,12 +116,6 @@ form[action$="destroy"] button {
 #detail::-webkit-scrollbar{
   display: none;
 }
-
-/* #sidebar{
-  display: flex;
-  flex-direction: column;
-  margin-top: 95px;
-} */
 
 #sidebar h1 {
   font-size: 1rem;
@@ -181,7 +176,6 @@ form[action$="destroy"] button {
 #sidebar nav {
   flex: 1;
   overflow: auto;
-  padding-top: 1rem;
 }
 
 #sidebar nav a span {
@@ -209,17 +203,16 @@ i {
   margin: 0.25rem 0;
 }
 
-#sidebar nav a {
+/* #sidebar nav a {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   white-space: pre;
   padding: 0.5rem;
-  color: inherit;
   text-decoration: none;
   gap: 1rem;
-}
+} */
 
 #sidebar nav a.active {
   background: hsl(224, 98%, 58%);
@@ -448,6 +441,17 @@ i {
     right: 27%;
     width: 17%;
   }
+  #root {
+    padding-bottom: 70px;
+  }
+
+  #recommendation-title{
+    display: none;
+  }
+
+  #card-custom:hover .card  #recommendation-title{
+    display: block;
+  }
 }
 
 .anime-list::-webkit-scrollbar{
@@ -464,4 +468,44 @@ i {
 
 #custom-anime-list{
   height: 800px;
+}
+
+.my-anime-list > div{
+  height: 690px;
+  max-height: 100%;
+}
+
+#mega-menu-drawer{
+  display: none;
+  width: 100vw;
+  margin-left: -20px;
+}
+
+#mega-menu-drawer.active{
+  display: grid;
+}
+
+.modal-box{
+  max-width: 100vw;
+  height: 100vh;
+}
+
+#custom-pagination.hidden{
+  display: none;
+}
+
+#card-recommendation:not(:hover){
+  transform: scale(1.2);
+}
+
+#card-recommendation{
+  transition: transform .5s  ;
+}
+
+#custom-genre-list{
+  display: none;
+}
+
+#custom-genre:hover #custom-genre-list{
+  display: grid;
 }
