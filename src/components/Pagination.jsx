@@ -12,7 +12,7 @@ const Pagination = ({ handlePageClick }) => {
         marginPagesDisplayed={2}
         onPageChange={handlePageClick}
         containerClassName={'btn-group flex gap-2 text-success'}
-        pageClassName={'btn btn-accent btn-xs p-2'}
+        pageClassName={'btn btn-accent btn-xs'}
         previousClassName={'btn btn-accent btn-xs'}
         nextClassName={'btn btn-accent btn-xs'}
         activeClassName={'btn-active'}

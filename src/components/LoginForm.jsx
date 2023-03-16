@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getItem } from 'localforage';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -35,6 +33,25 @@ const Login = () => {
           const token = JSON.stringify(data);
           console.log("Success:", data);
           localStorage.setItem('token', token);
+
+          fetch('https://api.hattch.brdsites.com/api/v1/auth/me', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + token.access_token,
+            },
+          })
+            .then((response) => {
+              if (!response.status === 200) {
+                navigate("/login")
+                return false;
+              }
+              return response.json()
+            })
+            .then((data) => {
+              localStorage.setItem('user', JSON.stringify(data));
+              navigate('/');
+            })
         });
     }
   };
@@ -52,13 +69,9 @@ const Login = () => {
       setError('Please enter password')
     }
 
-    if (email === '' || email === null && password === '' || password === null) {
+    if ((email === '' || email === null) && (password === '' || password === null)) {
       result = false;
       setError('Please enter email and password');
-    }
-
-    if (result) {
-      setIsLoggedIn(true);
     }
 
     return result;

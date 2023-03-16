@@ -15,6 +15,7 @@ import SearchAnime from "./routes/SearchAnime";
 import RegisterPage from "./routes/RegisterPage";
 import AnimeGenre from "./components/AnimeGenre";
 import { useNavigate } from "react-router-dom";
+import ProfilePage from "./routes/ProfilePage";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: 'register',
     element: <RegisterPage />
+  },
+  {
+    path: "profile",
+    element: <ProfilePage />,
   },
   {
     path: "anime",
@@ -91,6 +96,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
@@ -98,7 +104,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 export const me = async () => {
-  fetch('https://api.hattch.brdsites.com/api/v1/auth/me', {
+  await fetch('https://api.hattch.brdsites.com/api/v1/auth/me', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

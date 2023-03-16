@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../routes/images/logo.png'
 import AnimeGenre from './AnimeGenre'
+import Profile from './Profile'
 
 const Nav = () => {
   return (
@@ -31,11 +32,7 @@ const Nav = () => {
             <li className='h-full'><Link to='/anime/genre' className='flex items-center text-white hover:text-accent hover:underline bg-black px-4 text-white h-full'>Genres</Link></li>
             <li className='h-full'><Link to='/anime/trending-anime' className='flex items-center text-white hover:text-accent hover:underline bg-black px-4 text-white h-full'>Trending</Link></li>
             <li className='h-full'><Link to='/anime/character-list' className='flex items-center text-white hover:text-accent hover:underline bg-black px-4 text-white h-full'>Top Characters</Link></li>
-            {/* <li>
-              <Link to='/' className="bg-neutral-focus text-neutral-content rounded-full w-full p-0">
-                <span className="text-md">D</span>
-              </Link >
-            </li> */}
+            <Profile />
           </ul>
           <div className="navbar-end md:hidden">
             <Link to='/' className="btn-ghost normal-case text-md">
