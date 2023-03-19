@@ -1,15 +1,18 @@
 import React from 'react'
+import BannerSlider from '../components/BannerSlider'
 import Nav from '../components/Nav'
-import Zenitsu from '../components/Zenitsu'
+import AnimeSlick from '../components/AnimeSlick'
+
 
 const App = () => {
   return (
     <div className=''>
       <Nav />
-      <div id="hp-container" className='relative'>
-        <div id="hp-content" className=' w-screen max-w-7xl mx-auto text-center pt-10'>
-          <Zenitsu />
-        </div>
+      <div id="hp-container" className='h-full'>
+        <BannerSlider />
+        <AnimeSlick endPoint={`https://api.jikan.moe/v4/top/anime`} header='Trending' link={`${'/anime/trending-anime'}`} />
+        <AnimeSlick endPoint={`https://api.jikan.moe/v4/anime?genres=22`} header='Romance' link={`${'/anime/genre'}`} />
+        {/* <AnimeSlick endPoint={`https://api.jikan.moe/v4/anime?genres=4`} header='Comedy' link={`${'/anime/genre'}`} /> */}
       </div>
     </div >
   )

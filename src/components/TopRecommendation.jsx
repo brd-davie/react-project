@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import AnimeGif from '../components/AnimeGif';
+import AnimeGif from './AnimeGif';
 
 const TopRecommendation = () => {
 

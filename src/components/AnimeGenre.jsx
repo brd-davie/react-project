@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import AnimeGif from './AnimeGif';
-import Pagination from './Pagination';
 
 const AnimeGenre = () => {
 
   const [genres, setGenre] = useState([]);
   const [genreList, setGenreList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
 
   const Genre = async () => {
@@ -21,23 +18,12 @@ const AnimeGenre = () => {
     const response = await fetch(`https://api.jikan.moe/v4/anime?genres=${id}`)
       .then(response => response.json())
     console.log(response.data)
-    setIsLoading(false)
     setGenreList(response.data)
   };
-
-  // const handlePageClick = async (data) => {
-  //   let currentPage = data.selected + 1;
-  //   const changePage = await handleClick(currentPage)
-  //   setGenreList(changePage);
-  // };
 
   useEffect(() => {
     Genre();
   }, [])
-
-  if (isLoading) {
-    return <div className="absolute left-1/2 top-1/2"><AnimeGif /></div>
-  }
 
   return (
     <div>
@@ -47,9 +33,9 @@ const AnimeGenre = () => {
             Genres
             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
           </Link>
-          <ul id='custom-genre-list' className="z-10 menu menu-compact dropdown-content px-2 bg-black text-xs md:pr-7 md:pl-3 md:pt-2 lg:w-[1280px] grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 p-10">
+          <ul id='custom-genre-list' className="z-10 menu menu-compact dropdown-content pb-3 px-2 bg-black text-xs md:pr-7 md:pl-3 md:pt-2 lg:w-[1280px] grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 md:p-10">
             {genres.map((genre, index) => (
-              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto block text-xs md:text-md hover:text-accent hover:underline p-1' >{genre.name}</Link></li>
+              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto block text-xs md:text-md hover:text-accent hover:underline p-1 bg-black' >{genre.name}</Link></li>
             ))}
           </ul>
         </li>

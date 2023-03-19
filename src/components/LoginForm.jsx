@@ -1,16 +1,19 @@
+import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem(localStorage.getItem("token") || false));
   const [error, setError] = useState('');
+
 
   const navigate = useNavigate();
 
-  const ProceedLogin = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (validate()) {
@@ -31,29 +34,24 @@ const Login = () => {
         .then((response) => response.json())
         .then(async (data) => {
           const token = JSON.stringify(data);
-          console.log("Success:", data);
+          console.log("Status", data);
           localStorage.setItem('token', token);
-
-          fetch('https://api.hattch.brdsites.com/api/v1/auth/me', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + token.access_token,
-            },
-          })
-            .then((response) => {
-              if (!response.status === 200) {
-                navigate("/login")
-                return false;
-              }
-              return response.json()
-            })
-            .then((data) => {
-              localStorage.setItem('user', JSON.stringify(data));
-              navigate('/');
-            })
-        });
+          if (data.status === 'error') {
+            setError(data.description);
+          }
+          if (data.status === 'ok' && user.password) {
+            setError(<p className='text-success'>Login Successfully!!</p>);
+            navigate('/')
+          }
+        })
+        .catch(() => {
+          console.log(error);
+        })
     }
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
   const validate = () => {
@@ -80,28 +78,33 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-slate-800">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <form onSubmit={ProceedLogin} className="card flex-shrink-0 w-[400px] max-w-sm shadow-2xl bg-black">
-          {error && <p className='text-error text-center mt-5'>*{error}</p>}
+        <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 w-[390px] shadow-2xl bg-black">
+          {error && <div className='text-error text-center mt-5'>{error}</div>}
           <div className="card-body">
             <div className="form-control">
               <label className="label" htmlFor='email '>
                 <span className="label-text text-white">Email</span>
               </label>
-              <input type="email" id='email' placeholder="email" className="input input-accent input-bordered" value={email}
+              <input type="email" id='email' placeholder="Email" className="input input-accent input-bordered" value={email}
                 onChange={(event) => setEmail(event.target.value)} />
             </div>
             <div className="form-control">
               <label className="label" htmlFor='password'>
                 <span className="label-text text-white">Password</span>
               </label>
-              <input type="password" id='password' placeholder="password" className="input input-accent input-bordered" value={password}
-                onChange={(event) => setPassword(event.target.value)} />
+              <div className="relative">
+                <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full" value={password}
+                  onChange={(event) => setPassword(event.target.value)} />
+                <button type="button" className="absolute right-0 text-white w-[60px] btn" onClick={toggleShowPassword}>
+                  {showPassword ? <span className="text-white">Hide</span> : <span className="text-white">Show</span>}
+                </button>
+              </div>
               <label className="mt-4">
-                <Link to='' className="text-white hover:underline">Forgot password?</Link>
+                <Link to='/forgot-password' className="text-white hover:underline">Forgot password?</Link>
               </label>
             </div>
             <div className="form-control mt-3">
-              <button type='submit' className="btn btn-neutral">Login</button>
+              <button type='submit' className="btn btn-neutral text-white">Login</button>
             </div>
             <div className="form-control mt-2">
               <Link to='/register' className="btn btn-primary">Register</Link>

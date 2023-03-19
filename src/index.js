@@ -8,7 +8,7 @@ import TrendingAnime from './routes/TrendingAnime';
 import Root from "./routes/root";
 import App from './routes/App'
 import TopCharacters from "./routes/TopCharacters";
-import TopRecommendation from "./routes/TopRecommendation";
+import TopRecommendation from "./components/TopRecommendation";
 import AnimeDetails, { loader as animeDetailsLoader } from "./routes/AnimeDetails";
 import CharacterDetails, { loader as characterDetailsLoader } from "./routes/CharacterDetails";
 import SearchAnime from "./routes/SearchAnime";

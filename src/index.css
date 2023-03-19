@@ -101,8 +101,7 @@ form[action$="destroy"] button {
   height: 100%;
   width: 100%;
   background: rgb(30 41 59);
-  padding-bottom: 30px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 #root #container{
@@ -508,4 +507,18 @@ i {
 
 #custom-genre:hover #custom-genre-list{
   display: grid;
+}
+
+.trending-img{
+  margin-right: 20px !important;
+}
+
+#custom-border-bottom{
+  border-bottom: 2px solid rgb(192, 27, 167);
+  padding-bottom: 40px;
+}
+
+#custom-navigation{
+  border-bottom: 2px solid rgb(192, 27, 167);
+  padding-bottom: 10px;
 }
