@@ -2,12 +2,13 @@ import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import BannerSlider from './BannerSlider';
+import LoginSlider from './LoginSlider';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem(localStorage.getItem("token") || false));
   const [error, setError] = useState('');
 
 
@@ -37,7 +38,7 @@ const Login = () => {
           console.log("Status", data);
           localStorage.setItem('token', token);
           if (data.status === 'error') {
-            setError(data.description);
+            setError('Login failed, check email or password.');
           }
           if (data.status === 'ok' && user.password) {
             setError(<p className='text-success'>Login Successfully!!</p>);
@@ -76,41 +77,45 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-slate-800">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 w-[390px] shadow-2xl bg-black">
-          {error && <div className='text-error text-center mt-5'>{error}</div>}
-          <div className="card-body">
-            <div className="form-control">
-              <label className="label" htmlFor='email '>
-                <span className="label-text text-white">Email</span>
-              </label>
-              <input type="email" id='email' placeholder="Email" className="input input-accent input-bordered" value={email}
-                onChange={(event) => setEmail(event.target.value)} />
-            </div>
-            <div className="form-control">
-              <label className="label" htmlFor='password'>
-                <span className="label-text text-white">Password</span>
-              </label>
-              <div className="relative">
-                <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full" value={password}
-                  onChange={(event) => setPassword(event.target.value)} />
-                <button type="button" className="absolute right-0 text-white w-[60px] btn" onClick={toggleShowPassword}>
-                  {showPassword ? <span className="text-white">Hide</span> : <span className="text-white">Show</span>}
-                </button>
+    <div className="hero bg-black">
+      <div className="flex flex-col lg:flex-row w-screen justify-between p-0 ">
+        <div className='custom-br h-screen flex flex-col items-center justify-center w-full'>
+          <h1 className='text-white text-3xl'>Sign in to your account</h1>
+          <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 w-[390px]">
+            {error && <div className='text-error text-center mt-5'>{error}</div>}
+            <div className="card-body">
+              <div className="form-control">
+                <label className="label" htmlFor='email '>
+                  <span className="label-text text-white">Email</span>
+                </label>
+                <input type="email" id='email' placeholder="Email" className="input input-accent input-bordered" value={email}
+                  onChange={(event) => setEmail(event.target.value)} />
               </div>
-              <label className="mt-4">
-                <Link to='/forgot-password' className="text-white hover:underline">Forgot password?</Link>
-              </label>
+              <div className="form-control">
+                <label className="label" htmlFor='password'>
+                  <span className="label-text text-white">Password</span>
+                </label>
+                <div className="relative">
+                  <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full" value={password}
+                    onChange={(event) => setPassword(event.target.value)} />
+                  <button type="button" className="absolute right-0 text-white w-[60px] btn btn-primary" onClick={toggleShowPassword}>
+                    {showPassword ? <span className="text-white">Hide</span> : <span className="text-white">Show</span>}
+                  </button>
+                </div>
+                <label className="mt-4">
+                  <Link to='/forgot-password' className="text-white hover:underline">Forgot password?</Link>
+                </label>
+              </div>
+              <div className="form-control mt-3" id='custom-login-border'>
+                <button type='submit' className="btn btn-primary text-white">Login</button>
+              </div>
+              <p className='text-white text-center mt-3'>Don't have an account yet?<Link to='/register' className="text-white text-primary hover:underline ml-2 ">Sign Up</Link></p>
             </div>
-            <div className="form-control mt-3">
-              <button type='submit' className="btn btn-neutral text-white">Login</button>
-            </div>
-            <div className="form-control mt-2">
-              <Link to='/register' className="btn btn-primary">Register</Link>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div className="hidden lg:block w-full relative">
+          <LoginSlider />
+        </div>
       </div>
     </div>
   );

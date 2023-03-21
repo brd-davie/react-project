@@ -29,11 +29,14 @@ const SearchAnime = () => {
   // };
 
   useEffect(() => {
-    getAnime(search);
+    // const interval = setInterval(() => {
+    getAnime(search)
+    // clearInterval(interval)
+    // }, 1000);
   }, [search])
 
   if (isLoading) {
-    return <div className="absolute left-1/2 top-1/2"><AnimeGif /></div>
+    return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
   }
 
   return (

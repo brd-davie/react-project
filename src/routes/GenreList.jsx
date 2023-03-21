@@ -1,9 +1,14 @@
 import AnimeGenre from "../components/AnimeGenre"
 
-const GenreList = ({ genreList }) => {
+const GenreList = () => {
+
   return (
     <div>
-      <AnimeGenre />
+      {
+        AnimeGenre.length ? (
+          <AnimeGenre />
+        ) : 'test'
+      }
     </div>
   )
 }

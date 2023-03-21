@@ -13,6 +13,8 @@ body {
     sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(30 41 59);
+
 }
 
 code {
@@ -98,19 +100,19 @@ form[action$="destroy"] button {
 }
 
 #root {
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   background: rgb(30 41 59);
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 #root #container{
   height: inherit;
 }
 
-#root #container .main-container{
+/* #root #container .main-container{
   height: 100%;
-}
+} */
 
 #detail::-webkit-scrollbar{
   display: none;
@@ -440,9 +442,9 @@ i {
     right: 27%;
     width: 17%;
   }
-  #root {
+  /* #root {
     padding-bottom: 70px;
-  }
+  } */
 
   #recommendation-title{
     display: none;
@@ -503,22 +505,87 @@ i {
 
 #custom-genre-list{
   display: none;
+  transition: all 4s ease-out;
 }
 
 #custom-genre:hover #custom-genre-list{
   display: grid;
+  transition: all 3s ease-in;
 }
+
 
 .trending-img{
   margin-right: 20px !important;
 }
 
-#custom-border-bottom{
-  border-bottom: 2px solid rgb(192, 27, 167);
-  padding-bottom: 40px;
+#custom-border-top{
+  /* border-bottom: 2px solid rgb(54, 70, 85); */
+  border-top: 2px solid #8b2da0;
+  padding: 30px 0 40px;
 }
 
 #custom-navigation{
-  border-bottom: 2px solid rgb(192, 27, 167);
+  border-bottom: 2px solid rgb(70, 14, 126);
   padding-bottom: 10px;
+}
+
+.bb-anime-details{
+  border-bottom: 2px solid rgb(54, 70, 85);
+  border-top: 2px solid rgb(54, 70, 85);
+  padding: 10px 0;
+}
+
+.anime-info-bb{
+  border-left: 2px solid rgb(54, 70, 85);
+}
+
+.custom-border{
+  padding: 50px 0;
+  margin-top: 20px !important;
+  border-bottom: 2px solid rgb(54, 70, 85);
+  border-top: 2px solid rgb(54, 70, 85);
+}
+
+.slick-arrow{
+  transform: translate(0, 0) !important;
+  background-color: #8b2da0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 2;
+  top: 30% !important;
+}
+
+/* .custom-border .slick-list{
+  margin-left: 30px !important;
+} */
+
+.custom-border .slick-track{
+  display: flex;
+  gap: 10px;
+}
+
+.custom-border{
+  margin-left: 0 30px;
+}
+
+#custom-login-border{
+  border-bottom: 2px solid rgb(54, 70, 85);
+  padding-bottom: 40px;
+}
+
+.custom-register-bt{
+  border-top: 2px solid rgb(54, 70, 85);
+}
+
+.modal-box.custom-modal{
+  height: unset !important;
+  width: unset !important;
+}
+
+.custom-br{
+  border-right: 2px solid #8b2da0;
+}
+
+.custom-footer{
+  border-top: 2px solid #8b2da0;
 }

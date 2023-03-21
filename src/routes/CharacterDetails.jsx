@@ -31,7 +31,7 @@ const CharacterDetails = () => {
           </div>
         </div>
         <div className='md:w-1/2 mt-5 md:mt-0'>
-          <h2 className='text-4xl text-accent my-3 md:mt-0'>Animes</h2>
+          {/* <h2 className='text-4xl text-accent my-3 md:mt-0'>Animes</h2> */}
           <div className='grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 gap-2'>
             {character.anime.map((anime, index) => (
               <Link to={`/anime/anime-list/${anime.anime.mal_id}/anime-details`} key={index} className='flex-col md:w-md max-w-xs'>

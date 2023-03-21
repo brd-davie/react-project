@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from '../components/Pagination';
 import AnimeGif from '../components/AnimeGif';
+import Footer from '../components/Footer';
+import AnimeSlick from '../components/AnimeSlick';
 
 const TopCharacters = () => {
 
@@ -33,7 +35,7 @@ const TopCharacters = () => {
   }, [])
 
   if (isLoading) {
-    return <div className="absolute left-1/2 top-1/2"><AnimeGif /></div>
+    return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
   }
 
   return (
@@ -46,10 +48,10 @@ const TopCharacters = () => {
               <div className="card card-side bg-black shadow-xl h-full flex-wrap md:flex-nowrap md:h-full rounded-md overflow-hidden">
                 <figure className='w-full md:full lg:h-full'><img src={anime.images.jpg.image_url} className='h-full w-full object-cover md:w-full' alt="Character" /></figure>
                 <div className="card-body justify-between w-3/4 bg-neutral p-2">
-                  <h2 className="card-title text-sm md:text-md lg:pt-2 lg:text-xl md-gap-5 flex-col items-start text-success gap-0">{anime.name}</h2>
+                  <h2 className="card-title text-sm md:text-md lg:pt-2 lg:text-xl md-gap-5 flex-col items-start text-white gap-0">{anime.name}</h2>
                   <div className="card-actions flex-col">
                     <p className='text-xs md: text-white md:block'>Nicknames:</p>
-                    <span className='text-success text-xs flex flex-col'>{anime.nicknames.slice(0, 3).map((name, index) => (
+                    <span className='text-white opacity-[.3] text-xs flex flex-col'>{anime.nicknames.slice(0, 3).map((name, index) => (
                       <span key={index}>-{name}</span>
                     ))}</span>
                     <div>
@@ -60,13 +62,15 @@ const TopCharacters = () => {
                     <input type="radio" name="rating-3" className="mask mask-heart bg-red-400" />
                     <span className='text-error ml-1'>{anime.favorites}</span>
                   </div>
-                  <Link to={`${anime.mal_id}/details`} className='btn btn-xs btn-accent'>View Details</Link>
+                  <Link to={`${anime.mal_id}/details`} className='btn btn-xs btn-primary'>View Details</Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
         <Pagination handlePageClick={handlePageClick} />
+        <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/genre'}`} />
+        <Footer />
       </div>
     </div>
   )

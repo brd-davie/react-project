@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { getAnimeVideos } from '../anime'
 import { Link } from 'react-router-dom'
+import Slider from 'react-slick';
+import TopCharacters from '../routes/TopCharacters';
+import AnimeSlick from './AnimeSlick';
 
 const AnimeEpisodes = ({ id }) => {
 
@@ -11,22 +13,61 @@ const AnimeEpisodes = ({ id }) => {
     console.log(response.data);
     setVideo(response.data);
   };
+
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   useEffect(() => {
     getAnimeVideos(id)
   }, [id])
   return (
-    <div className='flex flex-col-reverse gap-3 justify-end mt-4'>
-      {video.map((anime, index) => (
-        <div key={index} className=''>
-          <img src={anime.images.jpg.image_url} alt="" />
-          <Link to={anime.url} className='hover:underline text-accent'>
-            <h2 className='text-accent'><span>{anime.mal_id}. </span>{anime.title}</h2>
-          </Link>
-        </div>
-      ))}
-      <h1 className='text-accent text-2xl'><strong>Episodes</strong></h1>
-    </div>
-  )
+    <>
+      {
+        video.length !== 0 ? (
+          <div className='custom-border flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
+            {/* <h1 className='text-accent text-2xl'><strong>Episodes</strong></h1> */}
+            <Slider {...settings}>
+              {video.map((anime, index) => (
+                <div key={index} className=''>
+                  <Link to={anime.url} className='hover:underline text-accent'>
+                    <img src={anime.images.jpg.image_url} alt="" />
+                  </Link>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        ) : ''
+      }
+    </>
+  );
 }
 
 export default AnimeEpisodes

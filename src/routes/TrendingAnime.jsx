@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimeGif from "../components/AnimeGif";
 import Pagination from "../components/Pagination";
+import Footer from "../components/Footer";
+import AnimeSlick from "../components/AnimeSlick";
 
 function TrendingAnime() {
 
@@ -34,16 +36,16 @@ function TrendingAnime() {
 
 
   if (isLoading) {
-    return <div className="absolute left-1/2 top-1/2"><AnimeGif /></div>
+    return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
   }
 
   return (
     <>
       {
         topAnime ? (
-          <div fallback={<>Loading</>}>
+          <div>
             <h2 className="text-md md:text-2xl text-white md:px-3">Trending</h2>
-            <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-2 md:px-3 overflow-auto bg-transparent md:mt-0">
+            <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-3 md:px-3 bg-transparent md:mt-0">
               {topAnime.map((anime, index) => (
                 <div className="w-full h-full" key={index}>
                   <div className="card h-full bg-neutral shadow-xl">
@@ -72,12 +74,14 @@ function TrendingAnime() {
                         </div>
                       </div>
                     </div>
-                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-accent">View Details</Link>
+                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
                   </div>
                 </div>
               ))}
             </div>
             <Pagination handlePageClick={handlePageClick} />
+            <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/genre'}`} />
+            <Footer />
           </div>
         ) : ''
       }

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import AnimeGif from './AnimeGif';
 
 const AnimeGenre = () => {
 
   const [genres, setGenre] = useState([]);
   const [genreList, setGenreList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   const Genre = async () => {
     const response = await fetch(`https://api.jikan.moe/v4/genres/anime`)
       .then(res => res.json())
     console.log(response.data)
+    setIsLoading(false)
     setGenre(response.data)
   };
 
@@ -21,9 +24,21 @@ const AnimeGenre = () => {
     setGenreList(response.data)
   };
 
+  // const handlePageClick = async (data) => {
+  //   let currentPage = data.selected + 1;
+  //   const changePage = await handleClick(currentPage)
+  //   setGenreList(changePage);
+  // };
+
   useEffect(() => {
     Genre();
+    // let data = { selected: 0 }
+    // handlePageClick(data);
   }, [])
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
+  }
 
   return (
     <div>
@@ -41,7 +56,7 @@ const AnimeGenre = () => {
         </li>
       </ul>
       <h2>{genres.title}</h2>
-      <div className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-2 md:px-3 overflow-auto bg-transparent md:mt-0">
+      <div className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 md:px-3 overflow-auto bg-transparent md:mt-0">
         {genreList.map((anime, index) => (
           <div className="w-full h-full" key={index}>
             <div className="card h-full bg-neutral shadow-xl">
@@ -70,7 +85,7 @@ const AnimeGenre = () => {
                   </div>
                 </div>
               </div>
-              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-accent">View Details</Link>
+              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
             </div>
           </div>
         ))}

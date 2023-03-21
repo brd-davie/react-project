@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate'
 
 const Pagination = ({ handlePageClick }) => {
   return (
-    <div id='custom-pagination' className="btn-group flex justify-center my-20">
+    <div id='custom-pagination' className="btn-group flex justify-center mt-20 mb-5">
       <ReactPaginate
         previousLabel={'Prev'}
         nextLabel={'Next'}
@@ -11,10 +11,10 @@ const Pagination = ({ handlePageClick }) => {
         pageCount={20}
         marginPagesDisplayed={2}
         onPageChange={handlePageClick}
-        containerClassName={'btn-group flex gap-2 text-success'}
-        pageClassName={'btn btn-accent btn-xs'}
-        previousClassName={'btn btn-accent btn-xs'}
-        nextClassName={'btn btn-accent btn-xs'}
+        containerClassName={'btn-group flex gap-2 text-primary'}
+        pageClassName={'btn btn-black btn-xs'}
+        previousClassName={'btn btn-black btn-xs'}
+        nextClassName={'btn btn-black btn-xs'}
         activeClassName={'btn-active'}
       />
     </div>
