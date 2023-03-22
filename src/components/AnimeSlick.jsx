@@ -23,7 +23,7 @@ const AnimeSlick = ({ endPoint, header, link }) => {
     // dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     responsive: [
       {
@@ -57,18 +57,18 @@ const AnimeSlick = ({ endPoint, header, link }) => {
 
 
   return (
-    <div id='custom-border-top' className='max-w-[1250px] mt-10 mx-auto lg:mt-10 px-7 lg:px-0 pb-10 lg:pr-[20px] lg:pb-[20px]'>
+    <div id='custom-border-top' className='max-w-[1250px] mt-3 mx-auto lg:mt-10 px-7 lg:px-0 pb-10 lg:pr-[20px] lg:pb-[20px]'>
       <div className='flex justify-between'>
-        <h2 className='text-3xl text-white mb-3 ml-5'>{header}</h2>
+        <h2 className='custom-title_border_left text-lg lg:text-3xl text-white mb-3 ml-3 pl-3'>{header}</h2>
         <Link to={link} className='hover:underline hover:text-primary text-white mr-7'>See More +</Link>
       </div>
       <Slider {...slider}>
         {animes.length !== 0 && animes.map((anime) => (
           <Link to={`/anime/trending-anime/${anime.mal_id}/anime-details`} key={anime.mal_id} className='h-full w-full focus-none'>
-            <img src={anime.images.jpg.image_url} alt='' className='h-[300px] lg:h-[350px] rounded-xl w-[170px] lg:w-[230px] md:ml-[15px] object-cover' />
+            <img src={anime.images.jpg.image_url} alt='' className='h-[300px] w-full rounded-xl object-cover' />
             {
               anime.score ? (
-                <div className="badge-primary absolute ml-[15px] bottom-10 px-3 flex items-center">{anime.score}
+                <div className="badge-primary absolute bottom-10 px-3 flex items-center">{anime.score}
                   <div className='rating rating-sm'>
                     <input type="radio" name="rating-4" className="mask mask-star-2 bg-green-500 ml-2" />
                   </div>

@@ -70,6 +70,7 @@ const TopCharacters = () => {
         </div>
         <Pagination handlePageClick={handlePageClick} />
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/genre'}`} />
+        <AnimeSlick endPoint={`https://api.jikan.moe/v4/top/anime`} header='Trending' link={`${'/anime/trending-anime'}`} />
         <Footer />
       </div>
     </div>

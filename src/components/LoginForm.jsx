@@ -2,7 +2,6 @@ import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import BannerSlider from './BannerSlider';
 import LoginSlider from './LoginSlider';
 
 const Login = () => {
@@ -37,17 +36,22 @@ const Login = () => {
           const token = JSON.stringify(data);
           console.log("Status", data);
           localStorage.setItem('token', token);
+
           if (data.status === 'error') {
             setError('Login failed, check email or password.');
           }
           if (data.status === 'ok' && user.password) {
             setError(<p className='text-success'>Login Successfully!!</p>);
-            navigate('/')
+            const interval = setInterval(() => {
+              navigate('/');
+              clearInterval(interval);
+            }, 2500)
           }
         })
         .catch(() => {
           console.log(error);
         })
+
     }
   };
 
@@ -82,7 +86,7 @@ const Login = () => {
         <div className='custom-br h-screen flex flex-col items-center justify-center w-full'>
           <h1 className='text-white text-3xl'>Sign in to your account</h1>
           <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 w-[390px]">
-            {error && <div className='text-error text-center mt-5'>{error}</div>}
+            {error && <div className='text-error text-center mt-5 animate-shake'>{error}</div>}
             <div className="card-body">
               <div className="form-control">
                 <label className="label" htmlFor='email '>
@@ -99,7 +103,7 @@ const Login = () => {
                   <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full" value={password}
                     onChange={(event) => setPassword(event.target.value)} />
                   <button type="button" className="absolute right-0 text-white w-[60px] btn btn-primary" onClick={toggleShowPassword}>
-                    {showPassword ? <span className="text-white">Hide</span> : <span className="text-white">Show</span>}
+                    {showPassword ? <span className="text-white"></span> : <span className="text-white">Show</span>}
                   </button>
                 </div>
                 <label className="mt-4">

@@ -79,7 +79,7 @@ const BannerSlider = () => {
         {images && images.map((image, index) => (
           <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full lg:h-screen w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
         ))}
-        <div className='absolute z-10 right-10 bottom-0 right-[35%] lg:bottom-[4rem] lg:right-[5rem] flex gap-2'>
+        <div className='absolute z-10 right-10 bottom-[10px] right-[35%] lg:bottom-[4rem] lg:right-[5rem] flex gap-2'>
           {images.map((image, index) => (
             <button
               key={index}

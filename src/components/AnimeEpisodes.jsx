@@ -52,13 +52,13 @@ const AnimeEpisodes = ({ id }) => {
     <>
       {
         video.length !== 0 ? (
-          <div className='custom-border flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
+          <div className='custom-border-ep flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
             {/* <h1 className='text-accent text-2xl'><strong>Episodes</strong></h1> */}
             <Slider {...settings}>
               {video.map((anime, index) => (
                 <div key={index} className=''>
                   <Link to={anime.url} className='hover:underline text-accent'>
-                    <img src={anime.images.jpg.image_url} alt="" />
+                    <img src={anime.images.jpg.image_url} alt="" className='w-full' />
                   </Link>
                 </div>
               ))}

@@ -82,10 +82,10 @@ const AnimeDetails = () => {
         </div>
         <AnimeEpisodes id={anime.mal_id} />
         {
-          anime.trailer.embed_url !== null ?
+          anime.trailer.embed_url ?
             (
               <div className='mt-10 lg:w-[800px] mx-auto'>
-                <h3 className='text-accent text-lg md:text-2xl mb-2 md:mb-3'>Trailer</h3>
+                {/* <h3 className='text-accent text-lg md:text-2xl mb-2 md:mb-3'>Trailer</h3> */}
                 <embed src={anime.trailer.embed_url} type="" width='100%' className='h-[300px]  md:h-[600px]' />
               </div>
             ) : ''
