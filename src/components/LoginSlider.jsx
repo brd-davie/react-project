@@ -8,24 +8,24 @@ const BannerSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    {
-      url: aerial,
-      title: 'Aerial',
-      id: 51535,
-      description: '',
-    },
+    // {
+    //   url: aerial,
+    //   title: 'Aerial',
+    //   id: 51535,
+    //   description: '',
+    // },
     {
       url: autoMata,
       title: '2B',
       id: 21,
       description: ''
-    },
-    {
-      url: rengoku,
-      title: 'Rengoku',
-      id: 53322,
-      description: ''
-    },
+    }
+    // {
+    //   url: rengoku,
+    //   title: 'Rengoku',
+    //   id: 53322,
+    //   description: ''
+    // },
   ];
 
   const handleNavigationClick = (index) => {

@@ -12,7 +12,7 @@ function OngoingAnime() {
 
   const fetchOngoingAnime = async (page) => {
     console.log('Running');
-    const response = await fetch(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}&limit=21`)
+    const response = await fetch(`https://api.jikan.moe/v4/seasons/now?page=${page}&limit=21`)
       .then(res => res.json());
     console.log(response.data)
     setIsLoading(false)
@@ -44,7 +44,7 @@ function OngoingAnime() {
       {
         ongoing ? (
           <div>
-            <h2 className="text-md md:text-2xl text-white md:px-3">Ongoing</h2>
+            <h2 className="custom-title_border_left text-[22px] md:text-3xl text-white opacity-[.6] md:px-3">Ongoing</h2>
             <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-3 md:px-3 bg-transparent md:mt-0">
               {ongoing.map((anime, index) => (
                 <div className="w-full h-full" key={index}>
@@ -79,14 +79,13 @@ function OngoingAnime() {
                         </div>
                       </div>
                     </div>
-                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
+                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass">View Details</Link>
                   </div>
                 </div>
               ))}
             </div>
             <Pagination handlePageClick={handlePageClick} />
             <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/upcoming'}`} />
-            <Footer />
           </div>
         ) : ''
       }

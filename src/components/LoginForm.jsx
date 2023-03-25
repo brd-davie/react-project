@@ -1,10 +1,11 @@
-import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import LoginSlider from './LoginSlider';
+import eyesvg from './svg/Eye.svg'
+import eyeHide from './Icons/eyeHide.png'
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -38,20 +39,19 @@ const Login = () => {
           localStorage.setItem('token', token);
 
           if (data.status === 'error') {
-            setError('Login failed, check email or password.');
+            setError(<p className='text-error animate-shake'>Login failed, check email or password.</p>);
           }
-          if (data.status === 'ok' && user.password) {
+          if (data.status === 'ok') {
             setError(<p className='text-success'>Login Successfully!!</p>);
             const interval = setInterval(() => {
               navigate('/');
               clearInterval(interval);
-            }, 2500)
+            }, 2000)
           }
         })
         .catch(() => {
           console.log(error);
         })
-
     }
   };
 
@@ -64,17 +64,17 @@ const Login = () => {
 
     if (email === '' || email === null) {
       result = false;
-      setError('Please enter email');
+      setError(<p className='text-error animate-shake'>Please enter email.</p>);
     }
 
     if (password === '' || password === null) {
       result = false;
-      setError('Please enter password')
+      setError(<p className='text-error animate-shake'>Please enter a password.</p>)
     }
 
     if ((email === '' || email === null) && (password === '' || password === null)) {
       result = false;
-      setError('Please enter email and password');
+      setError(<p className='text-error animate-shake'>Please enter email and password.</p>);
     }
 
     return result;
@@ -86,13 +86,13 @@ const Login = () => {
         <div className='custom-br h-screen flex flex-col items-center justify-center w-full'>
           <h1 className='text-white text-3xl'>Sign in to your account</h1>
           <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 w-[390px]">
-            {error && <div className='text-error text-center mt-5 animate-shake'>{error}</div>}
+            {error && <div className='text-center text-error mt-5'>{error}</div>}
             <div className="card-body">
               <div className="form-control">
                 <label className="label" htmlFor='email '>
                   <span className="label-text text-white">Email</span>
                 </label>
-                <input type="email" id='email' placeholder="Email" className="input input-accent input-bordered" value={email}
+                <input type="email" id='email' placeholder="Email" className="input input-accent input-bordered text-black" value={email}
                   onChange={(event) => setEmail(event.target.value)} />
               </div>
               <div className="form-control">
@@ -100,10 +100,14 @@ const Login = () => {
                   <span className="label-text text-white">Password</span>
                 </label>
                 <div className="relative">
-                  <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full" value={password}
+                  <input type={showPassword ? 'text' : 'password'} id='password' placeholder="Password" className="input input-accent input-bordered w-full text-black" value={password}
                     onChange={(event) => setPassword(event.target.value)} />
-                  <button type="button" className="absolute right-0 text-white w-[60px] btn btn-primary" onClick={toggleShowPassword}>
-                    {showPassword ? <span className="text-white"></span> : <span className="text-white">Show</span>}
+                  <button type="button" className="absolute right-0 h-full w-[40px] shadow-none" onClick={toggleShowPassword}>
+                    {showPassword ?
+                      <img src={eyesvg} alt="Eye" className='w-[27px] mx-auto' />
+                      :
+                      <img src={eyeHide} alt="Eye" className='w-[40px] mx-auto ' />
+                    }
                   </button>
                 </div>
                 <label className="mt-4">
@@ -111,7 +115,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-3" id='custom-login-border'>
-                <button type='submit' className="btn btn-primary text-white">Login</button>
+                <button type='submit' onClick={onLogin} className="btn btn-neutral text-white">Sign in</button>
               </div>
               <p className='text-white text-center mt-3'>Don't have an account yet?<Link to='/register' className="text-white text-primary hover:underline ml-2 ">Sign Up</Link></p>
             </div>

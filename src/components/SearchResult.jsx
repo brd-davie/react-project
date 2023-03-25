@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Pagination from './Pagination'
 
-const SearchResult = ({ animeList }) => {
+const SearchResult = ({ animeList, handlePageClick }) => {
   return (
     <>
       {animeList ? (
-        <div>
+        <div className=''>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3 md:pb-10">
-            {animeList.map((anime) => (
+            {animeList.slice(0, 21).map((anime) => (
               <div key={anime.mal_id} className="">
                 <div className="card h-full bg-neutral shadow-xl">
                   <figure className="h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.image_url} alt={anime.animeTitle} /></figure>
-                  <div className="card-body px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between  md:justify-end">
+                  <div className="card-body px-3 pt-3 pb-2 md:py-2 flex-col items-start  text-left justify-between  md:justify-end">
                     <h4 className="card-title text-xs text-white">{anime.title.slice(0, 20)}</h4>
                     <div className="flex items-center justify-between w-full">
                       <p className="text-error text-xs"><svg
@@ -35,11 +36,12 @@ const SearchResult = ({ animeList }) => {
                       </div>
                     </div>
                   </div>
-                  <Link to={`${anime.mal_id}/anime-details`} className='btn btn-xs btn-accent'>View Details</Link>
+                  <Link to={`${anime.mal_id}/anime-details`} className='btn btn-xs glass'>View Details</Link>
                 </div>
               </div>
             ))}
           </div>
+          <Pagination handlePageClick={handlePageClick} />
         </div>
       ) : ''
       }

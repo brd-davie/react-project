@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick';
-import TopCharacters from '../routes/TopCharacters';
-import AnimeSlick from './AnimeSlick';
 
 const AnimeEpisodes = ({ id }) => {
 
@@ -46,19 +44,24 @@ const AnimeEpisodes = ({ id }) => {
   };
 
   useEffect(() => {
-    getAnimeVideos(id)
+    const interval = setInterval(() => {
+      getAnimeVideos(id)
+      clearInterval(interval);
+    }, 1500)
   }, [id])
   return (
     <>
       {
-        video.length !== 0 ? (
-          <div className='custom-border-ep flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
+        video ? (
+          <div className='custom-border-ep mt-10 flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
             {/* <h1 className='text-accent text-2xl'><strong>Episodes</strong></h1> */}
             <Slider {...settings}>
               {video.map((anime, index) => (
                 <div key={index} className=''>
                   <Link to={anime.url} className='hover:underline text-accent'>
-                    <img src={anime.images.jpg.image_url} alt="" className='w-full' />
+                    {anime.images.jpg.image_url ? (
+                      <img src={anime.images.jpg.image_url} alt="" className='w-full' />
+                    ) : ''}
                   </Link>
                 </div>
               ))}

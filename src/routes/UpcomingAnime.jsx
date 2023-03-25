@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimeGif from "../components/AnimeGif";
 import Pagination from "../components/Pagination";
-import Footer from "../components/Footer";
 import AnimeSlick from "../components/AnimeSlick";
 
 function UpcomingAnime() {
@@ -33,8 +32,6 @@ function UpcomingAnime() {
     handlePageClick(data);
   }, [])
 
-
-
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
   }
@@ -44,7 +41,7 @@ function UpcomingAnime() {
       {
         upcoming ? (
           <div>
-            <h2 className="text-md md:text-2xl text-white md:px-3">Upcoming</h2>
+            <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3">Upcoming</h2>
             <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-3 md:px-3 bg-transparent md:mt-0">
               {upcoming.map((anime, index) => (
                 <div className="w-full h-full" key={index}>
@@ -79,14 +76,13 @@ function UpcomingAnime() {
                         </div>
                       </div>
                     </div>
-                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
+                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass">View Details</Link>
                   </div>
                 </div>
               ))}
             </div>
             <Pagination handlePageClick={handlePageClick} />
             <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/now`} header='Ongoing' link={`${'/anime/ongoing'}`} />
-            <Footer />
           </div>
         ) : ''
       }

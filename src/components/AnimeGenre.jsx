@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import AnimeGif from './AnimeGif';
+import Pagination from './Pagination';
 
 const AnimeGenre = () => {
 
@@ -50,7 +51,7 @@ const AnimeGenre = () => {
           </Link>
           <ul id='custom-genre-list' className="z-10 menu menu-compact dropdown-content pb-3 px-2 bg-black text-xs md:pr-7 md:pl-3 md:pt-2 lg:w-[1280px] grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 md:p-10">
             {genres.map((genre, index) => (
-              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto block text-xs md:text-md hover:text-accent hover:underline p-1 bg-black' >{genre.name}</Link></li>
+              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto block bg-transparent text-xs md:text-md hover:text-white hover:underline p-1 bg-black' >{genre.name}</Link></li>
             ))}
           </ul>
         </li>
@@ -61,7 +62,7 @@ const AnimeGenre = () => {
           <div className="w-full h-full" key={index}>
             <div className="card h-full bg-neutral shadow-xl">
               <figure className="h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.image_url} alt={anime.animeTitle} /></figure>
-              <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between  md:justify-end">
+              <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between bg-neutral  md:justify-end">
                 <h4 className="card-title text-xs text-white">{anime.title.slice(0, 20)}</h4>
                 <div className="flex items-center justify-between w-full">
                   <p className="text-error text-xs"><svg
@@ -85,7 +86,7 @@ const AnimeGenre = () => {
                   </div>
                 </div>
               </div>
-              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
+              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass">View Details</Link>
             </div>
           </div>
         ))}

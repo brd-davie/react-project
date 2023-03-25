@@ -12,7 +12,7 @@ function TrendingAnime() {
 
   const fetchTrendingAnime = async (page) => {
     console.log('Running');
-    const response = await fetch(`https://api.jikan.moe/v4/top/anime?page=${page}&limit=21`)
+    const response = await fetch(`https://api.jikan.moe/v4/top/anime?page=${page}`)
       .then(res => res.json());
     console.log(response.data)
     setIsLoading(false)
@@ -44,13 +44,13 @@ function TrendingAnime() {
       {
         topAnime ? (
           <div>
-            <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white md:px-3">Trending</h2>
+            <h2 className="custom-title_border_left text-[22px] md:text-3xl text-white opacity-[.6] md:px-3">Trending</h2>
             <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-3 md:px-3 bg-transparent md:mt-0">
               {topAnime.map((anime, index) => (
                 <div className="w-full h-full" key={index}>
                   <div className="card h-full bg-neutral shadow-xl">
                     <figure className="h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.image_url} alt={anime.animeTitle} /></figure>
-                    <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between  md:justify-end">
+                    <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between  bg-neutral md:justify-end">
                       <h4 className="card-title text-xs text-white">{anime.title.slice(0, 20)}</h4>
                       <div className="flex items-center justify-between w-full">
                         <p className="text-error text-xs"><svg
@@ -74,14 +74,13 @@ function TrendingAnime() {
                         </div>
                       </div>
                     </div>
-                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-primary">View Details</Link>
+                    <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass ">View Details</Link>
                   </div>
                 </div>
               ))}
             </div>
             <Pagination handlePageClick={handlePageClick} />
             <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/genre'}`} />
-            <Footer />
           </div>
         ) : ''
       }

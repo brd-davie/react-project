@@ -2,6 +2,7 @@ import React from 'react'
 import SearchResult from '../components/SearchResult';
 import { useEffect, useState } from 'react';
 import AnimeGif from '../components/AnimeGif';
+import Pagination from '../components/Pagination';
 
 const SearchAnime = () => {
   const [animeData, setAnimeData] = useState([]);
@@ -10,11 +11,18 @@ const SearchAnime = () => {
 
 
   const getAnime = async (search) => {
-    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}&limit=21`)
+    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}`)
       .then(res => res.json())
     console.log(response.data)
     setIsLoading(false)
     setAnimeData(response.data)
+  };
+
+  const handlePageClick = async (data, search) => {
+    let currentPage = data.selected + 1;
+    console.log(data.selected)
+    const changePage = await getAnime(currentPage, search)
+    setAnimeData(changePage);
   };
 
   const handleSearch = (e) => {
@@ -22,25 +30,18 @@ const SearchAnime = () => {
     getAnime(search)
   };
 
-  // const handlePageClick = async (data) => {
-  //   let currentPage = data.selected + 1;
-  //   const changePage = await getAnime(currentPage)
-  //   setAnimeData(changePage);
-  // };
-
   useEffect(() => {
-    // const interval = setInterval(() => {
     getAnime(search)
-    // clearInterval(interval)
-    // }, 1000);
-  }, [search])
+    let data = { selected: 0 }
+    handlePageClick(data)
+  }, [])
 
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
   }
 
   return (
-    <div>
+    <div className='mt-3 lg:mt-0'>
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
       <form
         className='text-center'
@@ -55,9 +56,8 @@ const SearchAnime = () => {
       </form>
       <div id='my-anime-list' className="my-anime-list max-w-7xl mx-auto mt-5  h-2/4">
         <div className="pb-24">
-          <div className='pb-4'><h1 className='text-4xl text-center text-white'>My<strong className='text-accent'>Anime</strong>List</h1></div>
-          <SearchResult setSearch={setSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} />
-          {/* <Pagination handlePageClick={handlePageClick} /> */}
+          <div className='pb-4'><h1 className='text-4xl text-center text-white'>My<strong className='opacity-[.6]'>Anime</strong>List</h1></div>
+          <SearchResult setSearch={setSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} handlePageClick={handlePageClick} />
         </div>
       </div>
     </div>
