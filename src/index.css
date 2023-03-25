@@ -13,6 +13,8 @@ body {
     sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(30 41 59);
+
 }
 
 code {
@@ -98,20 +100,19 @@ form[action$="destroy"] button {
 }
 
 #root {
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   background: rgb(30 41 59);
-  padding-bottom: 30px;
-  overflow: hidden;
+  /* overflow: auto; */
 }
 
 #root #container{
   height: inherit;
 }
 
-#root #container .main-container{
+/* #root #container .main-container{
   height: 100%;
-}
+} */
 
 #detail::-webkit-scrollbar{
   display: none;
@@ -374,6 +375,7 @@ i {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh;
 }
 
 @tailwind base;
@@ -441,9 +443,9 @@ i {
     right: 27%;
     width: 17%;
   }
-  #root {
+  /* #root {
     padding-bottom: 70px;
-  }
+  } */
 
   #recommendation-title{
     display: none;
@@ -451,6 +453,18 @@ i {
 
   #card-custom:hover .card  #recommendation-title{
     display: block;
+  }
+
+  #custom-border-top .slick-next{
+    right: -23px !important;
+  }
+
+  .anime-info-bb{
+    border-left: 2px solid rgb(54, 70, 85);
+  }
+
+  #custom-border-top{
+    padding: 30px 20px 40px;
   }
 }
 
@@ -471,7 +485,6 @@ i {
 }
 
 .my-anime-list > div{
-  height: 690px;
   max-height: 100%;
 }
 
@@ -504,8 +517,182 @@ i {
 
 #custom-genre-list{
   display: none;
+  transition: all 4s ease-out;
 }
 
 #custom-genre:hover #custom-genre-list{
   display: grid;
+  transition: all 3s ease-in;
 }
+
+
+.trending-img{
+  margin-right: 20px !important;
+}
+
+#custom-border-top{
+  /* border-bottom: 2px solid rgb(54, 70, 85); */
+  /* border-top: 2px solid #8b2da0; */
+  padding: 20px;
+}
+
+.custom-title_border_left{
+  border-left: 4px solid #8b2da0;
+}
+
+#custom-navigation{
+  border-bottom: 2px solid rgb(70, 14, 126);
+  padding-bottom: 5px;
+}
+
+.bb-anime-details{
+  border-bottom: 2px solid rgb(54, 70, 85);
+  border-top: 2px solid rgb(54, 70, 85);
+  padding: 10px 0;
+}
+
+.custom-border{
+  padding: 50px 0;
+  margin-top: 20px !important;
+  border-bottom: 2px solid rgb(54, 70, 85);
+  border-top: 2px solid rgb(54, 70, 85);
+}
+
+#custom-border-top .slick-arrow{
+  transform: translate(0, 0) !important;
+  background-color: #000 !important;
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 2;
+  top: 40% !important;
+}
+
+/* .custom-border .slick-list{
+  margin-left: 30px !important;
+} */
+
+.slick-track{
+  display: flex !important;
+  gap: 10px !important;
+}
+
+#custom-border-top .slick-next{
+  right: -20px !important;
+}
+
+#custom-border-top .slick-prev{
+  left: -20px !important;
+}
+
+.custom-border{
+  margin-left: 0 30px;
+}
+
+#custom-login-border{
+  border-bottom: 2px solid rgb(54, 70, 85);
+  padding-bottom: 40px;
+}
+
+.custom-register-bt{
+  border-top: 2px solid rgb(54, 70, 85);
+}
+
+.modal-box.custom-modal{
+  height: unset !important;
+  width: unset !important;
+}
+
+.custom-br{
+  border-right: 2px solid #8b2da0;
+}
+
+.custom-footer{
+  border-top: 2px solid #8b2da0;
+}
+
+.custom-border-ep .slick-arrow{
+  transform: translate(0, 0) !important;
+  background-color: #000 !important;
+  width: 30px !important;
+  height: 30px !important;
+  z-index: 2;
+  top: 35% !important;
+}
+
+.custom-border-ep .slick-next{
+  right: 0 !important;
+}
+
+.custom-border-ep .slick-prev{
+  left: 6px !important;
+}
+
+.custom-border-ep .slick-slider{
+  padding: 0 30px;
+}
+
+.slick-arrow{
+  border-radius: 0;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-shake {
+  animation-name: shake;
+  animation-duration: .2s;
+  animation-iteration-count: 4;
+}
+
+.custom-btt-button {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.shadow-none:hover,
+.shadow-none:active,
+.shadow-none:focus,
+.shadow-none:visited
+{
+  box-shadow: none !important;
+}
+
+
+/* #custom-news:nth-child(2){
+  grid-row: 4 / 5;
+  grid-column: 1 /3;
+  height: 500px;
+  flex-direction: row-reverse;
+}
+
+#custom-news:nth-child(2) #custom-figure img{
+  width: auto;
+}
+
+#custom-news:nth-child(2) #custom-figure{
+  width:40%;
+} */

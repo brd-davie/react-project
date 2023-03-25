@@ -7,15 +7,18 @@ const AnimeGenre = () => {
 
   const [genres, setGenre] = useState([]);
   const [genreList, setGenreList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const Genre = async () => {
     const response = await fetch(`https://api.jikan.moe/v4/genres/anime`)
       .then(res => res.json())
     console.log(response.data)
+    setIsLoading(false)
     setGenre(response.data)
   };
 
-  const handleClick = async (id, page) => {
+  const handleClick = async (id) => {
     const response = await fetch(`https://api.jikan.moe/v4/anime?genres=${id}`)
       .then(response => response.json())
     console.log(response.data)
@@ -29,33 +32,37 @@ const AnimeGenre = () => {
   // };
 
   useEffect(() => {
-
     Genre();
+    // let data = { selected: 0 }
+    // handlePageClick(data);
   }, [])
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
+  }
 
   return (
     <div>
       <ul className='bg-black rounded-lg overflow-hidden'>
         <li tabIndex={0} id='custom-genre' className=''>
-          <Link className='genre-btn text-white text-2xl bg-black hover:text-accent hover:underline flex justify-between items-center p-2'>
+          <Link className='genre-btn text-white text-2xl bg-black flex justify-between items-center p-2'>
             Genres
-            <span className='text-accent'><AnimeGif /></span>
             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
           </Link>
-          <ul id='custom-genre-list' className="z-10 menu menu-compact dropdown-content px-2 bg-black text-xs md:pr-7 md:pl-3 md:pt-2 w-[1280px] grid grid-cols-7 p-10">
+          <ul id='custom-genre-list' className="z-10 menu menu-compact dropdown-content pb-3 px-2 bg-black text-xs md:pr-7 md:pl-3 md:pt-2 lg:w-[1280px] grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 md:p-10">
             {genres.map((genre, index) => (
-              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto text-md hover:text-accent hover:underline p-1' >{genre.name}</Link></li>
+              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white w-auto block bg-transparent text-xs md:text-md hover:text-white hover:underline p-1 bg-black' >{genre.name}</Link></li>
             ))}
           </ul>
         </li>
       </ul>
       <h2>{genres.title}</h2>
-      <div id="popular_anime" className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 py-5 gap-2 md:px-3 overflow-auto bg-transparent md:mt-0">
+      <div className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 md:px-3 overflow-auto bg-transparent md:mt-0">
         {genreList.map((anime, index) => (
           <div className="w-full h-full" key={index}>
             <div className="card h-full bg-neutral shadow-xl">
               <figure className="h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.image_url} alt={anime.animeTitle} /></figure>
-              <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between  md:justify-end">
+              <div className="card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between bg-neutral  md:justify-end">
                 <h4 className="card-title text-xs text-white">{anime.title.slice(0, 20)}</h4>
                 <div className="flex items-center justify-between w-full">
                   <p className="text-error text-xs"><svg
@@ -79,7 +86,7 @@ const AnimeGenre = () => {
                   </div>
                 </div>
               </div>
-              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs btn-accent">View Details</Link>
+              <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass">View Details</Link>
             </div>
           </div>
         ))}

@@ -1,18 +1,13 @@
-import React from 'react'
-import Nav from '../components/Nav'
-import Zenitsu from '../components/Zenitsu'
+import { BrowserRouter, Routes, Route, Outlet, RouterProvider } from 'react-router-dom';
+import Router from './Router';
+import '../index.css'
 
 const App = () => {
+
   return (
-    <div className=''>
-      <Nav />
-      <div id="hp-container" className='relative'>
-        <div id="hp-content" className=' w-screen max-w-7xl mx-auto text-center pt-10'>
-          <Zenitsu />
-        </div>
-      </div>
-    </div >
-  )
+    <RouterProvider router={Router} />
+    // <Router />
+  );
 }
 
 export default App
