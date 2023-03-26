@@ -6,7 +6,6 @@ import ForgotPasswordPage from '../routes/ForgotPasswordPage'
 import ProfilePage from '../routes/ProfilePage'
 import Root from "../routes/root";
 import CharacterDetails, { loader as characterDetailsLoader } from './CharacterDetails'
-import TopRecommendation from "../components/TopRecommendation";
 import TrendingAnime from '../routes/TrendingAnime'
 import AnimeDetails, { loader as animeDetailsLoader } from './AnimeDetails'
 import TopCharacters from './TopCharacters'
@@ -15,6 +14,11 @@ import SearchAnime from './SearchAnime'
 import AnimeGenre from '../components/AnimeGenre'
 import UpcomingAnime from "./UpcomingAnime";
 import OngoingAnime from "./OngoingAnime";
+import SeasonSummer from "./SeasonSummer";
+import SeasonFall from "./SeasonFall";
+import SeasonSpring from "./SeasonSpring";
+import SeasonWinter from "./SeasonWinter";
+import Seasons from "../components/Seasons";
 
 const Router = createBrowserRouter([
   {
@@ -75,16 +79,12 @@ const Router = createBrowserRouter([
         loader: animeDetailsLoader,
       },
       {
-        path: "top-recommendation",
-        element: <TopRecommendation />,
-      },
-      {
-        path: "top-recommendation/:mal_id/anime-details",
+        path: "anime-list/:mal_id/anime-details",
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
       },
       {
-        path: "anime-list/:mal_id/anime-details",
+        path: "recommendations/:mal_id/anime-details",
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
       },
@@ -112,6 +112,51 @@ const Router = createBrowserRouter([
       },
       {
         path: "ongoing/:mal_id/anime-details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+      {
+        path: "summer",
+        element: <SeasonSummer />,
+      },
+      {
+        path: "summer/:mal_id/anime-details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+      {
+        path: "fall",
+        element: <SeasonFall />,
+      },
+      {
+        path: "fall/:mal_id/anime-details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+      {
+        path: "spring",
+        element: <SeasonSpring />,
+      },
+      {
+        path: "spring/:mal_id/anime-details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+      {
+        path: "winter",
+        element: <SeasonWinter />,
+      },
+      {
+        path: "winter/:mal_id/anime-details",
+        element: <AnimeDetails />,
+        loader: animeDetailsLoader,
+      },
+      {
+        path: "seasons",
+        element: <Seasons />,
+      },
+      {
+        path: "seasons/:mal_id/anime-details",
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
       },

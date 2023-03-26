@@ -42,10 +42,10 @@ const TopCharacters = () => {
     <div>
       <div>
         <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3 pl-2">Top Characters</h2>
-        <div id="anime-character" className="custom-container grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 py-5 gap-3 md:px-2 overflow-auto bg-transparent md:mt-0 w-full">
+        <div id="anime-character" className="custom-container grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 md:px-2 overflow-auto bg-transparent md:mt-0 w-full">
           {characterList.map((anime, index) => (
-            <div key={index} className="w-full md:h-full">
-              <div className="card card-side shadow-2xl glass h-full flex-wrap md:h-full rounded-md overflow-hidden">
+            <Link to={`${anime.mal_id}/details`} key={index} className="w-full md:h-full overflow-hidden">
+              <div className="anime-character-card card card-side shadow-2xl glass h-full flex-wrap md:h-full rounded-md overflow-hidden">
                 <figure className='w-full'><img src={anime.images.jpg.image_url} className='h-full w-full object-cover' alt="Character" /></figure>
                 <div className="card-body justify-between w-3/4 p-0">
                   <div className='flex justify-between'>
@@ -64,14 +64,14 @@ const TopCharacters = () => {
                     <span className='text-error ml-1'>{anime.favorites}</span>
                   </div> */}
                   </div>
-                  <Link to={`${anime.mal_id}/details`} className='btn btn-xs text-white glass w-full'>View Details</Link>
+                  {/* <Link to={`${anime.mal_id}/details`} className='btn btn-xs text-white glass w-full'>View Details</Link> */}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Pagination handlePageClick={handlePageClick} />
-        <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/genre'}`} />
+        <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming`} header='Upcoming' link={`${'/anime/upcoming'}`} />
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/top/anime`} header='Trending' link={`${'/anime/trending-anime'}`} />
       </div>
     </div>

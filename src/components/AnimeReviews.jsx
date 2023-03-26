@@ -4,7 +4,7 @@ const AnimeReviews = () => {
   const [review, setReview] = useState([]);
 
   const getReviews = async () => {
-    const response = await fetch(`https://api.jikan.moe/v4/reviews/anime`)
+    const response = await fetch(`https://api.jikan.moe/v4/top/reviews`)
       .then(res => res.json())
     console.log(response.data);
     setReview(response.data);
