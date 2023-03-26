@@ -19,31 +19,31 @@ const AnimeSlick = ({ endPoint, header, link }) => {
   };
 
   const slider = {
-    // dots: true,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
         },
       },
     ],
@@ -59,16 +59,16 @@ const AnimeSlick = ({ endPoint, header, link }) => {
     <div id='custom-border-top' className='max-w-[1250px] mt-3 mx-auto lg:mt-10 px-7 lg:px-0 pb-10 lg:pr-[20px] lg:pb-[20px]'>
       <div className='flex justify-between'>
         <h2 className='custom-title_border_left text-2xl lg:text-3xl text-white opacity-[.6]  mb-3 ml-3 pl-3'>{header}</h2>
-        <Link to={link} className='hover:underline hover:text-primary text-white opacity-[.6] underline text-lg mr-5 '>See More +</Link>
+        <Link to={link} className='hover:underline hover:opacity-[unset] text-white opacity-[.6] underline text-lg mr-5 '>See More +</Link>
       </div>
       <Slider {...slider}>
         {animes ? (
-          animes.map((anime) => (
-            <Link to={`/anime/trending-anime/${anime.mal_id}/anime-details`} key={anime.mal_id} className='h-full w-full focus-none'>
+          animes.map((anime, index) => (
+            <Link to={`/anime/trending-anime/${anime.mal_id}/anime-details`} key={anime.mal_id} className='anime-list-card h-full w-full focus-none'>
               <img src={anime.images.jpg.image_url} alt='' className='h-[300px] w-full rounded-xl object-cover' />
               {
                 anime.score ? (
-                  <div className="badge-primary absolute text-white bottom-10 px-3 flex items-center">{anime.score}
+                  <div className="badge-primary absolute text-white bottom-5 px-3 flex items-center">{anime.score}
                     <div className='rating rating-sm'>
                       <input type="radio" name="rating-4" className="mask mask-star-2 bg-black ml-2" />
                     </div>

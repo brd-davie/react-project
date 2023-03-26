@@ -35,8 +35,8 @@ const CharacterDetails = () => {
             <h2 className='text-2xl text-white opacity-[.6] my-3 md:mt-0'>Animes</h2>
             <div className='carousel gap-3'>
               {character.anime.map((anime, index) => (
-                <Link to={`/anime/anime-list/${anime.anime.mal_id}/anime-details`} key={index} className='carousel-item w-[200px] flex-col md:w-md max-w-xs'>
-                  <img src={anime.anime.images.jpg.image_url} alt="" className='w-full object-cover h-[82%]' />
+                <Link to={`/anime/anime-list/${anime.anime.mal_id}/anime-details`} key={index} className='carousel-item w-[100px] flex-col md:w-md max-w-xs'>
+                  <img src={anime.anime.images.jpg.image_url} alt="" className='w-full object-cover' />
                   <div className='h-auto'>
                     <p className='text-white text-[12px] opacity-[.6] text-xs '>{anime.anime.title}</p>
                     <p className='text-white text-[12px] opacity-[.6] '>Role: <span className='text-white'>{anime.role}</span></p>
@@ -49,7 +49,7 @@ const CharacterDetails = () => {
             <h2 className='text-2xl text-white opacity-[.6] my-3 md:mt-0'>Manga</h2>
             <div className='carousel gap-3'>
               {character.manga.map((anime, index) => (
-                <Link to={`/anime/anime-list/${anime.manga.mal_id}/anime-details`} key={index} className='carousel-item w-[200px] flex-col md:w-md max-w-xs'>
+                <Link to={`/anime/anime-list/${anime.manga.mal_id}/anime-details`} key={index} className='carousel-item w-[100px] flex-col md:w-md max-w-xs'>
                   <img src={anime.manga.images.jpg.image_url} alt="" className='w-full object-cover h-[82%]' />
                   <div className='h-auto'>
                     <p className='text-white text-[12px] opacity-[.6] text-xs '>{anime.manga.title}</p>
@@ -63,7 +63,7 @@ const CharacterDetails = () => {
             <h2 className='text-2xl text-white opacity-[.6] md:py-3'>Voice</h2>
             <div className='carousel flex gap-3'>
               {character.voices.map((voices, index) => (
-                <div key={index} className='carousel-item flex flex-col w-[200px]'>
+                <div key={index} className='carousel-item flex flex-col w-[100px]'>
                   <img src={voices.person.images.jpg.image_url} alt='' className='w-full h-full object-cover' />
                   <div className='text-white text-[12px] opacity-[.6]'>Name: {voices.person.name}</div>
                   <div className='text-white text-[12px] opacity-[.6]'>Language: {voices.language}</div>

@@ -11,11 +11,11 @@ const Pagination = ({ handlePageClick }) => {
         pageCount={20}
         marginPagesDisplayed={2}
         onPageChange={handlePageClick}
-        containerClassName={'btn-group flex gap-2 text-neutral'}
-        pageClassName={'btn btn-black btn-xs'}
-        previousClassName={'btn btn-black btn-xs'}
-        nextClassName={'btn btn-black btn-xs'}
-        activeClassName={'btn-active'}
+        containerClassName={'btn-group flex gap-2 text-white opacity-[.8]'}
+        pageClassName={'w-7 bg-black text-white opacity-[0.5] flex justify-center items-center p-0 hover:underline'}
+        previousClassName={'text-white opacity-[0.5] px-4 py-1'}
+        nextClassName={'text-white opacity-[0.5] px-4 py-1'}
+        activeClassName={'bg-neutral text-black opacity-[.9] text-md cursor-not-allowed hover:none p-0'}
       />
     </div>
   )

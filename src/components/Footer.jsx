@@ -7,8 +7,8 @@ import Logo from '../routes/images/logo.png'
 
 const Footer = () => {
   return (
-    <div className='custom-footer bg-black'>
-      <footer className="max-w-[1250px] mx-auto py-[1rem] lg:py-[5rem]">
+    <div className='custom-footer bg-black mt-10 lg:mt-20'>
+      <footer className="max-w-[1250px] mx-auto py-[1rem] lg:py-[2rem]">
         <div className="py-4">
           <div className="flex flex-wrap justify-center lg:justify-between gap-5">
             <div className="w-auto px-4">

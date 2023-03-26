@@ -363,11 +363,6 @@ i {
   color: #121212;
 }
 
-#zero-state:before {
-  display: block;
-  margin-bottom: 0.5rem;
-  content: url("data:image/svg+xml,%3Csvg width='50' height='33' viewBox='0 0 50 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.8262 11.1744C37.3975 10.7252 36.6597 10.8766 35.1611 10.7128C32.8444 10.4602 31.9215 9.55475 31.5299 7.22456C31.3108 5.92377 31.5695 4.01923 31.0102 2.8401C29.9404 0.591789 27.4373 -0.416556 24.9225 0.158973C22.7992 0.645599 21.0326 2.76757 20.9347 4.94569C20.8228 7.43263 22.2399 9.5546 24.6731 10.2869C25.8291 10.6355 27.0574 10.8109 28.2646 10.8998C30.4788 11.0613 30.6489 12.292 31.2479 13.3051C31.6255 13.9438 31.9914 14.5731 31.9914 16.4775C31.9914 18.3819 31.6231 19.0112 31.2479 19.6499C30.6489 20.6606 29.9101 21.3227 27.696 21.4865C26.4887 21.5754 25.2581 21.7508 24.1044 22.0994C21.6712 22.834 20.2542 24.9537 20.366 27.4406C20.4639 29.6187 22.2306 31.7407 24.3538 32.2273C26.8686 32.8052 29.3717 31.7945 30.4415 29.5462C31.0032 28.3671 31.3108 27.0312 31.5299 25.7304C31.9238 23.4002 32.8467 22.4948 35.1611 22.2421C36.6597 22.0784 38.2107 22.2421 39.615 21.4443C41.099 20.36 42.4248 18.7328 42.4248 16.4775C42.4248 14.2222 40.9961 11.8575 38.8262 11.1744Z' fill='%23E3E3E3'/%3E%3Cpath d='M15.1991 21.6854C12.2523 21.6854 9.84863 19.303 9.84863 16.3823C9.84863 13.4615 12.2523 11.0791 15.1991 11.0791C18.1459 11.0791 20.5497 13.4615 20.5497 16.3823C20.5497 19.3006 18.1436 21.6854 15.1991 21.6854Z' fill='%23E3E3E3'/%3E%3Cpath d='M5.28442 32.3871C2.36841 32.38 -0.00698992 29.9882 1.54551e-05 27.0652C0.00705187 24.1469 2.39884 21.7715 5.32187 21.7808C8.24022 21.7878 10.6156 24.1796 10.6063 27.1027C10.5992 30.0187 8.20746 32.3941 5.28442 32.3871Z' fill='%23E3E3E3'/%3E%3Cpath d='M44.736 32.387C41.8107 32.4033 39.4096 30.0373 39.3932 27.1237C39.3769 24.1984 41.7428 21.7973 44.6564 21.7808C47.5817 21.7645 49.9828 24.1305 49.9993 27.0441C50.0156 29.9671 47.6496 32.3705 44.736 32.387Z' fill='%23E3E3E3'/%3E%3C/svg%3E%0A");
-}
 
 #error-page {
   display: flex;
@@ -387,61 +382,10 @@ i {
     font-family: Proxima Nova, system-ui, sans-serif;
   }
 }
-
-#form-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  position: relative;
-}
-#form-container #form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 20px;
-  width: 100%;
-  padding-bottom: 50px;
-  padding-top: 30px;
-}
-
-#form-container #form #zoro{
-  background-repeat: no-repeat;
-  position: absolute;
-  right:7%;
-  width: 30%;
-}
-
-#form-container #form #mihawk{
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 5%;
-  top: 22%;
-  width: 30%;
-}
-
-#form-container #form #luffy{
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 26%;
-  left: 32%;
-  width: 15%;
-}
-
 @media screen and (min-width: 768px) {
   #form-container #form{
     max-width: 70%;
     margin: 0 auto;
-  }
-
-  #form-container #form #zoro{
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 27%;
-    width: 17%;
   }
   /* #root {
     padding-bottom: 70px;
@@ -459,9 +403,9 @@ i {
     right: -23px !important;
   }
 
-  .anime-info-bb{
+  /* .anime-info-bb{
     border-left: 2px solid rgb(54, 70, 85);
-  }
+  } */
 
   #custom-border-top{
     padding: 30px 20px 40px;
@@ -507,8 +451,8 @@ i {
   display: none;
 }
 
-#card-recommendation:not(:hover){
-  transform: scale(1.2);
+#card-recommendation:hover(:not){
+  transform: scale(1.10);
 }
 
 #card-recommendation{
@@ -516,14 +460,14 @@ i {
 }
 
 #custom-genre-list{
-  display: none;
+  display: grid;
   transition: all 4s ease-out;
 }
 
-#custom-genre:hover #custom-genre-list{
+/* #custom-genre:hover #custom-genre-list{
   display: grid;
   transition: all 3s ease-in;
-}
+} */
 
 
 .trending-img{
@@ -541,14 +485,13 @@ i {
 }
 
 #custom-navigation{
-  border-bottom: 2px solid rgb(70, 14, 126);
+  border-bottom: 2px solid #8b2da0;
   padding-bottom: 5px;
 }
 
 .bb-anime-details{
   border-bottom: 2px solid rgb(54, 70, 85);
-  border-top: 2px solid rgb(54, 70, 85);
-  padding: 10px 0;
+  /* border-top: 2px solid rgb(54, 70, 85); */
 }
 
 .custom-border{
@@ -563,7 +506,7 @@ i {
   background-color: #000 !important;
   width: 40px !important;
   height: 40px !important;
-  z-index: 2;
+  z-index: 1;
   top: 40% !important;
 }
 
@@ -582,6 +525,36 @@ i {
 
 #custom-border-top .slick-prev{
   left: -20px !important;
+}
+
+.slick-dots .slick-active button{
+  background: #8b2da0 !important;
+}
+
+.slick-dots{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.slick-dots li{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.slick-dots button{
+  background: #000 !important;
+  opacity: .6;
+  overflow: hidden;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.slick-dots button::before{
+  font-size: 0 !important;
 }
 
 .custom-border{
@@ -696,3 +669,109 @@ i {
 #custom-news:nth-child(2) #custom-figure{
   width:40%;
 } */
+
+.c-card:hover .c-card-body{
+  display: block;
+}
+
+.c-card-body{
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #00000094;
+  overflow: hidden;
+}
+
+.c-figure{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+.anime-list-card{
+  
+}
+
+.anime-list-card:not(:hover){
+  transform: scale(.95);
+  /* -webkit-filter: grayscale(1); */
+  /* filter: grayscale(1);   */
+  /* opacity: .75; */
+}
+
+/* .anime-list:not(:hover) {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+        opacity: .75;
+} */
+
+.anime-character-card:not(:hover){
+  transform: scale(1.1);
+}
+
+.anime-list-card,
+.anime-character-card{
+  transition: transform .6s  ;
+}
+
+.anime-wrapper{
+  border-bottom: 2px solid #8b2da0 ;
+  padding-bottom: 30px;
+}
+
+.c-border-bottom{
+  border-bottom: 1px solid #ccc;
+}
+
+.c-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  font-size: 2ch;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  animation-name: modalAnimation;
+  animation-duration: .4s;
+}
+
+
+.close-modal-btn {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  color: #fff;
+  background: rgb(193, 47, 47);
+}
+
+.modal-container {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+
+@keyframes modalAnimation {
+  from {
+      top: -300px;
+      opacity: 0;
+  }
+
+  to {
+      top: 50%;
+      opacity: 1;
+  }
+} 

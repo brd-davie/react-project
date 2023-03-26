@@ -79,15 +79,17 @@ const BannerSlider = () => {
         {images && images.map((image, index) => (
           <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full lg:h-screen w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
         ))}
-        <div className='absolute z-10 right-10 bottom-[10px] right-[30%] md:right-[40%] lg:bottom-[4rem] lg:right-[5rem] flex gap-2'>
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => handleNavigationClick(index)}
-              className={currentSlide === index ? 'active bg-primary h-[7px] w-[70px]' : 'bg-primary h-[7px] w-[30px] bg-white'}
-            >
-            </button>
-          ))}
+        <div className='absolute z-10 bottom-[10px] lg:bottom-[4rem] flex gap-2 w-screen justify-center lg:justify-end lg:right-10'>
+          <div className="flex justify-center gap-3">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => handleNavigationClick(index)}
+                className={currentSlide === index ? 'active bg-primary h-[7px] w-[70px]' : 'bg-primary h-[7px] w-[30px] bg-white'}
+              >
+              </button>
+            ))}
+          </div>
         </div>
         <div className='absolute bottom-[3rem] lg:bottom-[5rem] lg:w-[47rem] left-5 md:left-[5rem] text-left'>
           <h2 className='text-2xl lg:text-5xl text-white py-4'><strong>{images[currentSlide].title}</strong></h2>
