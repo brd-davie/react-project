@@ -13,7 +13,7 @@ body {
     sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(30 41 59);
+  /* background: rgb(30 41 59); */
 
 }
 
@@ -382,35 +382,6 @@ i {
     font-family: Proxima Nova, system-ui, sans-serif;
   }
 }
-@media screen and (min-width: 768px) {
-  #form-container #form{
-    max-width: 70%;
-    margin: 0 auto;
-  }
-  /* #root {
-    padding-bottom: 70px;
-  } */
-
-  #recommendation-title{
-    display: none;
-  }
-
-  #card-custom:hover .card  #recommendation-title{
-    display: block;
-  }
-
-  #custom-border-top .slick-next{
-    right: -23px !important;
-  }
-
-  /* .anime-info-bb{
-    border-left: 2px solid rgb(54, 70, 85);
-  } */
-
-  #custom-border-top{
-    padding: 30px 20px 40px;
-  }
-}
 
 .anime-list::-webkit-scrollbar{
   display: none;
@@ -517,6 +488,7 @@ i {
 .slick-track{
   display: flex !important;
   gap: 10px !important;
+  /* flex-direction: row-reverse; */
 }
 
 #custom-border-top .slick-next{
@@ -528,7 +500,8 @@ i {
 }
 
 .slick-dots .slick-active button{
-  background: #8b2da0 !important;
+  background: #000 !important;
+  opacity: .9;
 }
 
 .slick-dots{
@@ -547,7 +520,7 @@ i {
 
 .slick-dots button{
   background: #000 !important;
-  opacity: .6;
+  opacity: .3;
   overflow: hidden;
   width: 12px !important;
   height: 12px !important;
@@ -691,11 +664,6 @@ i {
   border-bottom-right-radius: 10px;
 }
 
-
-.anime-list-card{
-  
-}
-
 .anime-list-card:not(:hover){
   transform: scale(.95);
   /* -webkit-filter: grayscale(1); */
@@ -775,3 +743,42 @@ i {
       opacity: 1;
   }
 } 
+
+@media screen and (min-width: 768px) {
+  #form-container #form{
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  /* #root {
+    padding-bottom: 70px;
+  } */
+
+  #recommendation-title{
+    display: none;
+  }
+
+  #card-custom:hover .card  #recommendation-title{
+    display: block;
+  }
+
+  #custom-border-top .slick-next{
+    right: -23px !important;
+  }
+
+  /* .anime-info-bb{
+    border-left: 2px solid rgb(54, 70, 85);
+  } */
+
+  #custom-border-top{
+    padding: 30px 20px 40px;
+  }
+
+
+.c-ep-card:hover .c-ep-title{
+  display: block;
+}
+
+.c-ep-title{
+  display: none;
+}
+}

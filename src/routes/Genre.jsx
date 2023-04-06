@@ -7,7 +7,7 @@ const GenreList = () => {
       {
         AnimeGenre.length ? (
           <AnimeGenre />
-        ) : 'test'
+        ) : ''
       }
     </div>
   )

@@ -22,4 +22,15 @@ window.addEventListener('load', () => {
   //     modalContainer.querySelector('iframe').src = '';
   //   }
   // })
+
+  const imgWrapper = document.querySelector('.c-gallery');
+  const img = document.querySelector('.gallery-img');
+
+  const toggleFullScreen = () => {
+    img.requestFullscreen()
+  }
+
+  imgWrapper.addEventListener('click', toggleFullScreen);
 })
+
+

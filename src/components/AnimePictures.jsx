@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import Comment from './Icons/comment.png'
 
 const AnimeNews = ({ id }) => {
 
@@ -27,8 +25,8 @@ const AnimeNews = ({ id }) => {
         pictures ? (
           <div className="carousel gap-3 mt-5">
             {pictures.map((picture, index) => (
-              <div className="carousel-item">
-                <img key={index} src={picture.jpg.image_url} className='w-full h-full object-cover' alt="Burger" />
+              <div className="c-gallery carousel-item w-[25%] md:w-[20%]">
+                <img key={index} src={picture.jpg.large_image_url} className='gallery-img w-full h-full object-cover' alt="Burger" />
               </div>
             ))
             }

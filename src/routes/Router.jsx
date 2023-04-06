@@ -19,6 +19,7 @@ import SeasonFall from "./SeasonFall";
 import SeasonSpring from "./SeasonSpring";
 import SeasonWinter from "./SeasonWinter";
 import Seasons from "../components/Seasons";
+import MyListPage from "./MyListPage";
 
 const Router = createBrowserRouter([
   {
@@ -159,6 +160,10 @@ const Router = createBrowserRouter([
         path: "seasons/:mal_id/anime-details",
         element: <AnimeDetails />,
         loader: animeDetailsLoader,
+      },
+      {
+        path: "mylist",
+        element: <MyListPage />,
       },
     ],
   },
