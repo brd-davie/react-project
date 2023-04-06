@@ -10,7 +10,6 @@ const Profile = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/login')
-    // perform any other relevant logout tasks here, such as clearing state
   }
 
   return (

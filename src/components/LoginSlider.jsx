@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import aerial from './Icons/aerial.jpg'
 import autoMata from './Icons/autoMata.jpg'
-import rengoku from './Icons/rengoku.jpg'
 
 const BannerSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

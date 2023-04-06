@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginSlider from './LoginSlider';
 import eyesvg from './svg/Eye.svg'
 import eyeHide from './Icons/eyeHide.png'
+import { userData } from '../anime';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -34,9 +35,12 @@ const Login = ({ onLogin }) => {
       })
         .then((response) => response.json())
         .then(async (data) => {
+          const user = userData();
           const token = JSON.stringify(data);
           console.log("Status", data);
+          console.log('User', user.response)
           localStorage.setItem('token', token);
+          localStorage.setItem('user', user)
 
           if (data.status === 'error') {
             setError(<p className='text-error animate-shake'>Login failed, check email or password.</p>);

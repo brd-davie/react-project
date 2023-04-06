@@ -28,11 +28,11 @@ const AnimeRecommendations = ({ id }) => {
             {recommendations ? (
               <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3 pl-3">You may also like</h2>
             ) : ''}
-            <div id="popular_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 md:px-3 bg-transparent md:mt-0 lg:carousel">
+            <div className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-1 md:px-3 bg-transparent md:mt-0 lg:carousel">
               {recommendations.map((anime, index) => (
-                <Link to={`/anime/recommendations/${anime.entry.mal_id}/anime-details`} className="c-card h-full lg:carousel-item" key={index}>
-                  <div className="anime-list-card card h-full shadow-xl rounded-md">
-                    <figure className="c-figure h-full"><img className="w-full h-full object-cover" src={anime.entry.images.jpg.image_url} alt={anime.title} /></figure>
+                <Link to={`/anime/recommendations/${anime.entry.mal_id}/anime-details`} className="c-card h-full lg:w-[20%] lg:carousel-item" key={index}>
+                  <div className="anime-list-card card h-full shadow-xl rounded-md ">
+                    <figure className="c-figure h-full w-full"><img className="h-full object-cover" src={anime.entry.images.jpg.large_image_url} alt={anime.title} /></figure>
                     <div className="c-card-body card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between md:justify-end">
                       <h4 className="card-title text-xs text-white">{anime.entry.title.slice(0, 20)}</h4>
                       <div className="flex items-center justify-between w-full">

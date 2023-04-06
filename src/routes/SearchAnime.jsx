@@ -2,7 +2,6 @@ import React from 'react'
 import SearchResult from '../components/SearchResult';
 import { useEffect, useState } from 'react';
 import AnimeGif from '../components/AnimeGif';
-import Pagination from '../components/Pagination';
 
 const SearchAnime = () => {
   const [animeData, setAnimeData] = useState([]);

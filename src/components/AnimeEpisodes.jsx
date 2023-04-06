@@ -16,7 +16,7 @@ const AnimeEpisodes = ({ id }) => {
     // dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {
@@ -29,7 +29,7 @@ const AnimeEpisodes = ({ id }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -53,14 +53,17 @@ const AnimeEpisodes = ({ id }) => {
     <>
       {
         video ? (
-          <div className='custom-border-ep mt-10 flex flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
-            {/* <h1 className='text-accent text-2xl'><strong>Episodes</strong></h1> */}
+          <div className='custom-border-ep mt-10 flex flex-direction-reverse flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
+            <h1 className='custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3 pl-3'>Episodes</h1>
             <Slider {...settings}>
               {video.map((anime, index) => (
                 <div key={index} className=''>
-                  <Link to={anime.url} className='hover:underline text-accent'>
+                  <Link to={anime.url} className='c-ep-card'>
                     {anime.images.jpg.image_url ? (
-                      <img src={anime.images.jpg.image_url} alt="" className='w-full' />
+                      <div className='relative'>
+                        <img src={anime.images.jpg.image_url} alt="" className='w-full' />
+                        <h1 className='c-ep-title absolute bottom-1 glass px-2 text-[10px] lg:text-lg left-1 text-white opacity-[0.8]'>{anime.mal_id}.{anime.title}</h1>
+                      </div>
                     ) : ''}
                   </Link>
                 </div>

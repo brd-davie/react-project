@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Span } from 'slate';
 
 const AnimeSeasons = () => {
   const [seasons, setSeasons] = useState([]);
