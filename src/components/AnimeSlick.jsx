@@ -56,7 +56,7 @@ const AnimeSlick = ({ endPoint, header, link }) => {
 
 
   return (
-    <div id='custom-border-top' className='max-w-[1250px] mt-3 mx-auto bg-neutral rounded-lg lg:mt-10 px-7 lg:px-0 pb-10 lg:pr-[20px] lg:pb-[20px]'>
+    <div id='custom-border-top' className='max-w-[1250px] mt-3 mx-auto rounded-lg lg:mt-10 px-7 lg:px-0 pb-10 lg:pr-[20px] lg:pb-[20px]'>
       <div className='flex justify-between'>
         <h2 className='custom-title_border_left text-2xl lg:text-3xl text-white opacity-[.6]  mb-3 ml-3 px-3'>{header}</h2>
         <Link to={link} className='hover:underline hover:opacity-[unset] text-white opacity-[.6] underline text-lg mr-5 '>See More +</Link>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const AddToList = (addTo, animeList) => {
   return (
-    <button className='myList bg-black text-white z-[5] w-full'>Add to List</button>
+    <button className='myList bg-black text-white z-[5] w-full py-3'>Add to List</button>
   )
 }
 

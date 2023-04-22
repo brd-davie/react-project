@@ -24,7 +24,7 @@ const AnimeEpVideos = ({ id }) => {
   const handleVideoClick = (index) => {
     if (index !== activeIndex) {
       setActiveIndex(index);
-      videoRef.current.pause();
+      videoRef.current.stop();
     }
   };
 
@@ -37,7 +37,7 @@ const AnimeEpVideos = ({ id }) => {
               <div key={index} className={index === activeIndex ? 'block' : 'hidden'}>
                 {anime.trailer.embed_url ? (
                   <div className='lg:p-5' >
-                    <embed src={anime.trailer.embed_url} type='' width='100%' className='h-[300px]  md:h-[600px]' />
+                    <embed ref={videoRef} src={anime.trailer.embed_url} type='' width='100%' className='h-[300px]  md:h-[600px] rounded-lg' />
                   </div>
                 ) : (
                   ''
@@ -50,7 +50,7 @@ const AnimeEpVideos = ({ id }) => {
               {video.map((anime, index) => (
                 <div key={index} onClick={() => handleVideoClick(index)} className='anime-list-card lg:mb-3 cursor-pointer '>
                   <h1 className='text-white opacity-[.6] lg:text-lg underline hidden lg:block'>{anime.title}</h1>
-                  <img src={anime.trailer.images.maximum_image_url} alt="" className='w-full' />
+                  <img src={anime.trailer.images.maximum_image_url} alt="" className='w-full rounded-lg' />
                 </div>
               ))}
             </div>

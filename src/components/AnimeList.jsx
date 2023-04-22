@@ -72,7 +72,7 @@ const AnimeList = ({ api, title }) => {
     <>
       {
         animeList ? (
-          <div className="bg-neutral rounded-lg lg:py-5">
+          <div className="rounded-lg lg:py-5">
             <div className="flex justify-between lg:px-5">
               <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] uppercase md:px-3 pl-3">{type}</h2>
               <div className="">

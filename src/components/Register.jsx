@@ -114,26 +114,28 @@ function RegistrationForm() {
 
   return (
     <div className='flex items-center justify-center h-screen w-screen'>
-      <div className='custom-br w-full h-screen flex flex-col items-center justify-center bg-black'>
+      <div className='custom-br w-full h-screen flex flex-col items-center justify-center bg-slate-800'>
         <h1 className='text-white text-3xl'>Sign up your new account</h1>
-        <form onSubmit={handleSubmit} className='w-[400px] z-10 p-5 rounded-lg bg-black mt-3'>
+        <form onSubmit={handleSubmit} className='w-[375px] max-w-full z-10 p-5 rounded-lg mt-3 shadow-2xl'>
           {message && <p className='text-error text-center my-4 '>{message} {emailError}</p>}
-          <div className='flex flex-col mb-2'>
-            <label htmlFor="first_name" className='text-white mb-2'>First Name:</label>
-            <input className='input input-accent' type="text" id="first_name" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+          <div className="flex flex-row gap-5">
+            <div className='flex flex-col mb-2 w-[158px] max-w-full'>
+              <label htmlFor="first_name" className='text-white mb-2'>First Name</label>
+              <input className='input input-neutral' type="text" id="first_name" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+            </div>
+            <div className='flex flex-col mb-2 w-[158px] max-w-full'>
+              <label htmlFor="last_name" className='text-white mb-2'>Last Name</label>
+              <input className='input input-neutral' type="text" id="last_name" value={lastName} onChange={(event) => setLastName(event.target.value)} />
+            </div>
           </div>
           <div className='flex flex-col mb-2'>
-            <label htmlFor="last_name" className='text-white mb-2'>Last Name:</label>
-            <input className='input input-accent' type="text" id="last_name" value={lastName} onChange={(event) => setLastName(event.target.value)} />
+            <label htmlFor="email" className='text-white mb-2'>Email</label>
+            <input className='input input-neutral' type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
           </div>
           <div className='flex flex-col mb-2'>
-            <label htmlFor="email" className='text-white mb-2'>Email:</label>
-            <input className='input input-accent' type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-          </div>
-          <div className='flex flex-col mb-2'>
-            <label htmlFor="password" className='text-white mb-2'>Password:</label>
+            <label htmlFor="password" className='text-white mb-2'>Password</label>
             <div className="relative">
-              <input type={showPassword ? 'text' : 'password'} id='password' className="input input-accent input-bordered w-full" value={password} onChange={(event) => setPassword(event.target.value)} />
+              <input type={showPassword ? 'text' : 'password'} id='password' className="input input-neutral input-bordered w-full" value={password} onChange={(event) => setPassword(event.target.value)} />
               <button type="button" className="absolute right-0 h-full w-[40px] shadow-none" onClick={toggleShowPassword}>
                 {showPassword ?
                   <img src={eyesvg} alt="Eye" className='w-[27px] mx-auto' />
@@ -144,9 +146,9 @@ function RegistrationForm() {
             </div>
           </div>
           <div className='flex flex-col mb-2'>
-            <label htmlFor="confirm_password" className='text-white mb-2'>Confirm Password:</label>
+            <label htmlFor="confirm_password" className='text-white mb-2'>Confirm Password</label>
             <div className="relative">
-              <input type={showPasswordx ? 'text' : 'password'} id='password-confirmation' className="input input-accent input-bordered w-full" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
+              <input type={showPasswordx ? 'text' : 'password'} id='password-confirmation' className="input input-neutral input-bordered w-full" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
               <button type="button" className="absolute right-0 h-full w-[40px] shadow-none" onClick={toggleShowPasswordx}>
                 {showPasswordx ?
                   <img src={eyesvg} alt="Eye" className='w-[27px] mx-auto' />
@@ -157,7 +159,12 @@ function RegistrationForm() {
             </div>
           </div>
           <div className='custom-register-bt mt-5'>
-            <label onClick={handleSubmit} type='submit' htmlFor='my-modal' className='btn btn-md btn-neutral w-full mt-5'>Register</label>
+            <label onClick={handleSubmit} type='submit' htmlFor='my-modal' className='btn btn-md w-full mt-5'>Sign up</label>
+          </div>
+          <div className=' mt-5 text-center'>
+            <p className='text-md text-white'>Already have an account?&nbsp; 
+            <Link to="/login" className='hover:underline'>Sign in</Link>
+            </p>
           </div>
         </form>
       </div>

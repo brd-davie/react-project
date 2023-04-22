@@ -21,7 +21,6 @@ const AnimeRecommendations = ({ id }) => {
 
   return (
     <div className='p-3 mt-4 lg:mt-20 max-w-[1250px] mx-auto'>
-      {/* <h2 className='custom-title_border_left pl-3 text-white opacity-[.6] text-2xl mb-2  lg:text-4xl lg:mb-3'>You may also like</h2> */}
       {
         recommendations ? (
           <div>
@@ -30,7 +29,7 @@ const AnimeRecommendations = ({ id }) => {
             ) : ''}
             <div className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-1 md:px-3 bg-transparent md:mt-0 lg:carousel">
               {recommendations.map((anime, index) => (
-                <Link to={`/anime/recommendations/${anime.entry.mal_id}/anime-details`} className="c-card h-full lg:w-[20%] lg:carousel-item" key={index}>
+                <Link to={`/anime/recommendations/${anime.entry.mal_id}/anime-details`} className="c-card h-full lg:w-[20%] lg:h-[300px] lg:carousel-item" key={index}>
                   <div className="anime-list-card card h-full shadow-xl rounded-md ">
                     <figure className="c-figure h-full w-full"><img className="h-full object-cover" src={anime.entry.images.jpg.large_image_url} alt={anime.title} /></figure>
                     <div className="c-card-body card-body pb-2 px-3 pt-3 md:py-2 flex-col items-start  text-left justify-between md:justify-end">
@@ -55,7 +54,6 @@ const AnimeRecommendations = ({ id }) => {
                         </div>
                       </div>
                     </div>
-                    {/* <Link to={`${anime.mal_id}/anime-details`} className="btn btn-xs glass">View Details</Link> */}
                   </div>
                 </Link>
               ))}
