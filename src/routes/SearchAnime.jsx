@@ -9,8 +9,8 @@ const SearchAnime = () => {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  const getAnime = async (search) => {
-    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}`)
+  const getAnime = async (search, page) => {
+    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}&page=${page}`)
       .then(res => res.json())
     console.log(response.data)
     setIsLoading(false)
@@ -20,7 +20,7 @@ const SearchAnime = () => {
   const handlePageClick = async (data, search) => {
     let currentPage = data.selected + 1;
     console.log(data.selected)
-    const changePage = await getAnime(currentPage, search)
+    const changePage = await getAnime(search, currentPage)
     setAnimeData(changePage);
   };
 

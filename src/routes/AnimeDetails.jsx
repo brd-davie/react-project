@@ -7,6 +7,7 @@ import AnimeNews from '../components/AnimeNews'
 import AnimePictures from '../components/AnimePictures'
 import AnimeRecommendations from '../components/AnimeRecommedations'
 import AnimeEpVideos from '../components/AnimeEpVideos'
+import AnimeReviews from '../components/AnimeReviews'
 
 const AnimeDetails = () => {
   const anime = useLoaderData();
@@ -18,11 +19,12 @@ const AnimeDetails = () => {
         <div className=" md:flex md:flex-col lg:flex-row lg:p-5">
           <div className="w-full h-96 object-cover lg:w-w-4/12	 lg:max-w-xs lg:h-full">
             <div className='w-full'>
-              <img className="w-full h-96 object-cover mb-4 lg:h-full" src={anime.images.jpg.large_image_url} alt="" />
+              <img className="w-full h-96 object-cover mb-4 lg:h-full rounded-lg" src={anime.images.jpg.large_image_url} alt="" />
             </div>
           </div>
-          <div className="text-md text-justify leading-12 w-full px-4">
+          <div className="text-md text-justify leading-12 w-full md:px-4">
             <h2 className='bb-anime-details text-white font-bold opacity-[.6] mt-4 md:mt-0 text-2xl pb-3 pb-0'>{anime.title ? anime.title : 'N/A'}</h2>
+            <h4 className='bb-anime-details text-white font-bold opacity-[.6] mt-4 md:mt-0 text-lg pb-3 pb-0'>{anime.title_japanese ? anime.title_japanese : 'N/A'}</h4>
             <div className='bb-anime-details flex justify-between p-2'>
               <p className="text-lg font-bold text-white opacity-[.6]"><strong className=''>Rank:</strong> {anime.rank ? anime.rank : 'N/A'}</p>
               <div className='flex items-center justify-center'>
@@ -64,8 +66,8 @@ const AnimeDetails = () => {
                 ))}
               </div>
               <p className="bb-anime-details text-md text-white opacity-[.6] p-2"><strong className='text-white '>Status:</strong> {anime.status}</p>
-              <div className='bb-anime-details pt-4 flex gap-3 items-center p-2'>
-                <h2 className='text-md text-white opacity-[.6]'><strong className=''>Watch</strong></h2>
+              <div className='bb-anime-details pt-4 flex flex-col gap-3 p-2'>
+                <h2 className='text-md text-white opacity-[.6]'><strong className=''>Watch:</strong></h2>
                 <ul className='flex gap-4 flex-wrap'>
                   {anime.streaming.slice(0, 3).map((stream, index) => (
                     <li key={index} className=''><Link to={stream.url} className='text-white opacity-[.6] text-md hover:text-success hover:underline'>{stream.name ? stream.name : 'N/A'}</Link></li>
@@ -97,6 +99,7 @@ const AnimeDetails = () => {
         } */}
         <AnimeNews id={anime.mal_id} />
         <AnimePictures id={anime.mal_id} />
+        <AnimeReviews id={anime.mal_id} />
       </div >
     </div >
 

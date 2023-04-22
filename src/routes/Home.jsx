@@ -15,8 +15,8 @@ const Home = () => {
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/summer?limit=12`} header='Summer 2022' link={`${'/anime/seasons'}`} />
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/winter?limit=12`} header='Winter 2022' link={`${'/anime/seasons'}`} />
         <FeatureAnime />
-        <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/fall?limit=12`} header='Fall 2022' link={`${'/anime/seasons'}`} />
-        <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/spring?limit=12`} header='Spring 2022' link={`${'/anime/seasons'}`} />
+        {/* <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/fall?limit=12`} header='Fall 2022' link={`${'/anime/seasons'}`} /> */}
+        {/* <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/2022/spring?limit=12`} header='Spring 2022' link={`${'/anime/seasons'}`} /> */}
         <AnimeNews id='50709' />
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/now?limit=12`} header='Ongoing' link={`${'/anime/ongoing'}`} />
         <AnimeSlick endPoint={`https://api.jikan.moe/v4/seasons/upcoming?limit=12`} header='Upcoming' link={`${'/anime/upcoming'}`} />

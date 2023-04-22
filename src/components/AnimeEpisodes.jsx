@@ -53,7 +53,7 @@ const AnimeEpisodes = ({ id }) => {
     <>
       {
         video ? (
-          <div className='custom-border-ep mt-10 flex flex-direction-reverse flex-col gap-3 max-w-[75rem] mx-auto lg:mt-20'>
+          <div className='custom-border-ep mt-10 flex flex-direction-reverse flex-col gap-3 lg:mt-20'>
             <h1 className='custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3 pl-3'>Episodes</h1>
             <Slider {...settings}>
               {video.map((anime, index) => (

@@ -41,25 +41,3 @@ export const jikanAnimeDetails = async (id) => {
 //   console.log(response.data)
 //   return response.data ?? null;
 // };
-
-
-export const userData = async () => {
-  try {
-    const token = JSON.parse(localStorage.token);
-    const response = await fetch('https://api.hattch.brdsites.com/api/v1/auth/me', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token.access_token,
-      },
-    })
-      .then(res => res.json())
-    console.log(response.data)
-    return response.data ?? null
-    // const data = await response.json();
-    // console.log(response)
-    // console.log('User:', data);
-    // localStorage.setItem('user', JSON.stringify(data));
-  } catch (error) {
-    console.error(error);
-  }
-};

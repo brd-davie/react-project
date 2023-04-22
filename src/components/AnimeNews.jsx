@@ -54,7 +54,7 @@ const AnimeNews = ({ id }) => {
   };
 
   return (
-    <div className='p-3 mt-4 lg:mt-20 max-w-[1250px] bg-neutral rounded-lg mx-auto'>
+    <div className='p-3 mt-4 lg:mt-20 max-w-[1250px] rounded-lg mx-auto'>
       <h2 className='custom-title_border_left pl-3 text-white opacity-[.6] text-2xl mb-2  lg:text-4xl lg:mb-3'>News</h2>
       {
         news !== undefined ? (

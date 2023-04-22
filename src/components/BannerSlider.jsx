@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import aotBanner from './Icons/aot.jpg'
 import demonSlayerBanner from './Icons/demonSlayer.jpeg'
-import video from './video/video2.mp4'
+// import video from './video/video2.mp4'
 import { Link } from 'react-router-dom';
 
 const BannerSlider = () => {
@@ -13,13 +13,13 @@ const BannerSlider = () => {
 
 
   const images = [
-    // {
-    //   url: aotBanner,
-    //   title: 'Shingeki no Kyojin: The Final Season - Kanketsu-hen',
-    //   id: 51535,
-    //   description: 'The season follows Eren and his fellow soldiers from the Survey Corps who are still fighting for their survival against the terrifying Titans. However, threats arise not only from the Titans beyond the walls, but from the humans within them as well.',
-    //   trailer: <iframe width="1128" height="635" src="https://www.youtube.com/embed/fRph5rtFiRQ" title="Attack on Titan Season 4 Part 3 - Official Main Trailer | English Sub" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    // },
+    {
+      url: aotBanner,
+      title: 'Shingeki no Kyojin: The Final Season - Kanketsu-hen',
+      id: 51535,
+      description: 'The season follows Eren and his fellow soldiers from the Survey Corps who are still fighting for their survival against the terrifying Titans. However, threats arise not only from the Titans beyond the walls, but from the humans within them as well.',
+      trailer: <iframe width="1128" height="635" src="https://www.youtube.com/embed/fRph5rtFiRQ" title="Attack on Titan Season 4 Part 3 - Official Main Trailer | English Sub" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    },
     // {
     //   url: onepiece_banner,
     //   title: 'One Piece',
@@ -30,7 +30,7 @@ const BannerSlider = () => {
     {
       url: demonSlayerBanner,
       title: 'Demon Slayer',
-      video: video,
+      // video: video,
       id: 53322,
       description: `Japanese manga series written and illustrated by Koyoharu Gotōge, and it is about Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon.`,
       trailer: ''
@@ -74,11 +74,11 @@ const BannerSlider = () => {
   }, []);
 
   return (
-    <div className='w-full h-full overflow-hidden'>
-      <div className='relative h-[400px] md:h-[600px] lg:h-screen lg:pb-[20px]'>
+    <div className='w-full h-full overflow-hidden mt-10'>
+      <div className='relative h-[400px] md:h-[600px] lg:max-w-[1250px] lg:pb-[20px] mx-auto rounded-xl overflow-hidden'>
         {images && images.map((image, index) => (
-          // <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full lg:h-screen w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
-          <video src={image.video} autoPlay loop muted className='absolute rotate-[-90deg] top-[-20rem] right-0 bottom-0 left-0 h-auto max-h-[110rem] w-screen'></video>
+          <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
+          // <video src={image.video} autoPlay loop muted className='absolute rotate-[-90deg] top-[] right-0 bottom-0 left-0 h-screen w-screen'></video>
         ))}
         <div className='absolute z-10 bottom-[10px] lg:bottom-[4rem] flex gap-2 w-screen justify-center lg:justify-end lg:right-10'>
           <div className="flex justify-center gap-3">
@@ -95,7 +95,7 @@ const BannerSlider = () => {
         <div className='absolute bottom-[3rem] lg:bottom-[5rem] lg:w-[47rem] left-5 md:left-[5rem] text-left'>
           <h2 className='text-2xl lg:text-5xl text-white py-4'><strong>{images[currentSlide].title}</strong></h2>
           <p className='text-[16px] md:text-lg text-white opacity-[.6] leading-2 mr-4'>{images[currentSlide].description}</p>
-          <Link to={`/anime/trending-anime/${images[currentSlide].id}/anime-details`} className='btn btn-sm md:btn-sm lg:btn-md btn-neutral mt-4'>Trailer</Link>
+          <Link to={`/anime/trending-anime/${images[currentSlide].id}/anime-details`} className='btn btn-sm md:btn-md glass lg:w-[100px] mt-4'>View</Link>
         </div>
       </div>
     </div>
