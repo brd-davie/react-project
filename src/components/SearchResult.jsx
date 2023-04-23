@@ -40,7 +40,7 @@ const SearchResult = ({ animeList, handlePageClick }) => {
               </Link>
             ))}
           </div>
-          <Pagination handlePageClick={handlePageClick} />
+          {/* <Pagination handlePageClick={handlePageClick} /> */}
         </div>
       ) : ''
       }

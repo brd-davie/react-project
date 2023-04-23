@@ -7,11 +7,6 @@ import { Link } from 'react-router-dom';
 const BannerSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // const [aot, setAot] = useState([]);
-  // const [op, setOp] = useState([]);
-  // const [ds, setDs] = useState([]);
-
-
   const images = [
     {
       url: aotBanner,
@@ -37,31 +32,6 @@ const BannerSlider = () => {
     },
   ];
 
-  // const aotId = images[0].id
-  // const opId = images[1].id
-  // const dsId = images[2].id
-
-  // const getAot = async (id) => {
-  //   const response = await fetch(`https://api.jikan.moe/v4/anime/${aotId}/full`)
-  //     .then(res => res.json());
-  //   console.log(response.data);
-  //   setAot(response.data);
-  // };
-
-  // const getOnePiece = async () => {
-  //   const response = await fetch(`https://api.jikan.moe/v4/anime/${opId}/full`)
-  //     .then(res => res.json());
-  //   console.log(response.data);
-  //   setOp(response.data);
-  // };
-
-  // const getDs = async () => {
-  //   const response = await fetch(`https://api.jikan.moe/v4/anime/${dsId}/full`)
-  //     .then(res => res.json());
-  //   console.log(response.data);
-  //   setDs(response.data);
-  // };
-
   const handleNavigationClick = (index) => {
     setCurrentSlide(index);
   };
@@ -74,8 +44,8 @@ const BannerSlider = () => {
   }, []);
 
   return (
-    <div className='w-full h-full overflow-hidden mt-10'>
-      <div className='relative h-[400px] md:h-[600px] lg:max-w-[1250px] lg:pb-[20px] mx-auto rounded-xl overflow-hidden'>
+    <div className='w-full h-full overflow-hidden lg:py-10'>
+      <div className='relative h-[400px] md:h-[600px] lg:max-w-[1250px] lg:pb-[20px] mx-auto lg:rounded-xl lg:overflow-hidden'>
         {images && images.map((image, index) => (
           <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
           // <video src={image.video} autoPlay loop muted className='absolute rotate-[-90deg] top-[] right-0 bottom-0 left-0 h-screen w-screen'></video>
@@ -92,10 +62,10 @@ const BannerSlider = () => {
             ))}
           </div>
         </div>
-        <div className='absolute bottom-[3rem] lg:bottom-[5rem] lg:w-[47rem] left-5 md:left-[5rem] text-left'>
-          <h2 className='text-2xl lg:text-5xl text-white py-4'><strong>{images[currentSlide].title}</strong></h2>
+        <div className='absolute bottom-[3rem] lg:bottom-[2rem] lg:w-[47rem] left-5 md:left-[2rem] text-left'>
+          <h2 className='text-xl lg:text-4xl text-white py-4'><strong>{images[currentSlide].title}</strong></h2>
           <p className='text-[16px] md:text-lg text-white opacity-[.6] leading-2 mr-4'>{images[currentSlide].description}</p>
-          <Link to={`/anime/trending-anime/${images[currentSlide].id}/anime-details`} className='btn btn-sm md:btn-md glass lg:w-[100px] mt-4'>View</Link>
+          <Link to={`/anime/trending-anime/${images[currentSlide].id}/anime-details`} className='btn btn-sm md:btn-md bg-red-600 hover:bg-red-500 border-none lg:w-[100px] mt-4'>View</Link>
         </div>
       </div>
     </div>

@@ -90,7 +90,7 @@ const Login = ({ onLogin }) => {
     <div className="hero bg">
       <div className="flex flex-col lg:flex-row w-screen justify-between p-0 ">
         <div className='custom-br h-screen flex flex-col items-center justify-center w-full'>
-          <h1 className='text-white text-3xl'>Sign in to your account</h1>
+          <h1 className='text-white text-3xl mb-4'>Sign in to your account</h1>
           <form id='form-animation' onSubmit={handleFormSubmit} className="card flex-shrink-0 bg-slate-800 w-[390px] shadow-2xl">
             {error && <div className='text-center text-error mt-5'>{error}</div>}
             <div className="card-body">

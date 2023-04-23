@@ -46,7 +46,7 @@ const AnimeEpVideos = ({ id }) => {
             ))}
           </div>
           {video ? (
-            <div className='grid grid-cols-4 w-full mt-5 lg:h-[650px] lg:block lg:overflow-scroll scroll-smooth lg:w-3/12 lg:pr-3' >
+            <div className='grid grid-cols-2 md:grid-cols-3 w-full mt-5 lg:h-[650px] lg:block lg:overflow-scroll scroll-smooth lg:w-3/12 lg:pr-3' >
               {video.map((anime, index) => (
                 <div key={index} onClick={() => handleVideoClick(index)} className='anime-list-card lg:mb-3 cursor-pointer '>
                   <h1 className='text-white opacity-[.6] lg:text-lg underline hidden lg:block'>{anime.title}</h1>
