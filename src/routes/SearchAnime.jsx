@@ -10,7 +10,7 @@ const SearchAnime = () => {
 
 
   const getAnime = async (search, page) => {
-    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}&page=${page}`)
+    const response = await fetch(`https://api.jikan.moe/v4/anime?&q=${search}`)
       .then(res => res.json())
     console.log(response.data)
     setIsLoading(false)
@@ -55,7 +55,7 @@ const SearchAnime = () => {
       </form>
       <div id='my-anime-list' className="my-anime-list max-w-7xl mx-auto mt-5  h-2/4">
         <div className="pb-24">
-          <div className='pb-4'><h1 className='text-4xl text-center text-white'>My<strong className='opacity-[.6]'>Anime</strong>List</h1></div>
+          <div className='pb-4'><h1 className='text-4xl text-center text-white'><strong className='opacity-[.6]'>Ani<span className='text-primary'>me</span></strong></h1></div>
           <SearchResult setSearch={setSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} handlePageClick={handlePageClick} />
         </div>
       </div>

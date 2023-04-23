@@ -452,12 +452,11 @@ i {
 }
 
 .custom-title_border_left{
-  border-left: 4px solid #8b2da0;
+  border-left: 4px solid #d43434;
 }
 
 #custom-navigation{
-  border-bottom: 2px solid #8b2da0;
-  padding-bottom: 5px;
+  border-bottom: 3px solid #d43434;
 }
 
 .bb-anime-details{
@@ -474,7 +473,7 @@ i {
 
 #custom-border-top .slick-arrow{
   transform: translate(0, 0) !important;
-  background-color: #000 !important;
+  background-color: #d43434 !important;
   width: 40px !important;
   height: 40px !important;
   z-index: 1;
@@ -492,11 +491,11 @@ i {
 }
 
 #custom-border-top .slick-next{
-  right: -20px !important;
+  right: -10px !important;
 }
 
 #custom-border-top .slick-prev{
-  left: -20px !important;
+  left: -10px !important;
 }
 
 .slick-dots .slick-active button{
@@ -535,7 +534,7 @@ i {
 }
 
 #custom-login-border{
-  border-bottom: 2px solid rgb(54, 70, 85);
+  border-bottom: 2px solid #d43434;
   padding-bottom: 40px;
 }
 
@@ -549,16 +548,16 @@ i {
 }
 
 .custom-br{
-  border-right: 2px solid #8b2da0;
+  border-right: 2px solid #d43434;
 }
 
 .custom-footer{
-  border-top: 2px solid #8b2da0;
+  border-top: 2px solid #d43434;
 }
 
 .custom-border-ep .slick-arrow{
   transform: translate(0, 0) !important;
-  background-color: #000 !important;
+  background: #d43434;
   width: 30px !important;
   height: 30px !important;
   z-index: 2;
@@ -574,11 +573,11 @@ i {
 }
 
 .custom-border-ep .slick-slider{
-  padding: 0 30px;
+  padding: 0 15px;
 }
 
 .slick-arrow{
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 @keyframes shake {
@@ -628,21 +627,6 @@ i {
 }
 
 
-/* #custom-news:nth-child(2){
-  grid-row: 4 / 5;
-  grid-column: 1 /3;
-  height: 500px;
-  flex-direction: row-reverse;
-}
-
-#custom-news:nth-child(2) #custom-figure img{
-  width: auto;
-}
-
-#custom-news:nth-child(2) #custom-figure{
-  width:40%;
-} */
-
 .c-card:hover .c-card-body{
   display: block;
 }
@@ -666,16 +650,7 @@ i {
 
 .anime-list-card:not(:hover){
   transform: scale(.95);
-  /* -webkit-filter: grayscale(1); */
-  /* filter: grayscale(1);   */
-  /* opacity: .75; */
 }
-
-/* .anime-list:not(:hover) {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-        opacity: .75;
-} */
 
 .anime-character-card:not(:hover){
   transform: scale(1.1);
@@ -687,7 +662,7 @@ i {
 }
 
 .anime-wrapper{
-  border-bottom: 2px solid #8b2da0 ;
+  border-bottom: 2px solid #d43434 ;
   padding-bottom: 30px;
 }
 
@@ -749,9 +724,6 @@ i {
     max-width: 70%;
     margin: 0 auto;
   }
-  /* #root {
-    padding-bottom: 70px;
-  } */
 
   #recommendation-title{
     display: none;
@@ -762,12 +734,12 @@ i {
   }
 
   #custom-border-top .slick-next{
-    right: -23px !important;
+    right: -10px !important;
   }
-
-  /* .anime-info-bb{
-    border-left: 2px solid rgb(54, 70, 85);
-  } */
+  
+  #custom-border-top .slick-prev{
+    left: -10px !important;
+  }
 
   #custom-border-top{
     padding: 30px 20px 40px;
@@ -781,6 +753,10 @@ i {
 .c-ep-title{
   display: none;
 }
+}
+
+.slider-bb{
+  border-bottom: 3px solid #d43434;
 }
 
 

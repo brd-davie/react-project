@@ -4,6 +4,7 @@ import LoginSlider from './LoginSlider'
 import { Link } from 'react-router-dom';
 import eyesvg from './svg/Eye.svg'
 import eyeHide from './Icons/eyeHide.png'
+import LoadingSpinner from './Loading';
 
 function RegistrationForm() {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ function RegistrationForm() {
   const [isValid, setIsValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordx, setShowPasswordx] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
 
 
 
@@ -68,6 +71,7 @@ function RegistrationForm() {
         const token = data;
         console.log("Status:", data);
         if (data.status === 'ok') {
+          setIsLoading(true);
           <div>
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
@@ -82,9 +86,9 @@ function RegistrationForm() {
           setMessage(<span className='text-success'>Registered Successfully!</span>)
           localStorage.setItem('token', token);
           const interval = setInterval(() => {
-            navigate('/login');
+            navigate('/');
             clearInterval(interval);
-          }, 1500)
+          }, 2000)
         }
 
         if (data.status === 'error') {
@@ -114,9 +118,9 @@ function RegistrationForm() {
 
   return (
     <div className='flex items-center justify-center h-screen w-screen'>
-      <div className='custom-br w-full h-screen flex flex-col items-center justify-center bg-slate-800'>
-        <h1 className='text-white text-3xl'>Sign up your new account</h1>
-        <form onSubmit={handleSubmit} className='w-[375px] max-w-full z-10 p-5 rounded-lg mt-3 shadow-2xl'>
+      <div className='custom-br w-full h-screen flex flex-col items-center justify-center bg-slate-900'>
+        <h1 className='text-white text-3xl mb-3'>Sign up your new account</h1>
+        <form onSubmit={handleSubmit} className='w-[375px] max-w-full z-10 p-5 bg-slate-800 rounded-lg mt-3 shadow-2xl'>
           {message && <p className='text-error text-center my-4 '>{message} {emailError}</p>}
           <div className="flex flex-row gap-5">
             <div className='flex flex-col mb-2 w-[158px] max-w-full'>
@@ -158,8 +162,12 @@ function RegistrationForm() {
               </button>
             </div>
           </div>
-          <div className='custom-register-bt mt-5'>
-            <label onClick={handleSubmit} type='submit' htmlFor='my-modal' className='btn btn-md w-full mt-5'>Sign up</label>
+          <div className='pt-5 mt-5'>
+            <button type='submit' onClick={handleSubmit} className="btn btn-neutral text-white w-full">
+              {
+                isLoading ? <LoadingSpinner /> : "Sign in"
+              }
+              </button>
           </div>
           <div className=' mt-5 text-center'>
             <p className='text-md text-white'>Already have an account?&nbsp; 

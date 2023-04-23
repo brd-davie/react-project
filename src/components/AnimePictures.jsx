@@ -19,21 +19,27 @@ const AnimeNews = ({ id }) => {
   }, [id])
 
   return (
-    <div className='p-5 mt-10 lg:mt-20'>
-      <h2 className='custom-title_border_left text-white opacity-[.6] text-lg lg:text-4xl pl-3'>Gallery</h2>
+    <>
       {
         pictures ? (
-          <div className="carousel gap-3 mt-5">
-            {pictures.map((picture, index) => (
-              <div className="c-gallery carousel-item w-[25%] md:w-[20%]">
-                <img key={index} src={picture.jpg.large_image_url} className='gallery-img w-full h-full object-cover' alt="Burger" />
+          <div className='lg:p-5 mt-10 lg:mt-20'>
+          <h2 className='custom-title_border_left text-white opacity-[.6] text-lg lg:text-4xl pl-3'>Gallery</h2>
+          {
+            pictures ? (
+              <div className="carousel gap-3 mt-5">
+                {pictures.map((picture, index) => (
+                  <div className="c-gallery carousel-item w-[25%] md:w-[20%]">
+                    <img key={index} src={picture.jpg.large_image_url} className='gallery-img w-full h-full object-cover' alt="Burger" />
+                  </div>
+                ))
+                }
               </div>
-            ))
-            }
-          </div>
+            ) : ''
+          }
+        </div >
         ) : ''
       }
-    </div >
+    </>
   )
 }
 
