@@ -70,7 +70,7 @@ const AnimeEpisodes = ({ id }) => {
               ))}
             </Slider>
           </div>
-        ) : 'test'
+        ) : ''
       }
     </>
   );

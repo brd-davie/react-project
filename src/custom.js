@@ -8,23 +8,21 @@
   // imgWrapper.addEventListener('click', toggleFullScreen);
 
 //hamburger
-// document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.svg-label');
-  const menuDropdown = document.querySelector('.dropdown-content');
-  const menuItems = document.querySelectorAll('.dropdown-content li a');
+document.addEventListener("DOMContentLoaded", () => {
 
-  if (menuBtn){
-    menuBtn.addEventListener('click', () => {
-      console.log("clicked")
-      menuDropdown.classList.toggle('hidden');
-    });
-  }
+  if(('#custom-hamburger').length > 0){
+    const menuBtn = document.querySelector('#custom-hamburger');
+    const menuDropdown = document.querySelector('#menu-dropdown');
+    const menuItems = document.querySelectorAll('#menu-dropdown li a');
 
-  if (menuItems){
-    menuItems.forEach(item => {
-      item.addEventListener('click', () => {
-        menuDropdown.classList.add('hidden');
+      menuBtn.addEventListener('click', () => {
+        menuDropdown.classList.toggle('hidden');
       });
-    });
+
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          menuDropdown.classList.add('hidden');
+        });
+      });
   }
-// });
+})

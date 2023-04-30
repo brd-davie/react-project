@@ -26,7 +26,7 @@ const AnimeReviews = ({id}) => {
 
   return (
     <div className="anime-review-con pt-10">
-      {reviews.slice(0,6).map((review, index) => (
+      {reviews.map((review, index) => (
       <div key={index} className='reviews-con flex-col mb-5 p-2 rounded-lg shadow-2xl bg-neutral'>
         <div className='flex items-center mb-5'>
           <img className='w-20 h-20 rounded-full object-cover' src={review.user.images.jpg.image_url} alt="Avatar" />

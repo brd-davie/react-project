@@ -53,9 +53,9 @@ const Seasons = () => {
 
   return (
     <div>
-      <div className='flex justify-between items-center'>
-        <h2 className='custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] md:px-3 pl-3 uppercase'>{season} {year}</h2>
-        <div className='flex items-center justify-end gap-3'>
+      <div className='flex justify-between md:items-center flex-col md:flex-row'>
+        <h2 className='custom-title_border_left text-[22px] md:text-3xl text-white opacity-[.6] md:px-3 pl-3 uppercase'>{season} {year}</h2>
+        <div className='flex items-center mt-3 md:mt-0 md:justify-end gap-3 '>
           <select className=" select-sm glass opacity-[.8] rounded-md text-white max-w-xs" value={year} onChange={handleYearChange}>
             {/* <option value="">Year</option> */}
             <option value="2023">2023</option>
@@ -98,7 +98,7 @@ const Seasons = () => {
       </div>
       {
         seasons ? (
-          <div id="season_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-1 md:px-0 bg-transparent md:mt-0">
+          <div id="season_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 md:px-0 bg-transparent md:mt-0">
             {seasons.map((anime) => (
               <Link to={`${anime.mal_id}/anime-details`} className="c-card w-full h-full" key={anime.mal_id}>
                 <div className="anime-list-card card h-full bg-neutral shadow-xl rounded-md">

@@ -84,7 +84,8 @@ function RegistrationForm() {
             </div>
           </div>
           setMessage(<span className='text-success'>Registered Successfully!</span>)
-          localStorage.setItem('token', token);
+          localStorage.setItem('token', JSON.stringify(token));
+          localStorage.setItem('user', JSON.stringify(newUser));
           const interval = setInterval(() => {
             navigate('/');
             clearInterval(interval);
@@ -93,7 +94,6 @@ function RegistrationForm() {
 
         if (data.status === 'error') {
           setMessage(<span className='text-error'>Register Failed!</span>)
-          localStorage.setItem('token', token);
         }
       })
       .catch((err) => {
@@ -118,9 +118,9 @@ function RegistrationForm() {
 
   return (
     <div className='flex items-center justify-center h-screen w-screen'>
-      <div className='custom-br w-full h-screen flex flex-col items-center justify-center bg-slate-900'>
+      <div className='custom-br w-full h-screen flex flex-col items-center justify-center'>
         <h1 className='text-white text-3xl mb-3'>Sign up your new account</h1>
-        <form onSubmit={handleSubmit} className='w-[375px] max-w-full z-10 p-5 bg-slate-800 rounded-lg mt-3 shadow-2xl'>
+        <form onSubmit={handleSubmit} className='w-[375px] max-w-full z-10 p-5 bg-[#070721] rounded-lg mt-3 shadow-2xl'>
           {message && <p className='text-error text-center my-4 '>{message} {emailError}</p>}
           <div className="flex flex-row gap-5">
             <div className='flex flex-col mb-2 w-[158px] max-w-full'>
@@ -163,7 +163,7 @@ function RegistrationForm() {
             </div>
           </div>
           <div className='pt-5 mt-5'>
-            <button type='submit' onClick={handleSubmit} className="btn btn-neutral text-white w-full">
+            <button type='submit' onClick={handleSubmit} className="btn bg-[#4D918D] hover:bg-[#4D918D] hover:opacity-[.8] text-white w-full">
               {
                 isLoading ? <LoadingSpinner /> : "Sign in"
               }
