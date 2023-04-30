@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import AnimeGif from './AnimeGif';
+// import Pagination from './Pagination';
 
 const AnimeGenre = () => {
 
@@ -18,7 +19,7 @@ const AnimeGenre = () => {
   };
 
   const handleClick = async (id) => {
-    const response = await fetch(`https://api.jikan.moe/v4/anime?genres=${id}`)
+    const response = await fetch(`https://api.jikan.moe/v4/anime?genres=${id}&limit=24`)
       .then(response => response.json())
     console.log(response.data)
     setGenreList(response.data)
@@ -32,7 +33,7 @@ const AnimeGenre = () => {
 
   useEffect(() => {
     Genre();
-    handleClick(4)
+    handleClick(1)
     // let data = { selected: 0 }
     // handlePageClick(data);
   }, [])
@@ -42,17 +43,17 @@ const AnimeGenre = () => {
   }
 
   return (
-    <div className='lg:flex'>
-      <ul className='opacity-[.7] rounded-lg overflow-hidden lg:w-1/3 h-fit'>
+    <div className=''>
+      <ul className='opacity-[.7] rounded-lg overflow-hidden lg:w-full h-fit pb-3 lg:pb-7'>
         <li tabIndex={0} id='custom-genre' className=''>
-          <Link className='genre-btn text-white text-2xl transparent flex justify-between items-center p-2'>
+          <Link className='genre-btn text-white text-2xl lg:text-4xl transparent flex justify-between items-center p-2'>
             Genres
             {/* <span>{genres.name}Title</span> */}
             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
           </Link>
-          <ul id='custom-genre-list' className="transparent z-10 pb-3 px-2 md:pr-0 md:pl-3 md:pt-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-2 md:p-10">
+          <ul id='custom-genre-list' className="transparent z-10 pb-3 px-2 md:pr-0 md:pl-3 md:pt-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 md:p-10">
             {genres.map((genre, index) => (
-              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white block bg-transparent text-[8px] md:text-[10px] hover:text-white hover:glass p-1 bg-black' >{genre.name}</Link></li>
+              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white block bg-transparent text-[12px] md:text-[10px] hover:text-white hover:glass p-1 bg-black' >{genre.name}</Link></li>
             ))}
           </ul>
         </li>
@@ -88,8 +89,8 @@ const AnimeGenre = () => {
             </div>
           </Link>
         ))}
-      </div>
       {/* <Pagination handlePageClick={handlePageClick} /> */}
+      </div>
     </div>
   )
 }

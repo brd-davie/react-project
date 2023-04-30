@@ -73,9 +73,9 @@ const AnimeList = ({ api, title }) => {
       {
         animeList ? (
           <div className="rounded-lg lg:py-5">
-            <div className="flex justify-between lg:px-5">
-              <h2 className="custom-title_border_left text-[22px] md:text-2xl text-white opacity-[.6] uppercase md:px-3 pl-3">{type}</h2>
-              <div className="">
+            <div className="flex justify-between flex-col md:flex-row lg:px-5 lg:pb-3">
+              <h2 className="custom-title_border_left text-[22px] md:text-[30px] md:text-2xl text-white opacity-[.6] uppercase md:px-3 pl-3">{type}</h2>
+              <div className="mt-3 md:mt-0">
                 {/* <select className="select-sm glass opacity-[.8] rounded-md text-white max-w-xs mr-3" value={order} onChange={handleOrderChange}>
                   <option value="score">Score</option>
                   <option value="rank">Rank</option>
@@ -96,12 +96,12 @@ const AnimeList = ({ api, title }) => {
                   <option value="2019">2019</option>
                 </select> */}
                 <select className="select-sm glass opacity-[.8] cursor-pointer rounded-md text-white max-w-xs" value={sort} onChange={handleSortChange}>
-                  <option value="true">ASC</option>
-                  <option value="false">DESC</option>
+                  <option value={true} >ASC</option>
+                  <option value={false}>DESC</option>
                 </select>
               </div>
             </div>
-            <div id="popular_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-1 gap-y-[30px] md:px-3 md:mt-0">
+            <div id="popular_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 gap-y-[30px] md:px-3 md:mt-0">
               {animeList.map((anime) => (
                 <div className="relative">
                   <Link to={`${anime.mal_id}/anime-details`} className="c-card w-full h-full z-[2]" key={anime.mal_id}>

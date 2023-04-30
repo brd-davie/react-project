@@ -29,7 +29,7 @@ const AnimeNews = ({ id }) => {
               <div className="carousel gap-3 mt-5">
                 {pictures.map((picture, index) => (
                   <div className="c-gallery carousel-item w-[25%] md:w-[20%]">
-                    <img key={index} src={picture.jpg.large_image_url} className='gallery-img w-full h-full object-cover' alt="Burger" />
+                    <img key={index} src={picture.jpg.large_image_url} className='gallery-img w-full h-full object-cover rounded-lg' alt="Burger" />
                   </div>
                 ))
                 }

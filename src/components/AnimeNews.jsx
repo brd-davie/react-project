@@ -56,10 +56,10 @@ const AnimeNews = ({ id }) => {
             <h2 className='custom-title_border_left pl-3 text-white opacity-[.6] text-2xl mb-2  lg:text-4xl lg:mb-3'>News</h2>
             <Swiper {...sliderOptions} className='w-full h-auto grid grid-cols-2 md:grid-cols-3 gap-3 lg:carousel'>
               {news.map((anime) => (
-                <SwiperSlide key={anime.mal_id} id='custom-news' className='card lg:w-[40%] card-side rounded-md bg-slate-800 shadow-2xl md:flex-nowrap shadow-xl lg:carousel-item'>
+                <SwiperSlide key={anime.mal_id} id='custom-news' className='card lg:w-[40%] card-side rounded-lg bg-slate-800 min-h-[345px] shadow-2xl md:flex-nowrap shadow-xl lg:carousel-item'>
                   <div className="flex">
                   <figure id='custom-figure' className='w-[40%] rounded-md lg:rounded-[inherit]'>
-                    <img src={anime.images.jpg.image_url} alt='Images' className='w-full h-full object-cover' />
+                    <img src={anime.images.jpg.image_url} alt='Images' className='w-full h-full object-cover rounded-lg' />
                   </figure>
                   <div className='card-body w-[60%] px-2 md:px-[16x] p-2'>
                     <h2 className='card-title text-[10px] leading-[12px] text-white opacity-[.9] lg:text-xl'>{anime.title}</h2>
@@ -72,7 +72,7 @@ const AnimeNews = ({ id }) => {
 
                     <div className='card-actions justify-between items-center'>
                       <div className='flex gap-2 items-center text-md text-white opacity-[.6]'>
-                        <img src={Comment} alt='Svg' className='w-[20px] md:w-[30px]' />
+                        <img src={Comment} alt='Svg' className='w-[20px] md:w-[30px] fill-white' />
                         {anime.comments}
                       </div>
                       <Link to={anime.url} className='text-black btn btn-xs glass'>

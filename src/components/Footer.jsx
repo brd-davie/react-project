@@ -7,12 +7,12 @@ import Logo from '../routes/images/logo.png'
 
 const Footer = () => {
   return (
-    <div className='custom-footer bg-black mt-10 lg:mt-20'>
+    <div className='custom-footer mt-10 lg:pt-20 bg-[#070721]'>
       <footer className="max-w-[1250px] mx-auto py-[1rem] lg:py-[2rem]">
         <div className="py-4">
           <div className="flex flex-wrap justify-center lg:justify-between gap-5">
             <div className="w-auto px-4">
-              <Link to='/' className='bg-black'><img src={Logo} alt="Logo" className='w-[8rem] bg-black mb-3' /></Link>
+              <Link to='/' className=''><img src={Logo} alt="Logo" className='w-[8rem] bg-black mb-3 mix-blend-plus-lighter' /></Link>
               <ul className='flex flex-row gap-4 justify-center lg:justify-start'>
                 <Link to='#' className="text-white hover:text-primary"><img src={Twitter} alt="Twitter" className='w-[30px] lg:w-[30px]' /></Link>
                 <Link to='#' className="text-white hover:text-primary"><img src={Facebook} alt="Facebook" className='w-[30px] lg:w-[30px]' /></Link>

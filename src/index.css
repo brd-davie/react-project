@@ -102,7 +102,7 @@ form[action$="destroy"] button {
 #root {
   /* height: 100%; */
   /* width: 100%; */
-  background-color: rgb(15 23 42);
+  background-color: #0B0D2A;
   /* overflow: auto; */
 }
 
@@ -429,10 +429,14 @@ i {
 #card-recommendation{
   transition: transform .5s  ;
 }
-
 #custom-genre-list{
-  display: grid;
-  transition: all 4s ease-out;
+  display: none;
+  transition: all 2s ease-in-out;
+}
+
+#custom-genre:hover #custom-genre-list{
+  display: grid !important;
+  transition: all 2s ease-out;
 }
 
 /* #custom-genre:hover #custom-genre-list{
@@ -452,11 +456,11 @@ i {
 }
 
 .custom-title_border_left{
-  border-left: 4px solid #d43434;
+  border-left: 4px solid #E53537;
 }
 
 #custom-navigation{
-  border-bottom: 3px solid #d43434;
+  border-bottom: 3px solid #E53537;
 }
 
 .bb-anime-details{
@@ -473,11 +477,15 @@ i {
 
 #custom-border-top .slick-arrow{
   transform: translate(0, 0) !important;
-  background-color: #d43434 !important;
+  background-color: #E53537 !important;
   width: 40px !important;
   height: 40px !important;
   z-index: 1;
   top: 40% !important;
+}
+
+#custom-border-top .slick-arrow::before{
+  color: #000;
 }
 
 /* .custom-border .slick-list{
@@ -534,7 +542,7 @@ i {
 }
 
 #custom-login-border{
-  border-bottom: 2px solid #d43434;
+  border-bottom: 2px solid #E53537;
   padding-bottom: 40px;
 }
 
@@ -548,16 +556,16 @@ i {
 }
 
 .custom-br{
-  border-right: 2px solid #d43434;
+  border-right: 2px solid #98F6E3;
 }
 
 .custom-footer{
-  border-top: 2px solid #d43434;
+  border-top: 2px solid #E53537;
 }
 
 .custom-border-ep .slick-arrow{
   transform: translate(0, 0) !important;
-  background: #d43434;
+  background: #E53537;
   width: 30px !important;
   height: 30px !important;
   z-index: 2;
@@ -648,12 +656,9 @@ i {
   border-bottom-right-radius: 10px;
 }
 
-.anime-list-card:not(:hover){
-  transform: scale(.95);
-}
 
-.anime-character-card:not(:hover){
-  transform: scale(1.1);
+.anime-character-card:hover {
+  transform: scale(.97);
 }
 
 .anime-list-card,
@@ -662,7 +667,7 @@ i {
 }
 
 .anime-wrapper{
-  border-bottom: 2px solid #d43434 ;
+  border-bottom: 2px solid #E53537 ;
   padding-bottom: 30px;
 }
 
@@ -734,11 +739,11 @@ i {
   }
 
   #custom-border-top .slick-next{
-    right: -10px !important;
+    right: -20px !important;
   }
   
   #custom-border-top .slick-prev{
-    left: -10px !important;
+    left: -15px !important;
   }
 
   #custom-border-top{
@@ -756,7 +761,7 @@ i {
 }
 
 .slider-bb{
-  border-bottom: 3px solid #d43434;
+  border-bottom: 3px solid #E53537;
 }
 
 
@@ -772,8 +777,12 @@ i {
 .loading-spinner {
   width: 30px;
   height: 30px;
-  border: 5px solid #25aa3f; 
+  border: 5px solid #98f6e2; 
   border-top: 5px solid #353b36;
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
+}
+
+.swiper-pagination{
+  display: none;
 }
