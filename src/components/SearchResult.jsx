@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Pagination from './Pagination'
+// import Pagination from './Pagination'
 
 const SearchResult = ({ animeList, handlePageClick }) => {
   return (

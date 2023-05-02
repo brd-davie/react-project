@@ -34,7 +34,7 @@ const BannerSlider = () => {
       setCurrentSlide(currentSlide => (currentSlide + 1) % images.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className='h-screen'>
