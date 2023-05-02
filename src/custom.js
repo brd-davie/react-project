@@ -1,28 +1,12 @@
-  // const imgWrapper = document.querySelector('.c-gallery');
-  // const img = document.querySelector('.gallery-img');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const selectedImage = document.querySelector('#selected-image');
+//   const clickedImage = document.querySelector('#selected-image');
+//   const imageModal = document.querySelector('#image-modal');
 
-  // const toggleFullScreen = () => {
-  //   img.requestFullscreen()
-  // }
+//   clickedImage.document.addEventListener('click', () => {
+//     selectedImage.append(imageModal);
+//   })
+// })
 
-  // imgWrapper.addEventListener('click', toggleFullScreen);
 
-//hamburger
-document.addEventListener("DOMContentLoaded", () => {
 
-  if(('#custom-hamburger').length > 0){
-    const menuBtn = document.querySelector('#custom-hamburger');
-    const menuDropdown = document.querySelector('#menu-dropdown');
-    const menuItems = document.querySelectorAll('#menu-dropdown li a');
-
-      menuBtn.addEventListener('click', () => {
-        menuDropdown.classList.toggle('hidden');
-      });
-
-      menuItems.forEach(item => {
-        item.addEventListener('click', () => {
-          menuDropdown.classList.add('hidden');
-        });
-      });
-  }
-})

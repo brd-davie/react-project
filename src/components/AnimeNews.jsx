@@ -56,8 +56,8 @@ const AnimeNews = ({ id }) => {
             <h2 className='custom-title_border_left pl-3 text-white opacity-[.6] text-2xl mb-2  lg:text-4xl lg:mb-3'>News</h2>
             <Swiper {...sliderOptions} className='w-full h-auto grid grid-cols-2 md:grid-cols-3 gap-3 lg:carousel'>
               {news.map((anime) => (
-                <SwiperSlide key={anime.mal_id} id='custom-news' className='card lg:w-[40%] card-side rounded-lg bg-slate-800 min-h-[345px] shadow-2xl md:flex-nowrap shadow-xl lg:carousel-item'>
-                  <div className="flex">
+                <SwiperSlide key={anime.mal_id} id='custom-news' className='card lg:w-[40%] card-side rounded-lg bg-slate-800 min-h-[200px] shadow-2xl md:flex-nowrap shadow-xl lg:carousel-item'>
+                  <div className="flex ">
                   <figure id='custom-figure' className='w-[40%] rounded-md lg:rounded-[inherit]'>
                     <img src={anime.images.jpg.image_url} alt='Images' className='w-full h-full object-cover rounded-lg' />
                   </figure>

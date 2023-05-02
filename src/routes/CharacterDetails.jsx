@@ -11,7 +11,7 @@ const CharacterDetails = () => {
         <div className='md:flex lg:w-1/2'>
           <div className='w-full pt-0 md:p-5 md:pt-0'>
             <div className="flex flex-row-reverse">
-              <div className='flex flex-col w-[75%] lg:w-full'>
+              <div className='flex flex-col w-[60%] lg:w-full'>
                 <h2 className='text-2xl md:text-4xl text-white mb-3 opacity-[.6] md:my-3 md:mt-0 pr-2'>{character.name}</h2>
                 <h4 className='text-lg md:text-xl text-white mb-3 opacity-[.6] md:my-3 md:mt-0 pr-2'>{character.name_kanji}</h4>
                 <div className='flex flex-col'>
@@ -24,8 +24,8 @@ const CharacterDetails = () => {
                 </div>
                 <p className='text-white opacity-[.3] text-lg mb-4'>Favorites: <span className=''>{character.favorites}</span></p>
               </div>
-              <div className='w-[25%] md:w-[50%] flex pr-3'>
-                <img src={character.images.jpg.image_url} alt="Avatar" className='w-full rounded-lg aspect-[2/3]' />
+              <div className='w-[40%] md:w-[50%] flex pr-3'>
+                <img src={character.images.jpg.image_url} alt="Avatar" className='w-full h-full rounded-lg aspect-[2/3] object-cover' />
               </div>
             </div>
             <p className='text-white opacity-[.3] mt-3'>{character.about}</p>

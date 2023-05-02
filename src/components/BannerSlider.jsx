@@ -8,13 +8,13 @@ const BannerSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    // {
-    //   url: vid,
-    //   title: "Shingeki no Kyojin: The Final Season - Kanketsu-hen",
-    //   id: 51535,
-    //   description:
-    //     "The season follows Eren and his fellow soldiers from the Survey Corps who are still fighting for their survival against the terrifying Titans. However, threats arise not only from the Titans beyond the walls, but from the humans within them as well.",
-    // },
+    {
+      url: aotBanner,
+      title: "Shingeki no Kyojin: The Final Season - Kanketsu-hen",
+      id: 51535,
+      description:
+        "The season follows Eren and his fellow soldiers from the Survey Corps who are still fighting for their survival against the terrifying Titans. However, threats arise not only from the Titans beyond the walls, but from the humans within them as well.",
+    },
     // {
     //   url: onepiece_banner,
     //   title: 'One Piece',
@@ -22,13 +22,13 @@ const BannerSlider = () => {
     //   description: `Yamato has proven to be a masterful warrior, and they aren't letting up even in exhaustion. As for Luffy, he's been taken out by Kaido before, but his perseverance keeps him moving forward. It won't be long before Luffy shows his full power against Kaido`,
     //   trailer: ''
     // },
-    {
-      url: vid,
-      title: "Demon Slayer",
-      id: 53322,
-      description: `Japanese manga series written and illustrated by Koyoharu Gotōge, and it is about Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon.`,
-      trailer: "",
-    },
+    // {
+    //   url: vid,
+    //   title: "Demon Slayer",
+    //   id: 53322,
+    //   description: `Japanese manga series written and illustrated by Koyoharu Gotōge, and it is about Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon.`,
+    //   trailer: "",
+    // },
   ];
 
   const handleNavigationClick = (index) => {
@@ -44,7 +44,7 @@ const BannerSlider = () => {
 
   return (
     <div className="w-full h-full overflow-hidden lg:py-10">
-      <div className="relative h-[400px] md:h-[600px] lg:max-w-[1250px] lg:pb-[20px] mx-auto lg:rounded-xl lg:overflow-hidden glass flex items-center justify-center">
+      <div className="relative h-[400px] md:h-[600px] lg:max-w-[1250px] lg:pb-[20px] mx-auto lg:rounded-xl lg:overflow-hidden glass flex items-center justify-center mt-[80px] md:mt-[80px]">
         {images &&
           images.map((image, index) => (
             <img key={index} src={image.url} alt={image.title} className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-[2500ms] ease-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
