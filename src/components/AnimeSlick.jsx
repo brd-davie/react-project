@@ -39,7 +39,7 @@ const AnimeSlick = ({ endPoint, header, link }) => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 420,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -74,7 +74,7 @@ const AnimeSlick = ({ endPoint, header, link }) => {
               <Link
                 to={`/anime/trending-anime/${anime.mal_id}/anime-details`}
                 key={anime.mal_id}
-                className="anime-list-card h-full w-full focus-none focus-visible:outline-none"
+                className="anime-list-card h-full w-full focus-none focus-visible:outline-none min-h-[200px]"
               >
                 <img
                   src={anime.images.jpg.image_url}

@@ -8,6 +8,7 @@ const AnimeGenre = () => {
   const [genres, setGenre] = useState([]);
   const [genreList, setGenreList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showList, setShowList] = useState(false);
 
 
   const Genre = async () => {
@@ -31,6 +32,10 @@ const AnimeGenre = () => {
   //   setGenreList(changePage);
   // };
 
+  const toggleList = () => {
+    setShowList(!showList);
+  }
+
   useEffect(() => {
     Genre();
     handleClick(1)
@@ -44,21 +49,25 @@ const AnimeGenre = () => {
 
   return (
     <div className=''>
-      <ul className='opacity-[.7] rounded-lg overflow-hidden lg:w-full h-fit pb-3 lg:pb-7'>
+      <ul className='opacity-[.7] rounded-lg overflow-hidden lg:w-full h-fit lg:mb-7 bg-[#070721]'>
         <li tabIndex={0} id='custom-genre' className=''>
-          <Link className='genre-btn text-white text-2xl lg:text-4xl transparent flex justify-between items-center p-2'>
+          <Link className='genre-btn text-white text-2xl lg:text-4xl transparent flex justify-between items-center p-2' onClick={toggleList}>
             Genres
             {/* <span>{genres.name}Title</span> */}
-            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+            <svg className="fill-current ml-3 h-[20px] w-[20px] md:h-[40px] md:w-[40px]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
           </Link>
-          <ul id='custom-genre-list' className="transparent z-10 pb-3 px-2 md:pr-0 md:pl-3 md:pt-2 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 md:p-10">
+         {
+          showList && (
+            <ul id='custom-genre-list' className="transparent z-10 pb-3 px-2 md:pr-0 md:pl-3 md:pt-2 grid grid-cols-3 md:grid-cols-6 lg:grid-cols-7 md:p-10">
             {genres.map((genre, index) => (
-              <li key={index}><Link onClick={() => handleClick(genre.mal_id)} className='text-white block bg-transparent text-[12px] md:text-[10px] hover:text-white hover:glass p-1 bg-black' >{genre.name}</Link></li>
+              <li key={index} onClick={toggleList}><Link onClick={() => handleClick(genre.mal_id)} className='text-white block bg-transparent text-[12px] md:text-[10px] hover:text-white hover:glass p-1 bg-black' >{genre.name}</Link></li>
             ))}
           </ul>
+          )
+         }
         </li>
       </ul>
-      <div className="custom-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6  py-5 gap-3 md:px-3 overflow-auto bg-transparent md:mt-0 lg:pt-0">
+      <div className="custom-container grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6  py-5 gap-3 md:px-3 overflow-auto bg-transparent md:mt-0 lg:pt-0">
         {genreList.map((anime, index) => (
           <Link to={`${anime.mal_id}/anime-details`} className="c-card w-full h-full" key={index}>
             <div className="anime-list-card card h-full bg-neutral shadow-xl rounded-md">

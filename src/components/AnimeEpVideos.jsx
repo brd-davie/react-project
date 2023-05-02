@@ -55,7 +55,7 @@ const AnimeEpVideos = ({ id }) => {
             ))}
           </div>
           {video ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 w-full mt-5 lg:h-[600px] lg:block lg:overflow-scroll scroll-smooth lg:w-3/12 lg:pr-3">
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 w-full mt-5 lg:h-[600px] lg:block lg:overflow-scroll scroll-smooth lg:w-3/12 lg:pr-3">
               {video.map((anime, index) => (
                 <div
                   key={index}

@@ -429,15 +429,15 @@ i {
 #card-recommendation{
   transition: transform .5s  ;
 }
-#custom-genre-list{
+/* #custom-genre-list{
   display: none;
   transition: all 2s ease-in-out;
-}
+} */
 
-#custom-genre:hover #custom-genre-list{
+/* #custom-genre:hover #custom-genre-list{
   display: grid !important;
   transition: all 2s ease-out;
-}
+} */
 
 /* #custom-genre:hover #custom-genre-list{
   display: grid;
@@ -507,7 +507,7 @@ i {
 }
 
 .slick-dots .slick-active button{
-  background: #000 !important;
+  background: #ad1e1e !important;
   opacity: .9;
 }
 
@@ -526,7 +526,7 @@ i {
 }
 
 .slick-dots button{
-  background: #000 !important;
+  background: #a8a6a6 !important;
   opacity: .3;
   overflow: hidden;
   width: 12px !important;
