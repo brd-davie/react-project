@@ -22,7 +22,7 @@ const AnimeReviews = ({id}) => {
       getReviews(id);
       clearInterval(interval);
     }, 1500)
-  }, [])
+  }, [id])
 
   return (
     <div className="anime-review-con pt-10">

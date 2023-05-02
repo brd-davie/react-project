@@ -49,7 +49,7 @@ const AnimeSlick = ({ endPoint, header, link }) => {
   };
 
   useEffect(() => {
-    getTrending();
+    getTrending([]);
   }, []);
 
   return (
