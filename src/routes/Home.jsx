@@ -5,7 +5,7 @@ import AnimeSlick from '../components/AnimeSlick'
 import Footer from '../components/Footer'
 import FeatureAnime from '../components/FeatureAnime'
 import AnimeNews from '../components/AnimeNews'
-import HeroBanner from '../components/HeroBanner'
+// import HeroBanner from '../components/HeroBanner'
 
 const Home = () => {
   return (

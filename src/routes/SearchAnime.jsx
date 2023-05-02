@@ -33,7 +33,7 @@ const SearchAnime = () => {
     getAnime(search)
     let data = { selected: 0 }
     handlePageClick(data)
-  }, [])
+  }, [handlePageClick])
 
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>
