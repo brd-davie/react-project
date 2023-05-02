@@ -16,7 +16,6 @@ function RegistrationForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [isValid, setIsValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordx, setShowPasswordx] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,19 +25,12 @@ function RegistrationForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { name, value } = event.target;
+    const { value } = event.target;
 
     const validateEmail = (email) => {
       const emailRegex = /\S+@\S+\.\S+/;
       return emailRegex.test(email);
     }
-
-    // if (name === 'email') {
-    //   if (validateEmail(value)) {
-    //   } else {
-    //     setEmailError('Please enter a valid email address');
-    //   }
-    // }
 
     setEmail(value);
 

@@ -35,7 +35,6 @@ const AnimeList = ({ api, title }) => {
 
 
   useEffect(() => {
-    setAnimeList();
     let data = { selected: 0 }
     handlePageClick(data);
   }, [type, sort]);
@@ -102,8 +101,8 @@ const AnimeList = ({ api, title }) => {
               </div>
             </div>
             <div id="popular_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 gap-y-[30px] md:px-3 md:mt-0">
-              {animeList.map((anime) => (
-                <div className="relative">
+              {animeList.map((anime, index) => (
+                <div className="relative" key={index}>
                   <Link to={`${anime.mal_id}/anime-details`} className="c-card w-full h-full z-[2]" key={anime.mal_id}>
                     <div className="anime-list-card card h-full bg-neutral shadow-xl rounded-md">
                       <figure className="c-figure h-full"><img className="w-full h-full object-cover" src={anime.images.jpg.large_image_url} alt={anime.animeTitle} /></figure>
