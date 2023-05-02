@@ -7,7 +7,7 @@ import AnimeNews from "../components/AnimeNews";
 import AnimePictures from "../components/AnimePictures";
 import AnimeRecommendations from "../components/AnimeRecommedations";
 import AnimeEpVideos from "../components/AnimeEpVideos";
-import AnimeReviews from "../components/AnimeReviews";
+// import AnimeReviews from "../components/AnimeReviews";
 
 const AnimeDetails = () => {
   const anime = useLoaderData();

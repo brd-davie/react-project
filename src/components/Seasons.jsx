@@ -23,6 +23,7 @@ const Seasons = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
     const changePage = await getSeasons(year, season, currentPage)

@@ -27,6 +27,7 @@ const AnimeList = ({ api, title }) => {
     return (response.data);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
     const changePage = await fetchAnime(type, currentPage, sort);
@@ -48,20 +49,11 @@ const AnimeList = ({ api, title }) => {
     fetchAnime(type, sort);
   };
 
-  // const handleYearChange = (event) => {
-  //   setYear(event.target.value);
-  //   fetchAnime(type, type, sort, order);
-  // };
-
   const handleSortChange = (event) => {
     setSort(event.target.value);
     fetchAnime(sort, type);
   };
 
-  // const handleOrderChange = (event) => {
-  //   setOrder(event.target.value);
-  //   fetchAnime(sort, order);
-  // };
 
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen"><AnimeGif /></div>

@@ -9,7 +9,7 @@ import CharacterDetails, { loader as characterDetailsLoader } from './CharacterD
 import TrendingAnime from '../routes/TrendingAnime'
 import AnimeDetails, { loader as animeDetailsLoader } from './AnimeDetails'
 import TopCharacters from './TopCharacters'
-import { createBrowserRouter, Route, Routes, BrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import SearchAnime from './SearchAnime'
 import AnimeGenre from '../components/AnimeGenre'
 import UpcomingAnime from "./UpcomingAnime";

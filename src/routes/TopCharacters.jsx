@@ -29,6 +29,7 @@ const TopCharacters = () => {
   useEffect(() => {
     let data = { selected: 0 }
     handlePageClick(data);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (isLoading) {
