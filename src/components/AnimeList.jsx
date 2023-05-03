@@ -27,18 +27,11 @@ const AnimeList = ({ api, title }) => {
     return (response.data);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
     const changePage = await fetchAnime(type, currentPage, sort);
     setAnimeList(changePage);
   };
-
-
-  useEffect(() => {
-    let data = { selected: 0 }
-    handlePageClick(data);
-  }, [type, sort]);
 
   const myList = new Array([]);
   console.log(myList);
@@ -53,6 +46,12 @@ const AnimeList = ({ api, title }) => {
     setSort(event.target.value);
     fetchAnime(sort, type);
   };
+
+  useEffect(() => {
+    let data = { selected: 0 }
+    handlePageClick(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, sort]);
 
 
   if (isLoading) {

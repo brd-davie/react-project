@@ -46,6 +46,7 @@ const Seasons = () => {
       handlePageClick(data);
       getSeasons(year, season);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, season]);
 
   if (isLoading) {

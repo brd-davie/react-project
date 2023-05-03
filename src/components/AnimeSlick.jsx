@@ -50,7 +50,8 @@ const AnimeSlick = ({ endPoint, header, link }) => {
 
   useEffect(() => {
     getTrending([]);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getTrending]);
 
   return (
     <div
