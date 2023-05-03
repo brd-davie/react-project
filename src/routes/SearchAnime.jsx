@@ -17,12 +17,12 @@ const SearchAnime = () => {
     setAnimeData(response.data)
   };
 
-  const handlePageClick = async (data, search) => {
-    let currentPage = data.selected + 1;
-    console.log(data.selected)
-    const changePage = await getAnime(search, currentPage)
-    setAnimeData(changePage);
-  };
+  // const handlePageClick = async (data, search) => {
+  //   let currentPage = data.selected + 1;
+  //   console.log(data.selected)
+  //   const changePage = await getAnime(search, currentPage)
+  //   setAnimeData(changePage);
+  // };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -31,8 +31,8 @@ const SearchAnime = () => {
 
   useEffect(() => {
     getAnime(search)
-    let data = { selected: 0 }
-    handlePageClick(data)
+    // let data = { selected: 0 }
+    // handlePageClick(data)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search])
 
@@ -57,7 +57,7 @@ const SearchAnime = () => {
       <div id='my-anime-list' className="my-anime-list max-w-7xl mx-auto mt-5  h-2/4">
         <div className="pb-24">
           <div className='pb-4'><h1 className='text-4xl text-center text-white'><strong className='opacity-[.6]'>Ani.<span className='text-[#E53537]'>me</span></strong></h1></div>
-          <SearchResult setSearch={setSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} handlePageClick={handlePageClick} />
+          <SearchResult setSearch={setSearch} animeData={animeData} setAnimeData={setAnimeData} animeList={animeData} />
         </div>
       </div>
     </div>
