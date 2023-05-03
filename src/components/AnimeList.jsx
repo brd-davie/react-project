@@ -71,12 +71,12 @@ const AnimeList = ({ api, title }) => {
                   <option value="rank">Rank</option>
                   </select> */}
                 <select className="select-sm glass opacity-[.8] cursor-pointer rounded-md text-white max-w-xs mr-3" value={type} onChange={handleTypeChange}>
-                  <option value="tv">TV</option>
-                  <option value="movie">Movie</option>
-                  <option value="ova">OVA</option>
-                  <option value="ona">ONA</option>
-                  <option value="special">Special</option>
-                  <option value="music">Music</option>
+                  <option value="tv" className="text-black">TV</option>
+                  <option value="movie" className="text-black">Movie</option>
+                  <option value="ova" className="text-black">OVA</option>
+                  <option value="ona" className="text-black">ONA</option>
+                  <option value="special" className="text-black">Special</option>
+                  <option value="music" className="text-black">Music</option>
                 </select>
                 {/* <select className="select-sm glass opacity-[.8] rounded-md text-white max-w-xs mr-3" value={year} onChange={handleYearChange}>
                   <option value="2023">2023</option>
