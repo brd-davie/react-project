@@ -7,7 +7,7 @@ const AnimeList = ({ api, title }) => {
   const [animeList, setAnimeList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   // const [order, setOrder] = useState('');
-  const [sort, setSort] = useState('false');
+  // const [sort, setSort] = useState('false');
   const [type, setType] = useState('tv');
   // const [year, setYear] = useState('');
   const [userList, setUserList] = useState([]);
@@ -18,9 +18,9 @@ const AnimeList = ({ api, title }) => {
     setUserList(newArray);
   };
 
-  const fetchAnime = async (type, page, sort) => {
+  const fetchAnime = async (type, page) => {
     console.log('Running');
-    const response = await fetch(`${api}?type=${type}&sort_descending=${sort}&page=${page}&limit=24`)
+    const response = await fetch(`${api}?type=${type}&page=${page}&limit=24`)
       .then(res => res.json());
     console.log(response.data)
     setIsLoading(false);
@@ -29,7 +29,7 @@ const AnimeList = ({ api, title }) => {
 
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
-    const changePage = await fetchAnime(type, currentPage, sort);
+    const changePage = await fetchAnime(type, currentPage);
     setAnimeList(changePage);
   };
 
@@ -39,19 +39,19 @@ const AnimeList = ({ api, title }) => {
   const handleTypeChange = (event) => {
     setIsLoading(true)
     setType(event.target.value);
-    fetchAnime(type, sort);
+    fetchAnime(type);
   };
 
-  const handleSortChange = (event) => {
-    setSort(event.target.value);
-    fetchAnime(sort, type);
-  };
+  // const handleSortChange = (event) => {
+  //   setSort(event.target.value);
+  //   fetchAnime(sort, type);
+  // };
 
   useEffect(() => {
     let data = { selected: 0 }
     handlePageClick(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [type, sort]);
+  }, [type]);
 
 
   if (isLoading) {
@@ -85,10 +85,10 @@ const AnimeList = ({ api, title }) => {
                   <option value="2020">2020</option>
                   <option value="2019">2019</option>
                 </select> */}
-                <select className="select-sm glass opacity-[.8] cursor-pointer rounded-md text-white max-w-xs" value={sort} onChange={handleSortChange}>
+                {/* <select className="select-sm glass opacity-[.8] cursor-pointer rounded-md text-white max-w-xs" value={sort} onChange={handleSortChange}>
                   <option value={true} >ASC</option>
                   <option value={false}>DESC</option>
-                </select>
+                </select> */}
               </div>
             </div>
             <div id="popular_anime" className="custom-container grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 py-5 gap-3 gap-y-[30px] md:px-3 md:mt-0">
